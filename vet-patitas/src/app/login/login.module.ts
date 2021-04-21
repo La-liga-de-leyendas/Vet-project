@@ -4,6 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 const routes: Routes = [
   {path: '', component: LoginComponent }
 ];
@@ -13,8 +19,13 @@ const routes: Routes = [
     LoginComponent
   ],
   imports: [
-    CommonModule,
     FormsModule,
+    CommonModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
     RouterModule.forChild(routes)
   ],
   exports: [

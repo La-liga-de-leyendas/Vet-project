@@ -12,4 +12,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLogin(form: any): void{
+    console.log('FORM: ', form.value);
+  }
+
+  onLogin2(form): void{
+    console.log('VARIABLE LOCAL FORM: ', form.value);
+  }
+
 }
