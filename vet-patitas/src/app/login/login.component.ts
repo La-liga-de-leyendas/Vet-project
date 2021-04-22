@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   onLogin2(form): void{
     console.log('VARIABLE LOCAL FORM: ', form.value);
+    this.router.navigate(['pages']);
   }
 
 }

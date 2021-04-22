@@ -1,0 +1,22 @@
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark navbar-custom">
+    <a class="navbar-brand" href="#"><i class="fab fa-product-hunt fa-1x"></i>ATITAS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="home" routerLinkActive="active"><i class="fa fa-home"></i>Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="products" routerLinkActive="active"><i class="fa fa-users-cog"></i>Productos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="vet-services" routerLinkActive="active"><i class="fa fa-list-alt"></i>Servicios</a>
+            </li>
+        </ul>
+        <button class="btn btn-outline-dark">LOGOUT</button>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>

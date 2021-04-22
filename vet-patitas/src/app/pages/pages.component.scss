@@ -1,0 +1,31 @@
+.navbar-icon-top .navbar-nav .nav-link>.fa {
+    position: relative;
+    width: 36px;
+    font-size: 28px;
+}
+
+.navbar-icon-top .navbar-nav .nav-link>.fa>.badge {
+    font-size: 0.75rem;
+    position: absolute;
+    right: 0;
+    font-family: sans-serif;
+}
+
+.navbar-icon-top .navbar-nav .nav-link>.fa {
+    top: 3px;
+    line-height: 42px;
+}
+
+.navbar-icon-top .navbar-nav .nav-link>.fa>.badge {
+    top: -10px;
+}
+
+.navbar-custom {
+    background-color: #CEAC2C;
+}
+
+.nav-item {
+    font-size: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
