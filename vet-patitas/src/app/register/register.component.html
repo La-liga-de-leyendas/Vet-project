@@ -1,4 +1,98 @@
-<p>register works!</p>
-<p>register works!</p>
-<p>register works!</p>
-<router-outlet></router-outlet>
+<div class="row">
+    <div class="column1">
+        <div class="image-pets">
+            <img src="../../assets/images/signup.png" class="" alt="login" width="500" height="500">
+        </div>
+        <div class="label-for-subtitles-register">
+            <a>Patitas Site, una plataforma donde podrás encontrar lo que necesites para tu mascota y más</a>
+        </div>
+
+    </div>
+
+    <div class="column2">
+        <mat-card class="example-card">
+
+            <mat-card-header>
+                <mat-card-title style="text-align: center; color: #888888; font-weight: bold;">Registra tus datos</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <form #form="ngForm" style="display: flex; flex-direction: column;">
+                    <!--NOMBRE DE USUARIO-->
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <div class="label-for-subtitles">Usuario:</div>
+                    </div>
+                    <mat-form-field>
+
+
+                        <div class="input-details">
+                            <input matInput type="text" #emailUI="ngModel" required ngModel name="email">
+                        </div>
+
+
+                    </mat-form-field>
+
+                    <div *ngIf="emailUI.invalid && (emailUI.touched || emailUI.dirty)" class="alert alert-danger">
+                        <div *ngIf="emailUI.errors.required">
+                            NAME IS REQUIRED
+                        </div>
+                    </div>
+
+                    <!--PASSWORD-->
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                        <div class="label-for-subtitles">Password:</div>
+                    </div>
+                    <mat-form-field>
+                        <div class="input-details">
+                            <input matInput type="password" #passwordUI="ngModel" required name="password" ngModel>
+                        </div>
+                    </mat-form-field>
+
+                    <div *ngIf="passwordUI.invalid && (passwordUI.touched || passwordUI.dirty)" class="alert alert-danger">
+                        <div *ngIf="passwordUI.errors.required">
+                            PASSWORD IS REQUIRED
+                        </div>
+                    </div>
+
+                    <!--CELULAR-->
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
+                        <div class="label-for-subtitles">Celular:</div>
+                    </div>
+                    <mat-form-field>
+                        <div class="input-details">
+                            <input matInput type="number" required name="celular" ngModel>
+                        </div>
+                    </mat-form-field>
+
+                    <!--DIRECCION-->
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                        <div class="label-for-subtitles">Dirección:</div>
+                    </div>
+                    <mat-form-field>
+                        <div class="input-details">
+                            <input matInput type="text" required name="direccion" ngModel>
+                        </div>
+                    </mat-form-field>
+                </form>
+
+            </mat-card-content>
+            <mat-card-actions>
+                <div class="d-flex justify-content-center mt-3 login_container">
+                    <button type="button" name="button" class="btn login_btn" mat-button [disabled]="form.invalid">Registrarse</button>
+                </div>
+
+            </mat-card-actions>
+        </mat-card>
+
+
+
+
+
+        <router-outlet></router-outlet>
+
+    </div>
+</div>
