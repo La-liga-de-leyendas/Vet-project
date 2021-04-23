@@ -6,7 +6,7 @@
     </div>
     <br>
     <mat-card-header>
-        <mat-card-title class="example">.</mat-card-title>
+        <mat-card-title style="text-align: center; margin-top: 30px; color: #888888; font-weight: bold;">Ingresa para conocer nuestros servicios</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
@@ -48,10 +48,14 @@
                 </div>
             </div>
         </form>
+
     </mat-card-content>
     <mat-card-actions>
         <div class="d-flex justify-content-center mt-3 login_container">
             <button type="button" name="button" class="btn login_btn" mat-button [disabled]="form.invalid" (click)="onLogin2(form)">Login</button>
+        </div>
+        <div style="text-align: center; text-decoration: underline; color: #888888; font-weight: bold;">
+            <a (click)="onRegister()">Aun tienes en cuenta? Ingresa aquí</a>
         </div>
     </mat-card-actions>
 </mat-card>
@@ -59,7 +63,7 @@
 
 
 
-
+<!--IMAGENES-->
 
 <div class="row">
     <div class="col-1 image-for-login">
