@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  app: {
+    apiBaseUrl: 'https://vet-website-caa3e-default-rtdb.firebaseio.com'
+  },
 };
 
 /*
