@@ -1,19 +1,27 @@
-<div class="row">
-    <div *ngFor="let product of products" class="row col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center;">
-        <mat-card class="example-card text-black bg-primary123 mb-3">
+<div class="row" style="padding: 40px;">
+    <div *ngFor="let product of products" class=" col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <mat-card class="example-card">
             <mat-card-header>
                 <mat-card-title>{{product.title}}</mat-card-title>
-                <mat-card-subtitle>{{product.price}} Bs.</mat-card-subtitle>
+                <mat-card-subtitle>{{product.storeName}}</mat-card-subtitle>
             </mat-card-header>
             <img mat-card-image [src]="product.imageUrl" alt="Photo of a Shiba Inu">
             <mat-card-content>
                 <p>
-                    {{product.description}}
+                    Descripción producto: {{product.description}}
+                </p>
+                <p>
+                    Precio: {{product.price}} Bs.
+                </p>
+                <p>
+                    Stock: {{product.stock}}
                 </p>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-button style="background-color: #DED5D3;">COMPRAR</button>
+                <button mat-raised-button>COMPRAR</button>
             </mat-card-actions>
         </mat-card>
     </div>
+
+
 </div>

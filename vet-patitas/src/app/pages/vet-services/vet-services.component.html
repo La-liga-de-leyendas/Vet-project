@@ -1,1 +1,24 @@
-<p>vet-services works!</p>
+<div class="row" style="padding: 40px;">
+    <div *ngFor="let product of products" class=" col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{product.title}}</mat-card-title>
+          <mat-card-subtitle>{{product.subtitle}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="product.imageUrl" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            Descripción producto: {{product.description}}
+          </p>
+          <p>
+            Precio: {{product.price}} Bs.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button>COMPRAR</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    
+    
+  </div>
