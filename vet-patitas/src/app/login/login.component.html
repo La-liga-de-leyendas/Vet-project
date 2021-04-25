@@ -6,7 +6,7 @@
     </div>
     <br>
     <mat-card-header>
-        <mat-card-title style="text-align: center; margin-top: 30px; color: #888888; font-weight: bold;">Ingresa para conocer nuestros servicios</mat-card-title>
+        <mat-card-title style="text-align: center; margin-top: 20%; color: #888888; font-weight: bold;">Ingresa para conocer nuestros servicios</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
@@ -14,12 +14,12 @@
 
             <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-user"></i></span>
-                <div class="label-for-subtitles">Nomre de usuario:</div>
+                <div class="label-for-subtitles">Correo Electrónico:</div>
             </div>
             <mat-form-field>
 
 
-                <div class="input-details">
+                <div class="input-details" style="padding-left: 5%;">
                     <input matInput type="text" #emailUI="ngModel" required ngModel name="email">
                 </div>
 
@@ -28,15 +28,15 @@
 
             <div *ngIf="emailUI.invalid && (emailUI.touched || emailUI.dirty)" class="alert alert-danger">
                 <div *ngIf="emailUI.errors.required">
-                    NAME IS REQUIRED
+                    Email incorrecto
                 </div>
             </div>
             <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
-                <div class="label-for-subtitles">Password:</div>
+                <div class="label-for-subtitles">Contraseña:</div>
             </div>
             <mat-form-field>
-                <div class="input-details">
+                <div class="input-details" style="padding-left: 5%;">
                     <input matInput type="password" #passwordUI="ngModel" required name="password" ngModel>
                 </div>
 
@@ -44,19 +44,17 @@
 
             <div *ngIf="passwordUI.invalid && (passwordUI.touched || passwordUI.dirty)" class="alert alert-danger">
                 <div *ngIf="passwordUI.errors.required">
-                    PASSWORD IS REQUIRED
+                    Contraseña incorrecta
                 </div>
             </div>
-
         </form>
-
     </mat-card-content>
     <mat-card-actions>
         <div class="d-flex justify-content-center mt-3 login_container">
             <button type="button" name="button" class="btn login_btn" mat-button [disabled]="form.invalid" (click)="onLogin2(form)">Login</button>
         </div>
-        <div style="text-align: center; text-decoration: underline; color: #888888; font-weight: bold;">
-            <a (click)="onRegister()">Aun tienes en cuenta? Ingresa aquí</a>
+        <div style="text-align: center; text-decoration: underline; color: #888888; font-weight: bold; padding-bottom: 5%;">
+            <a (click)="onRegister()">¿Aún no tienes cuenta? Ingresa aquí</a>
         </div>
     </mat-card-actions>
 </mat-card>

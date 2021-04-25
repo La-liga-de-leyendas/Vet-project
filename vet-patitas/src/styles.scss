@@ -1,6 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+$custom-collection: (
+    navbar :  #CEAC2C,
+    success: #03CEA4,
+    darkblue:  #2E5077,
+    danger:    #FB4D3D
+
+);
 html {
     height: 100%;
     width: 100%;
