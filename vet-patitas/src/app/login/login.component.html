@@ -37,9 +37,8 @@
             </div>
             <mat-form-field>
                 <div class="input-details">
-                    <input matInput type="password" class="form-control" #passwordUI="ngModel" required name="password" ngModel>
+                    <input matInput type="password" #passwordUI="ngModel" required name="password" ngModel>
                 </div>
-
             </mat-form-field>
 
             <div *ngIf="passwordUI.invalid && (passwordUI.touched || passwordUI.dirty)" class="alert alert-danger">

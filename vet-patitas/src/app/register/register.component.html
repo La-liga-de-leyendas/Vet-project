@@ -81,12 +81,9 @@
 
             </mat-card-content>
             <mat-card-actions>
-                <div class="d-flex justify-content-center mt-3 login_container">
-                    <button type="button" name="button" class="btn login_btn" mat-button [disabled]="form.invalid">Registrarse</button>
-                </div>
 
-                <div class="formGroup">
-                    <input type="button" class="btn btn-block btn-primary" value="Sign Up" (click)="register_service.SignUp(emailUI.value, passwordUI.value)">
+                <div class="formGroup d-flex justify-content-center mt-3 login_container">
+                    <button type="button" name="button" class="btn login_btn" value="Sign Up" mat-button [disabled]="form.invalid" (click)="register_service.SignUp(emailUI.value, passwordUI.value)">Registrarse</button>
                 </div>
             </mat-card-actions>
         </mat-card>
