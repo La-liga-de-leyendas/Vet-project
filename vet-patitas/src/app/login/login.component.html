@@ -37,7 +37,7 @@
             </div>
             <mat-form-field>
                 <div class="input-details">
-                    <input matInput type="password" #passwordUI="ngModel" required name="password" ngModel>
+                    <input matInput type="password" class="form-control" #passwordUI="ngModel" required name="password" ngModel>
                 </div>
 
             </mat-form-field>
@@ -53,10 +53,13 @@
     </mat-card-content>
     <mat-card-actions>
         <div class="d-flex justify-content-center mt-3 login_container">
-            <button type="button" name="button" class="btn login_btn" mat-button [disabled]="form.invalid" (click)="onLogin2(form)">Login</button>
+            <button type="button" name="button" class="btn login_btn" mat-button [disabled]="form.invalid" (click)="onLogin(form)">Login</button>
         </div>
         <div style="text-align: center; text-decoration: underline; color: #888888; font-weight: bold;">
-            <a (click)="onRegister()">Aun tienes en cuenta? Ingresa aquí</a>
+            <div class="forgotPassword">
+
+                <span routerLink="/register">Not registered yet? Register</span>
+            </div>
         </div>
     </mat-card-actions>
 </mat-card>

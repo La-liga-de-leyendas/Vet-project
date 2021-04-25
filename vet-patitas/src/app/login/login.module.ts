@@ -9,7 +9,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { NgElseDirective } from '../directives/ng-else.directive';
+import { NgElseDirective } from '../shared/directives/ng-else.directive';
+import { AuthService } from '../shared/services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path: '', component: LoginComponent }
@@ -26,9 +28,13 @@ const routes: Routes = [
     MatSidenavModule,
     MatButtonModule,
     MatCardModule,
+
     MatFormFieldModule,
     MatInputModule,
     RouterModule.forChild(routes)
+  ],
+  providers: [
+    AuthService
   ],
   exports: [
     RouterModule

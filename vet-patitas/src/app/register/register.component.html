@@ -85,6 +85,9 @@
                     <button type="button" name="button" class="btn login_btn" mat-button [disabled]="form.invalid">Registrarse</button>
                 </div>
 
+                <div class="formGroup">
+                    <input type="button" class="btn btn-block btn-primary" value="Sign Up" (click)="register_service.SignUp(emailUI.value, passwordUI.value)">
+                </div>
             </mat-card-actions>
         </mat-card>
 
