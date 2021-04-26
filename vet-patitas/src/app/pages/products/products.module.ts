@@ -27,7 +27,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    HttpClientModule,
+
     RouterModule.forChild(routes)
   ],
   providers: [
