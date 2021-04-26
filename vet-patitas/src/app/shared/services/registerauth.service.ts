@@ -72,6 +72,14 @@ export class RegisterauthService {
     })
   }
 
+  recievedVerificationEmail() {
+    return this.afAuth.currentUser.then(u => u)
+    .then(() => {
+      window.alert('Revisa tu bandeja de entrada, si no averificas tu correo, no podrás ingresar al sitio web')
+      this.router.navigate(['login']);
+    })
+  }
+
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified !== false) ? true : false;

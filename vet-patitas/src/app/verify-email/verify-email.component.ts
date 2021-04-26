@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RegisterauthService } from '../shared/services/registerauth.service';
 
 @Component({
@@ -12,5 +13,11 @@ export class VerifyEmailComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  refresh(): void {
+    window.location.reload();
+  }
+
+
 
 }
