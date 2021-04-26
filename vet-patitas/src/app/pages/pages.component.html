@@ -1,7 +1,7 @@
 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark navbar-custom header fixed-top">
-    <a class="navbar-brand" href="#"><i class="fab fa-product-hunt fa-lg"></i>ATITAS</a>    
+    <a class="navbar-brand" href="#"><i class="fab fa-product-hunt fa-lg"></i>ATITAS</a>
 
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
     <div class="collapse navbar-collapse" id="navbarText">
@@ -22,8 +22,71 @@
                 <a class="nav-link" routerLink="profile" routerLinkActive="active"><i class="fa fa-users-cog"></i>Perfil</a>
             </li>
         </ul>
-        <button class="btn btn-outline-danger" style ="color:white; border-color: white;" (click)="onLogout()">LOGOUT</button>
+        <button class="btn btn-outline-danger" style="color:white; border-color: white;" (click)="onLogout()">LOGOUT</button>
     </div>
 </nav>
 
 <router-outlet></router-outlet>
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+
+    <div class="footer-top">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-5 col-md-12 footer-info">
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <span>PATITAS</span>
+                    </a>
+                    <img src="../../assets/images/logo.png" alt="">
+                </div>
+
+                <div class="col-lg-2 col-6 footer-links">
+                    <ul>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="home" routerLinkActive="active"><i class="fa fa-home"></i>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="products" routerLinkActive="active"><i class="fa fa-users-cog"></i>Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="vet-services" routerLinkActive="active"><i class="fa fa-list-alt"></i>Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="contact-us" routerLinkActive="active"><i class="fa fa-list-alt"></i>Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="profil" routerLinkActive="active"><i class="fa fa-list-alt"></i>Perfil</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-6 footer-links">
+                    <h4>Nuestros Servicios</h4>
+                    <ul>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Venta de productos</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Servicios especializados</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Veterinaria</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Aseo</a></li>
+                        <li><i class="bi bi-chevron-right"></i> <a href="#">Juegos</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                    <h4>Contactaté con nosotros!</h4>
+                    <p>
+                        21 de Calacoto <br> La Paz, BOLIVIA<br> Pronto todo el país <br><br>
+                        <strong>Telefono:</strong> +591 7589 55488 55<br>
+                        <strong>Email:</strong> patitas@patitas.com<br>
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
