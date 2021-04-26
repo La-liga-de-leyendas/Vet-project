@@ -13,15 +13,15 @@
         <mat-card class="example-card">
 
             <mat-card-header>
-                <mat-card-title style="text-align: center; color: #888888; font-weight: bold;">Registra tus datos</mat-card-title>
+                <mat-card-title style="text-align: center; color: #888888; font-weight: bold;">Comienza por ingresar tus datos y verifícalos antes de enviarlos</mat-card-title>
             </mat-card-header>
 
-            <mat-card-content>
+            <mat-card-content style="display: flex; flex-direction: column;">
                 <form [formGroup]="userForm" style="display: flex; flex-direction: column;">
                     <!--NOMBRE DE USUARIO-->
                     <div class="input-group-append">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        <div class="label-for-subtitles">Usuario:</div>
+                        <div class="label-for-subtitles">Correo Electrónico:</div>
                     </div>
                     <mat-form-field>
 
@@ -36,7 +36,7 @@
                     <!--PASSWORD-->
                     <div class="input-group-append">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        <div class="label-for-subtitles">Password:</div>
+                        <div class="label-for-subtitles">Contraseña:</div>
                     </div>
                     <mat-form-field>
                         <div class="input-details">
@@ -50,7 +50,7 @@
                         <div class="label-for-subtitles">Celular:</div>
                     </div>
                     <mat-form-field>
-                        <div class="input-details">
+                        <div class="input-details" >
                             <input matInput type="number" required name="celular" ngModel formControlName="cellphone">
                         </div>
                     </mat-form-field>

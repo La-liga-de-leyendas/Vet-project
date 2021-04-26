@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
+import { RegisterauthService } from '../shared/services/registerauth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class LoginComponent implements OnInit {
   hide = true;
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService, public ngAuthService: RegisterauthService) { }
 
   ngOnInit(): void {
     if (this.authService.verifyLogged()) {
@@ -27,7 +28,8 @@ export class LoginComponent implements OnInit {
     }).subscribe(
       res => {
         console.log('LOGIN RESPONSE: ', res);
-        this.router.navigate(['pages']);
+        //this.router.navigate(['pages']);
+        //this.ngAuthService.SignIn(form.value.email, form.value.password);
       },
       err => {
         console.log('ERRRROOOOOOOR');
@@ -44,4 +46,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['register']);
   }
 
+  refresh(): void {
+    window.location.reload();
+  }
 }
