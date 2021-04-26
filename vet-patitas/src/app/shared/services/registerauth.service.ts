@@ -45,7 +45,7 @@ export class RegisterauthService {
   SendVerificationMail() {
     return this.afAuth.currentUser.then(u => u.sendEmailVerification())
     .then(() => {
-      this.router.navigate(['email-verification']);
+      this.router.navigate(['verify-email-address']);
     })
   }
 
