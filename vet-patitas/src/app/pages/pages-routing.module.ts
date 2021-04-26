@@ -12,8 +12,7 @@ const routes: Routes = [
       {path: 'products', loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)},
       {path: 'vet-services', loadChildren: () => import('./vet-services/vet-services.module').then(m => m.VetServicesModule)},
       {path: 'contact-us', loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule)},
-      {path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)},
-      
+      {path: 'profile', loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)}
     ]
   }
 ];
