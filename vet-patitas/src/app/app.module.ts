@@ -19,6 +19,8 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { RegisterauthService } from './shared/services/registerauth.service';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './core';
 
 
 
@@ -53,7 +55,8 @@ const routes: Routes = [
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    StoreModule.forRoot(reducers, {})
   ],
   providers: [
     AuthService,
