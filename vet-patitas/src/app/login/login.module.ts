@@ -13,6 +13,7 @@ import { NgElseDirective } from '../shared/directives/ng-else.directive';
 import { AuthService } from '../shared/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
+import { RegisterauthService } from '../shared/services/registerauth.service';
 
 const routes: Routes = [
   {path: '', component: LoginComponent }
@@ -36,6 +37,7 @@ const routes: Routes = [
   ],
   providers: [
     AuthService,
+    RegisterauthService
   ],
   exports: [
     RouterModule
