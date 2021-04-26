@@ -31,12 +31,25 @@ export class RegisterauthService {
     })
   }
 
+  // Sign in with email/password
+  SignIn(email, password) {
+    return this.afAuth.signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        this.ngZone.run(() => {
+          this.router.navigate(['/pages']);
+          console.log('PRUEBAAAAAAAAAAAAAAAAAAAAAAAAA: ', result);
+        });
+        this.SetUserData(result.user);
+      }).catch((error) => {
+        window.alert(error.message)
+      })
+  }
+
   SignUp(email, password) {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.SendVerificationMail();
         this.SetUserData(result.user);
-        this.router.navigate(['login']);
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -52,7 +65,29 @@ export class RegisterauthService {
   ForgotPassword(passwordResetEmail) {
     return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
     .then(() => {
-      window.alert('Password reset email sent, check your inbox.');
+      window.alert('Te enviamos un correo a tu dirección email para que introduzcas tu nueva contraseña, revisa tu bandeja de entrada');
+      this.router.navigate(['login']);
+    }).catch((error) => {
+      window.alert(error)
+    })
+  }
+
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return (user !== null && user.emailVerified !== false) ? true : false;
+  }
+
+  GoogleAuth() {
+    return this.AuthLogin(new firebase.auth.GoogleAuthProvider());
+  }
+
+  AuthLogin(provider) {
+    return this.afAuth.signInWithPopup(provider)
+    .then((result) => {
+      this.ngZone.run(() => {
+          this.router.navigate(['dashboard']);
+        })
+      this.SetUserData(result.user);
     }).catch((error) => {
       window.alert(error)
     })
@@ -71,5 +106,6 @@ export class RegisterauthService {
       merge: true
     })
   }
+
 
 }
