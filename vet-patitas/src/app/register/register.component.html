@@ -17,7 +17,7 @@
             </mat-card-header>
 
             <mat-card-content>
-                <form #form="ngForm" style="display: flex; flex-direction: column;">
+                <form [formGroup]="userForm" style="display: flex; flex-direction: column;">
                     <!--NOMBRE DE USUARIO-->
                     <div class="input-group-append">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -27,17 +27,11 @@
 
 
                         <div class="input-details">
-                            <input matInput type="text" #emailUI="ngModel" required ngModel name="email">
+                            <input matInput type="text" required ngModel name="email" #userEmail formControlName="email">
                         </div>
 
 
                     </mat-form-field>
-
-                    <div *ngIf="emailUI.invalid && (emailUI.touched || emailUI.dirty)" class="alert alert-danger">
-                        <div *ngIf="emailUI.errors.required">
-                            NAME IS REQUIRED
-                        </div>
-                    </div>
 
                     <!--PASSWORD-->
                     <div class="input-group-append">
@@ -46,15 +40,9 @@
                     </div>
                     <mat-form-field>
                         <div class="input-details">
-                            <input matInput type="password" #passwordUI="ngModel" required name="password" ngModel>
+                            <input matInput type="password" required name="password" ngModel #userPwd formControlName="password">
                         </div>
                     </mat-form-field>
-
-                    <div *ngIf="passwordUI.invalid && (passwordUI.touched || passwordUI.dirty)" class="alert alert-danger">
-                        <div *ngIf="passwordUI.errors.required">
-                            PASSWORD IS REQUIRED
-                        </div>
-                    </div>
 
                     <!--CELULAR-->
                     <div class="input-group-append">
@@ -63,7 +51,7 @@
                     </div>
                     <mat-form-field>
                         <div class="input-details">
-                            <input matInput type="number" required name="celular" ngModel>
+                            <input matInput type="number" required name="celular" ngModel formControlName="cellphone">
                         </div>
                     </mat-form-field>
 
@@ -74,17 +62,17 @@
                     </div>
                     <mat-form-field>
                         <div class="input-details">
-                            <input matInput type="text" required name="direccion" ngModel>
+                            <input matInput type="text" required name="direccion" ngModel formControlName="address">
                         </div>
                     </mat-form-field>
                 </form>
 
             </mat-card-content>
             <mat-card-actions>
-                <div class="d-flex justify-content-center mt-3 login_container">
-                    <button type="button" name="button" class="btn login_btn" mat-button [disabled]="form.invalid">Registrarse</button>
-                </div>
 
+                <div class="formGroup d-flex justify-content-center mt-3 login_container">
+                    <button type="button" name="button" class="btn login_btn" value="Sign Up" mat-button (click)="register_service.SignUp(userEmail.value, userPwd.value); onEnviar2();">Registrarse</button>
+                </div>
             </mat-card-actions>
         </mat-card>
 

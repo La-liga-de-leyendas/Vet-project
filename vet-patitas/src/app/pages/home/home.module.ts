@@ -16,6 +16,7 @@ const routes: Routes = [
     CommonModule,
     MatIconModule,
     RouterModule.forChild(routes)
-  ]
+  ],
+  exports: [RouterModule]
 })
 export class HomeModule { }
