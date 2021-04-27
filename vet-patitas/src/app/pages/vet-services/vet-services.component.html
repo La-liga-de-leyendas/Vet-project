@@ -4,8 +4,8 @@
 
     <table >
       <tr>
-        <td>NAME</td>
-        <td>TIME</td>
+        <td>RESERVA</td>
+        <td>HORA</td>
       </tr>
       <tr *ngFor="let vetservice of schedule">
         <td>{{vetservice.title}}</td>
@@ -16,9 +16,9 @@
 
   </mat-drawer>
 
-  <div class="example-sidenav-content">
-    <button type="button" style="background: #CEAC2C" mat-button (click)="drawer.toggle()">
-      Mis Reservas <i class="fas fa-calendar-alt"></i>
+  <div class="example-sidenav-content" style="text-align: center;">
+    <button class="btn btn-outline-success" style="background: #CEAC2C; font-size:150%; padding:1%;" mat-button (click)="drawer.toggle()">
+      MIS RESERVAS <i class="fas fa-calendar-alt"></i>
     </button>
   </div>
 
