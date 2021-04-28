@@ -18,13 +18,17 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   cart = [];
 
-
+  pricesProductsTotalAmount = 0;
+  pricesProductsFinal = [];
+  titlesSaved = [];
+  contadorTitle = 0;
+  lastValue = 0;
   constructor(private productsService: ProductsService, private store: Store<any>) { }
 
   ngOnInit(): void {
 
     this.homeSubs = this.store.select(s => s.home).subscribe(res => {
-      console.log('HOMEEEEEEE', res);
+      //console.log('HOMEEEEEEE', res);
       this.cart = Object.assign([], res.items);
 
     });
@@ -36,6 +40,11 @@ export class ProductsComponent implements OnInit, OnDestroy {
     });
   }
 
+  totalPricesProducts() {
+
+    return this.pricesProductsFinal;
+  }
+
   ngOnDestroy(): void {
     // tslint:disable-next-line: no-unused-expression
     this.productSubs ? this.productSubs.unsubscribe() : '';
@@ -44,6 +53,33 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   onComprar(product): void {
     this.store.dispatch(AddProduct({ product: Object.assign({}, product) }));
+    /*for (let item of this.cart) {
+      //console.log('ITEEEEEEEEEEEEM: ', item.price);
+      this.pricesProducts.push(item.price);
+      //console.log('CAAAAAAAAAAART: ', this.pricesProducts);
+      this.lastValue = this.pricesProducts[this.pricesProducts.length - 1];
+      this.pricesProductsFinal.push(this.lastValue);
+
+    }
+    console.log('CAAAAAAAAAAART: ', this.pricesProductsFinal);*/
+    console.log('CARRITO: ', product.price);
+    this.pricesProductsFinal.push(parseInt(product.price));
+    console.log('CAAAAAAAAAAART: ', this.pricesProductsFinal);
+    this.pricesProductsTotalAmount = this.pricesProductsTotalAmount + parseInt(product.price);
+    console.log('TOTAL: ', this.pricesProductsTotalAmount);
+
+
+    this.titlesSaved.push(product.title);
+
+    if(this.titlesSaved.includes(product.title)) {
+      let titles = this.titlesSaved.filter(s => product.title);
+      console.log('CONTADOR PRODUCTOS: ', titles.length);
+    } else {
+      this.contadorTitle = 0;
+    }
+
+
+
   }
 
 }
