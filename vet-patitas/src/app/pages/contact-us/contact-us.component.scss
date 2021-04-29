@@ -4,11 +4,23 @@
     align-items: center;
     justify-content: center;
 }
-.container{
+
+.container {
     align-items: center;
     padding-right: 0%;
     padding-left: 0%;
-    margin: 0%;
+    //margin: 0%;
     text-align: center;
-  }
-  
+}
+
+.center {
+    margin: auto;
+    width: 70%;
+    border: 3px solid green;
+    padding: 10px;
+    text-align: center;
+}
+
+.child {
+    margin: 0 auto;
+}
