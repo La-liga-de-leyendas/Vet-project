@@ -1,27 +1,30 @@
 <mat-drawer-container class="example-container" style="width: 100%; height: 100%; padding-top: 7%;">
-    <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 300px; height: 100%; margin-top: 20px; padding-top: 4%; background: ghostwhite;" [position]="'end'">
-  
-      <table >
-          <tr>
-            <td>PRODUCTO</td>
-            <td>PRECIO</td>
-          </tr>
-          <tr *ngFor="let product of cart">
-            <td>{{product.title}}</td>
-            <td>{{product.price}} Bs.</td>
-  
-          </tr>
+    <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 300px; height: 100%; margin-top: 20px; padding-top: 4%; padding-left: 2%;" [position]="'end'">
+
+        <table>
+            <tr>
+                <td>PRODUCTO</td>
+                <td>PRECIO </td>
+            </tr>
+            <tr *ngFor="let product of cart">
+                <td>{{product.title}}</td>
+                <td>{{product.price}} Bs.</td>
+            </tr>
+            <tr>
+                <td>TOTAL</td>
+                <td>{{pricesProductsTotalAmount}} Bs.</td>
+            </tr>
         </table>
 
     </mat-drawer>
-  
-    <div style="text-align: center; margin-bottom: 2%;">
-        <h2>Encuentra en nuestra página el producto ideal para tu mascota</h2>
-        <h3>nuestros proveedores llevarán tu compra hasta tu hogar</h3>
-      </div>
+
+<div style="text-align: center; margin-bottom: 2%;">
+    <h2>Encuentra en nuestra página el producto ideal para tu mascota</h2>
+    <h3>nuestros proveedores llevarán tu compra hasta tu hogar</h3>
+  </div>
 
     <div class="example-sidenav-content" style="text-align: center;">
-      <button class="btn btn-outline-success" style="background: #CEAC2C; font-size:150%; padding:1%;" mat-button (click)="drawer.toggle()">
+        <button class="btn btn-outline-success" style="background: #CEAC2C; font-size:150%; padding:1%;" mat-button (click)="drawer.toggle()">
         MI CARRITO <i class="fas fa-shopping-cart"></i>
       </button>
     </div>
@@ -47,10 +50,10 @@
                     </p>-->
                 </mat-card-content>
                 <mat-card-actions style="text-align: center;">
-                    <button mat-button (click)="onComprar(product)">COMPRAR</button>
+                    <button mat-raised-button (click)="onComprar(product)">COMPRAR</button>
                 </mat-card-actions>
             </mat-card>
         </div>
-    
-    
+
+
     </div>
