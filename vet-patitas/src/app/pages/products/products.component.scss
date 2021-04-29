@@ -1,0 +1,52 @@
+.mat-drawer-container {
+    background-color: #FEEDEF;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.example-card {
+    max-width: 300px;
+}
+
+.imagenes {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+table,
+th,
+td {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+table tr:nth-child(odd) {
+    background-color: #f5dbb2;
+}
+
+table tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.image-pets {
+    padding-left: 100px;
+}
+
+.column1 {
+    float: left;
+    width: 50%;
+}
+
+.column2 {
+    float: left;
+    width: 50%;
+}
+
+.column22 {
+    float: left;
+    width: 25%;
+}

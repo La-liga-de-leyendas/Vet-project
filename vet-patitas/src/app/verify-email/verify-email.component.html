@@ -1,0 +1,20 @@
+<div class="center-image-verify-email">
+    <img src="../../assets/images/Emails.png" class="" alt="login" width="400" height="400">
+</div>
+<div style="text-align: center; color: #888888; font-weight: bold; font-size: 17px;">
+    <span>Gracias por registrarte</span> <br>
+    <div class="formGroup" *ngIf="ngAuthService.userState as user">
+
+        <span>La confirmación del correo electrónico se envió a <strong>{{user.email}}</strong>.</span>
+    </div>
+
+</div>
+
+
+<div class="center-all-text">
+    <button type="submit" class="btn login_btn" value="Reset Password" (click)="ngAuthService.SendVerificationMail()">Reenviar verificación de email</button>
+
+    <button type="submit" class="btn login_btn" style="margin-top: 20px;" (click)="ngAuthService.recievedVerificationEmail()">Me llegó el correo, actualizaré la web para entrar</button>
+</div>
+
+<router-outlet></router-outlet>
