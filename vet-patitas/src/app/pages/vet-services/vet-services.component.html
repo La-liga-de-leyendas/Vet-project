@@ -28,12 +28,12 @@
 
   <div class="row" style="padding: 40px; margin: 50px;">
     <div *ngFor="let vetservice of vets" class=" col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-      <mat-card class="example-card" style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%;">
+      <mat-card class="example-card" style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%;height: auto;">
         <mat-card-header>
           <mat-card-title>{{vetservice.title}}</mat-card-title>
           <mat-card-subtitle>{{vetservice.storeName}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image [src]="vetservice.imageUrl" alt="Imagen del servicio" height="30%" width="30%">
+        <img mat-card-image [src]="vetservice.imageUrl" alt="Imagen del servicio" class="imagenes">
         <mat-card-content>
           <p>
             Servicio: {{vetservice.description}}

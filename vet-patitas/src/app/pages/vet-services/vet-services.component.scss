@@ -1,3 +1,15 @@
+.mat-drawer-container {
+  background-color: #FEEDEF;
+  margin-right: auto;
+  margin-left: auto;
+  align-items: center;
+  justify-content: center;
+}
 .example-card {
     max-width: 300px;
+  }
+  .imagenes{
+    width:300px;
+    height:300px;
+    object-fit:cover;
   }
