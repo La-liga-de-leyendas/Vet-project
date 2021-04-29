@@ -75,7 +75,7 @@ export class RegisterauthService {
   recievedVerificationEmail() {
     return this.afAuth.currentUser.then(u => u)
     .then(() => {
-      window.alert('Revisa tu bandeja de entrada, si no verificas tu correo, no podrás ingresar al sitio web.')
+      window.alert('Si ya revisaste tu bandeja de entrada y verificaste tu correo, ya podrás ingresar al sitio web.')
       this.router.navigate(['login']);
     })
   }

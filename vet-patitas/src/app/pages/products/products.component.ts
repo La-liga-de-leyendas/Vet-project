@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterContentInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ProductsService } from 'src/app/shared/services/products.service';
 import { Store } from '@ngrx/store';
@@ -10,7 +10,7 @@ import { AddProduct } from './store/home.actions';
   styleUrls: ['./products.component.scss']
 })
 
-export class ProductsComponent implements OnInit, OnDestroy {
+export class ProductsComponent implements AfterContentInit, OnDestroy {
 
   products = [];
   productSubs: Subscription;
@@ -25,12 +25,11 @@ export class ProductsComponent implements OnInit, OnDestroy {
   lastValue = 0;
   constructor(private productsService: ProductsService, private store: Store<any>) { }
 
-  ngOnInit(): void {
+  ngAfterContentInit(): void {
 
     this.homeSubs = this.store.select(s => s.home).subscribe(res => {
       //console.log('HOMEEEEEEE', res);
       this.cart = Object.assign([], res.items);
-
     });
 
 
@@ -38,6 +37,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
       console.log('respuesta: ', res);
       Object.entries(res).map(p => this.products.push(p[1]));
     });
+
+
   }
 
   totalPricesProducts() {
@@ -62,6 +63,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
     }
     console.log('CAAAAAAAAAAART: ', this.pricesProductsFinal);*/
+
+
+
     console.log('CARRITO: ', product.price);
     this.pricesProductsFinal.push(parseInt(product.price));
     console.log('CAAAAAAAAAAART: ', this.pricesProductsFinal);
