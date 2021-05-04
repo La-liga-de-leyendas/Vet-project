@@ -28,9 +28,12 @@ table tr:nth-child(even) {
 }
 
 .image-pets {
+    padding-top: 10%;
     padding-left: 100px;
 }
-
+.row {
+    max-width: 100%;
+}
 .column1 {
     float: left;
     width: 50%;
