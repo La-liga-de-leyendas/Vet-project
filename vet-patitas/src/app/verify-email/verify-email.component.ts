@@ -17,7 +17,8 @@ export class VerifyEmailComponent implements OnInit {
   refresh(): void {
     window.location.reload();
   }
-
-
+  showMessage() {
+    window.alert('Acabamos de enviarte un nuevo mensaje. Por favor, refresca tu bandeja de entrada');
+  }
 
 }
