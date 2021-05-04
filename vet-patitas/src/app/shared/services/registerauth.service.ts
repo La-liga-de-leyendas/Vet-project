@@ -65,7 +65,7 @@ export class RegisterauthService {
   ForgotPassword(passwordResetEmail) {
     return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
     .then(() => {
-      window.alert('Te enviamos un correo a tu dirección email para que introduzcas tu nueva contraseña, revisa tu bandeja de entrada');
+      window.alert('Te enviamos un correo email para que introduzcas tu nueva contraseña, revisa tu bandeja de entrada');
       this.router.navigate(['login']);
     }).catch((error) => {
       window.alert(error)
@@ -75,7 +75,7 @@ export class RegisterauthService {
   recievedVerificationEmail() {
     return this.afAuth.currentUser.then(u => u)
     .then(() => {
-      window.alert('Revisa tu bandeja de entrada, si no verificas tu correo, no podrás ingresar al sitio web.')
+      window.alert('Gracias por verificar tu correo con el enlace en tu bandeja de entrada.')
       this.router.navigate(['login']);
     })
   }
