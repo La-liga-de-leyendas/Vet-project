@@ -77,6 +77,11 @@ export class RegisterauthService {
     .then(() => {
       window.alert('Gracias por verificar tu correo con el enlace en tu bandeja de entrada.')
       this.router.navigate(['login']);
+      setTimeout(() => 
+{
+  window.location.reload();
+},
+100);
     })
   }
 
