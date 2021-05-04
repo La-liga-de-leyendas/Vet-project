@@ -21,6 +21,7 @@ import { environment } from 'src/environments/environment';
 import { RegisterauthService } from './shared/services/registerauth.service';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './core';
+import { VerifyMailGuard } from './shared/guards/verify-mail.guard';
 
 
 
@@ -29,7 +30,11 @@ const routes: Routes = [
   {path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)},
   {path: 'register', loadChildren: () => import('./register/register.module').then(m => m.RegisterModule)},
   {path: 'forgot-password', loadChildren: () => import('./forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule)},
-  {path: 'verify-email-address', loadChildren: () => import('./verify-email/verify-email.module').then(m => m.VerifyEmailModule)},
+  {
+    path: 'verify-email-address',
+    loadChildren: () => import('./verify-email/verify-email.module').then(m => m.VerifyEmailModule),
+    canActivate: [VerifyMailGuard]
+  },
   {
     path: 'pages',
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
@@ -61,6 +66,7 @@ const routes: Routes = [
   providers: [
     AuthService,
     RegisterauthService,
+    VerifyMailGuard,
     AuthGuard,
     {
       provide: HTTP_INTERCEPTORS,
