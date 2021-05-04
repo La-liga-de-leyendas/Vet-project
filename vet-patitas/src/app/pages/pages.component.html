@@ -21,6 +21,12 @@
             <li class="nav-item">
                 <a class="nav-link" routerLink="profile" routerLinkActive="active"><i class="fa fa-users-cog" style="margin-right: 5px;"></i>Perfil</a>
             </li>
+            <div *ngIf="provider">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="my-products" routerLinkActive="active"><i class="fa fa-users-cog" style="margin-right: 5px;"></i>Mis productos</a>
+                </li>
+            </div>
+
         </ul>
         <button class="btn btn-outline-danger" style="color:white; border-color: white;" (click)="onLogout()">LOGOUT</button>
     </div>
@@ -33,7 +39,7 @@
 <footer id="footer" class="footer" style="background-color: #CEAC2C; height: fit-content;">
 
     <div class="footer-top">
-        <div class="container" >
+        <div class="container">
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-12 footer-info">
                     <a href="index.html" class="logo d-flex align-items-center">
@@ -42,7 +48,7 @@
                     <img src="../../assets/images/logo.png" height="100%" width="70%">
                 </div>
 
-                <div class="col-lg-3 col-6 footer-links" >
+                <div class="col-lg-3 col-6 footer-links">
                     <ul>
                         <li class="nav-item">
                             <a class="nav-link" routerLink="home" routerLinkActive="active"><i class="fa fa-home" style="color: black;font-size: large;"></i>Inicio</a>
