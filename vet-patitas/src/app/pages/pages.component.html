@@ -5,30 +5,53 @@
     <span class="navbar-toggler-icon"></span>
   </button>
     <div class="collapse navbar-collapse" id="navbarText" style="text-align: center;">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="home" routerLinkActive="active"><i class="fa fa-home" style="margin-right: 5px;"></i>Inicio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="products" routerLinkActive="active"><i class="fa fa-dolly-flatbed" style="margin-right: 5px;"></i>Productos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="vet-services" routerLinkActive="active"><i class="fa fa-list-alt" style="margin-right: 5px;"></i>Servicios</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="contact-us" routerLinkActive="active"><i class="fa fa-address-card" style="margin-right: 5px;"></i>Contáctanos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="profile" routerLinkActive="active"><i class="fa fa-users-cog" style="margin-right: 5px;"></i>Perfil</a>
-            </li>
-            <div *ngIf="provider">
+        <div *ngIf="!provider">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="my-products" routerLinkActive="active"><i class="fa fa-users-cog" style="margin-right: 5px;"></i>Mis productos</a>
+                    <a class="nav-link" routerLink="home" routerLinkActive="active"><i class="fa fa-home" style="margin-right: 5px;"></i>Inicio</a>
                 </li>
-            </div>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="products" routerLinkActive="active"><i class="fa fa-dolly-flatbed" style="margin-right: 5px;"></i>Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="vet-services" routerLinkActive="active"><i class="fa fa-list-alt" style="margin-right: 5px;"></i>Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="contact-us" routerLinkActive="active"><i class="fa fa-address-card" style="margin-right: 5px;"></i>Contáctanos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="profile" routerLinkActive="active"><i class="fa fa-users-cog" style="margin-right: 5px;"></i>Perfil</a>
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="provider">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item2">
+                    <a class="nav-link" routerLink="home" routerLinkActive="active"><i class="fa fa-home" style="margin-right: 5px;"></i>Inicio</a>
+                </li>
+                <li class="nav-item2">
+                    <a class="nav-link" routerLink="products" routerLinkActive="active"><i class="fa fa-dolly-flatbed" style="margin-right: 5px;"></i>Productos</a>
+                </li>
+                <li class="nav-item2">
+                    <a class="nav-link" routerLink="vet-services" routerLinkActive="active"><i class="fa fa-list-alt" style="margin-right: 5px;"></i>Servicios</a>
+                </li>
+                <li class="nav-item2">
+                    <a class="nav-link" routerLink="contact-us" routerLinkActive="active"><i class="fa fa-address-card" style="margin-right: 5px;"></i>Contáctanos</a>
+                </li>
+                <li class="nav-item2">
+                    <a class="nav-link" routerLink="profile" routerLinkActive="active"><i class="fa fa-users-cog" style="margin-right: 5px;"></i>Perfil</a>
+                </li>
+                <li class="nav-item2">
+                    <a class="nav-link" routerLink="my-products" routerLinkActive="active"><i class="fa fa-poll-h" style="margin-right: 5px;"></i>Mis productos</a>
+                </li>
+            </ul>
+        </div>
 
+        <ul class="nav navbar-nav ml-auto">
+            <li>
+                <button class="btn btn-outline-danger" style="color:white; border-color: white;" (click)="onLogout()">LOGOUT</button>
+            </li>
         </ul>
-        <button class="btn btn-outline-danger" style="color:white; border-color: white;" (click)="onLogout()">LOGOUT</button>
     </div>
 </nav>
 
