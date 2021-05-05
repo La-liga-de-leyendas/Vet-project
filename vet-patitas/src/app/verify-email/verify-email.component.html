@@ -3,7 +3,7 @@
 </div>
 <div style="text-align: center; color: #888888; font-weight: bold; font-size: 17px;">
     <span>Gracias por registrarte</span> <br>
-    <div class="formGroup" *ngIf="ngAuthService.userState as user">
+    <div class="formGroup" *ngIf="ngAuthService.userState as user" style="padding-bottom: 1%;">
 
         <span>La confirmación del correo electrónico se envió a <strong>{{user.email}}</strong>.</span>
     </div>
@@ -12,9 +12,9 @@
 
 
 <div class="center-all-text">
-    <button type="submit" class="btn login_btn" value="Reset Password" (click)="ngAuthService.SendVerificationMail()">Reenviar verificación de email</button>
+    <button type="submit" class="btn login_btn" value="Reset Password" (click)="ngAuthService.SendVerificationMail(); showMessage()">Reenviar verificación de email</button>
 
-    <button type="submit" class="btn login_btn" style="margin-top: 20px;" (click)="ngAuthService.recievedVerificationEmail()">Me llegó el correo, actualizaré la web para entrar</button>
+    <button type="submit" class="btn login_btn" style="margin-top: 20px;" (click)="ngAuthService.recievedVerificationEmail()">Me llegó el correo</button>
 </div>
 
 <router-outlet></router-outlet>

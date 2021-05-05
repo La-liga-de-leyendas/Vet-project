@@ -37,7 +37,7 @@ export class RegisterauthService {
       .then((result) => {
         this.ngZone.run(() => {
           this.router.navigate(['/pages']);
-          console.log('PRUEBAAAAAAAAAAAAAAAAAAAAAAAAA: ', result);
+    //      console.log('PRUEBAAAAAAAAAAAAAAAAAAAAAAAAA: ', result);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -65,7 +65,7 @@ export class RegisterauthService {
   ForgotPassword(passwordResetEmail) {
     return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
     .then(() => {
-      window.alert('Te enviamos un correo a tu dirección email para que introduzcas tu nueva contraseña, revisa tu bandeja de entrada');
+      window.alert('Te enviamos un correo email para que introduzcas tu nueva contraseña, revisa tu bandeja de entrada');
       this.router.navigate(['login']);
     }).catch((error) => {
       window.alert(error)
@@ -75,8 +75,13 @@ export class RegisterauthService {
   recievedVerificationEmail() {
     return this.afAuth.currentUser.then(u => u)
     .then(() => {
-      window.alert('Si ya revisaste tu bandeja de entrada y verificaste tu correo, ya podrás ingresar al sitio web.')
+      window.alert('Gracias por verificar tu correo con el enlace en tu bandeja de entrada.')
       this.router.navigate(['login']);
+      setTimeout(() => 
+{
+  window.location.reload();
+},
+100);
     })
   }
 
