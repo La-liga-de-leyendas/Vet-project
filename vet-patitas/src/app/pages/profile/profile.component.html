@@ -1,18 +1,16 @@
-<div class="container mt-5" style="max-width: 1000px;">
-    <div class="row" *ngIf="ngAuthService.userState as user">
-        <div class="media" style="margin-top: 80px;">
-            <h2 style="text-align: center;"><strong> ¡HOLA {{user.email}}!</strong></h2>
-        </div>
-    </div>
-</div>
-<div class="container-fluid">
+<section id="hero" class="hero d-flex align-items-center" style="background-color: #FEEDEF;" >
     <div class="container" style="text-align: center; padding-top: 5%; padding-bottom: 4%;">
-        <div class="imagen">
-            <img src="../../../assets/images/not-implemented.png" width="45%" height="80%">
-        </div>
-        <div class="texto">
-            <h2>Woops! Parece que esta sección sigue en desarrollo</h2>
-            <h3>disculpa las molestias!</h3>
+        <div class="row" *ngIf="ngAuthService.userState as user">
+            <div class="media" style="margin-top: 80px;">
+                <h2 style="text-align: center;"><strong> ¡HOLA {{user.email}}!</strong></h2>
+            </div>
+            <div class="imagen">
+                <img src="../../../assets/images/not-implemented.png" width="45%" height="80%">
+            </div>
+            <div class="texto">
+                <h3>Woops! Parece que esta sección sigue en desarrollo... </h3>
+                <h3>disculpa las molestias!</h3>
+            </div>
         </div>
     </div>
-</div>
+</section>
