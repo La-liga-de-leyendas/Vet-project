@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import * as moment from 'moment';
-import { Moment } from 'moment';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { VetServicesService } from 'src/app/shared/services/vetservices.service';
@@ -22,16 +20,19 @@ export class MyVetServicesComponent implements OnInit {
   productUpdateSubs: Subscription;
   idEdit: any;
 
-  minDate: Moment;
-  maxDate: Moment;
+  minDate: Date;
+  maxDate: Date;
 
   constructor(private formBuilder: FormBuilder, private productService: VetServicesService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    const currentYear = moment().year();
-    this.minDate = moment([currentYear, 0, 1]);
-    this.maxDate = moment([currentYear, 11, 31]);
 
+    const currentYear = new Date().getFullYear();
+    const currentDay = new Date().getDate();
+    const currentMonth = new Date().getMonth();
+    this.minDate = new Date(currentYear, currentMonth, currentDay);
+    this.maxDate = new Date(currentYear, currentMonth+3, 31);
+    console.log('diaaaaaaaaaaaaaaaaa: ', currentDay);
     this.loadProducts();
 
     this.productForm = this.formBuilder.group({
@@ -39,10 +40,11 @@ export class MyVetServicesComponent implements OnInit {
       imageUrl: '',
       stock: '',
       storeId: '',
-      sessionStDate: ['', Validators.required],
+      date: ['', Validators.required],
       hour: '',
       title: ''
     });
+
   }
 
 
