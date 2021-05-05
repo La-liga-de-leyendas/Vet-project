@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { VetServicesService } from 'src/app/shared/services/vetservices.service';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const routes: Routes = [
   {path: '', component: MyVetServicesComponent}
@@ -28,6 +30,8 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 
     RouterModule.forChild(routes)
   ],

@@ -41,6 +41,26 @@
                     <input matInput formControlName="imageUrl" type="text">
                 </mat-form-field>
 
+                <mat-form-field appearance="fill">
+                    <mat-label>Fecha de tu cita</mat-label>
+                    <input matInput formControlName="sessionStDate" [matDatepicker]="seStDt" [min]="minDate" [max]="maxDate">
+                    <mat-datepicker-toggle matSuffix [for]="seStDt"></mat-datepicker-toggle>
+                    <mat-datepicker #seStDt disabled="false"></mat-datepicker>
+
+
+                </mat-form-field>
+
+                <mat-error *ngIf="productForm.get('sessionStDate').hasError('required')">
+                    dato oblogatorio.
+                </mat-error>
+
+                <mat-error *ngIf="productForm.get('sessionStDate').hasError('matDatepickerMin')">
+                    Invalid minimum date.
+                </mat-error>
+                <mat-error *ngIf="productForm.controls['sessionStDate'].hasError('matDatepickerMax')">
+                    Invalid maximum date.
+                </mat-error>
+
                 <mat-form-field>
                     <mat-label>Hour</mat-label>
                     <input matInput formControlName="hour" type="text">
