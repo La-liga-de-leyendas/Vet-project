@@ -5,7 +5,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
     <div class="collapse navbar-collapse" id="navbarText" style="text-align: center;">
-        <div *ngIf="!provider">
+        <div *ngIf="!provider && !vet">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" routerLink="home" routerLinkActive="active"><i class="fa fa-home" style="margin-right: 5px;"></i>Inicio</a>
@@ -24,7 +24,7 @@
                 </li>
             </ul>
         </div>
-        <div *ngIf="provider">
+        <div *ngIf="provider || vet">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item2">
                     <a class="nav-link" routerLink="home" routerLinkActive="active"><i class="fa fa-home" style="margin-right: 5px;"></i>Inicio</a>
@@ -41,11 +41,23 @@
                 <li class="nav-item2">
                     <a class="nav-link" routerLink="profile" routerLinkActive="active"><i class="fa fa-users-cog" style="margin-right: 5px;"></i>Perfil</a>
                 </li>
-                <li class="nav-item2">
-                    <a class="nav-link" routerLink="my-products" routerLinkActive="active"><i class="fa fa-poll-h" style="margin-right: 5px;"></i>Mis productos</a>
-                </li>
+                <div *ngIf="provider">
+                    <li class="nav-item2">
+                        <a class="nav-link" routerLink="my-products" routerLinkActive="active"><i class="fa fa-poll-h" style="margin-right: 5px;"></i>Mis productos</a>
+                    </li>
+                </div>
+                <div *ngIf="vet">
+                    <li class="nav-item2">
+                        <a class="nav-link" routerLink="my-vet-services" routerLinkActive="active"><i class="fa fa-poll-h" style="margin-right: 5px;"></i>Mis servicios</a>
+                    </li>
+                </div>
+
+
             </ul>
         </div>
+
+
+
 
         <ul class="nav navbar-nav ml-auto">
             <li>
