@@ -54,15 +54,8 @@ export class ProductsComponent implements AfterContentInit, OnDestroy {
 
   onComprar(product): void {
     this.store.dispatch(AddProduct({ product: Object.assign({}, product) }));
-    /*for (let item of this.cart) {
-      //console.log('ITEEEEEEEEEEEEM: ', item.price);
-      this.pricesProducts.push(item.price);
-      //console.log('CAAAAAAAAAAART: ', this.pricesProducts);
-      this.lastValue = this.pricesProducts[this.pricesProducts.length - 1];
-      this.pricesProductsFinal.push(this.lastValue);
-
-    }
-    console.log('CAAAAAAAAAAART: ', this.pricesProductsFinal);*/
+    product.stock = product.stock-1;
+    //this.products.= this.product.stock - 1; 
 
 
 

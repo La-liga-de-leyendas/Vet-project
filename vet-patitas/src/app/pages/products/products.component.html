@@ -90,12 +90,12 @@
                     <p>
                         Precio: {{product.price}} Bs.
                     </p>
-                    <!--     <p>
+                    <p>
                         Stock: {{product.stock}}
-                    </p>-->
+                    </p>
                 </mat-card-content>
                 <mat-card-actions style="text-align: center;">
-                    <button style="background-color: #d6b94e; border-radius: 15px; padding-left: 30px; padding-right: 30px;" mat-button (click)="onComprar(product)">COMPRAR</button>
+                    <button style="background-color: #d6b94e; border-radius: 15px; padding-left: 30px; padding-right: 30px;" mat-button (click)="onComprar(product)"  [disabled]="product.stock === 0">COMPRAR</button>
                 </mat-card-actions>
             </mat-card>
         </div>
