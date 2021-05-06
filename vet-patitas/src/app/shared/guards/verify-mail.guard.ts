@@ -19,7 +19,6 @@ export class VerifyMailGuard implements CanActivate {
       this.router.navigate(['pages'])
     } else { //si no está logueado
       if (!this.previousRouteService.getPreviousUrl().includes('/register')) {
-        console.log(this.previousRouteService.getPreviousUrl() + "AAAAAAAAAAAAAAAAAAAAAAAAA")
         this.router.navigate(['login'])
       }
     }
