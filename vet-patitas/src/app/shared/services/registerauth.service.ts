@@ -41,7 +41,7 @@ export class RegisterauthService {
         });
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message)
+        window.alert('Parece que este usuario no existe.')
       })
   }
 
