@@ -17,7 +17,7 @@ export class VerifyMailGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (this.ngAuthService.isLoggedIn == true) {
       this.router.navigate(['pages'])
-    } else { //si no está logueado
+    } else { 
       if (!this.previousRouteService.getPreviousUrl().includes('/register')) {
         this.router.navigate(['login'])
       }
