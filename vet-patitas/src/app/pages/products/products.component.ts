@@ -15,9 +15,10 @@ export class ProductsComponent implements AfterContentInit, OnDestroy {
   products = [];
   productSubs: Subscription;
   homeSubs: Subscription;
+  
 
   cart = [];
-
+  idEdit: any;
   pricesProductsTotalAmount = 0;
   pricesProductsFinal = [];
   titlesSaved = [];
@@ -35,17 +36,20 @@ export class ProductsComponent implements AfterContentInit, OnDestroy {
 
     this.productSubs = this.productsService.getProducts().subscribe(res => {
       console.log('respuesta: ', res);
-      Object.entries(res).map(p => this.products.push(p[1]));
+      Object.entries(res).map((p: any) => this.products.push({id: p[0],  ...p[1]}));
     });
 
 
   }
+
+  
 
   totalPricesProducts() {
 
     return this.pricesProductsFinal;
   }
 
+  
   ngOnDestroy(): void {
     // tslint:disable-next-line: no-unused-expression
     this.productSubs ? this.productSubs.unsubscribe() : '';
@@ -53,9 +57,20 @@ export class ProductsComponent implements AfterContentInit, OnDestroy {
   }
 
   onComprar(product): void {
+    this.idEdit = product.id;
     this.store.dispatch(AddProduct({ product: Object.assign({}, product) }));
     product.stock = product.stock-1;
+    //console.log('ID: ',this.idEdit);
+    this.productsService.updateProducts(this.idEdit,{description: product.description, imageUrl:product.imageUrl, price:product.price ,stock:product.stock, storeId: product.storeId, storeName: product.storeName, title: product.title}).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log('ERROR DE SERVIDOR');
+      }
+    );;
     //this.products.= this.product.stock - 1; 
+    
 
 
 
