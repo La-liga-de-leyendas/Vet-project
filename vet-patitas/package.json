@@ -27,6 +27,7 @@
         "@ngrx/effects": "^10.0.0",
         "@ngrx/store": "^10.1.2",
         "firebase": "^8.4.2",
+        "mapbox-gl": "^2.2.0",
         "moment": "^2.29.1",
         "ngx-material-timepicker": "^5.5.3",
         "rxjs": "~6.6.0",
