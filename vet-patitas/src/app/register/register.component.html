@@ -13,7 +13,8 @@
         <mat-card class="example-card">
 
             <mat-card-header>
-                <mat-card-title style="text-align: center; color: #888888; font-weight: bold;">Comienza por ingresar tus datos y verifícalos antes de enviarlos</mat-card-title>
+                <mat-card-title style="text-align: center; color: #888888; font-weight: bold;">Comienza por ingresar tus
+                    datos y verifícalos antes de enviarlos</mat-card-title>
             </mat-card-header>
 
             <mat-card-content style="display: flex; flex-direction: column;">
@@ -24,14 +25,20 @@
                         <div class="label-for-subtitles">Correo Electrónico:</div>
                     </div>
                     <mat-form-field>
-
-
                         <div class="input-details">
-                            <input matInput type="text" required ngModel name="email" #userEmail formControlName="email">
+                            <input matInput type="email" required ngModel name="email" #userEmail
+                                formControlName="email" class="form-input-field" email
+                                pattern="^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+\.)+[A-Z]{2,}$">
                         </div>
-
-
+                
                     </mat-form-field>
+
+ <!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
+                    <div *ngIf="userEmail.invalid " class="alert alert-danger">
+                        <div *ngIf="userForm.get('email').hasError('required')">Se requiere un Email</div>
+                        <div *ngIf="userForm.get('email').hasError('email')">Email Inválido </div>
+                    </div>
+ <!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
 
                     <!--PASSWORD-->
                     <div class="input-group-append">
@@ -40,20 +47,48 @@
                     </div>
                     <mat-form-field>
                         <div class="input-details">
-                            <input matInput type="password" required name="password" ngModel #userPwd formControlName="password">
+                            <input matInput type="password" 
+                            required ngModel name="password" #userPwd
+                            formControlName="password"
+                            class = "form-input-field"
+                            minlength="6"
+                            >
                         </div>
                     </mat-form-field>
+
+ <!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
+                    <div *ngIf="userPwd.invalid && (userPwd.touched || userPwd.dirty)" class="alert alert-danger">
+                        <div *ngIf="userForm.get('password').hasError('required')">Se requiere una contraseña</div>
+                        <div *ngIf="userForm.get('password').hasError('minlength')">Contraseña demasiado corta</div>
+                    </div>
+ <!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
 
                     <!--CELULAR-->
                     <div class="input-group-append">
                         <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
                         <div class="label-for-subtitles">Celular:</div>
                     </div>
+
                     <mat-form-field>
-                        <div class="input-details" >
-                            <input matInput type="number" required name="celular" ngModel formControlName="cellphone">
+                        <div class="input-details">
+
+                            <input matInput type="number" 
+                            required ngModel name="celular" #phoneNumber
+                            formControlName="cellphone"
+                            class ="form-input-field"
+                            minlength="7"
+                            maxlength="9"                            
+                            >
                         </div>
                     </mat-form-field>
+
+ <!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
+                    <div *ngIf="phoneNumber.invalid && (phoneNumber.touched || phoneNumber.dirty)" class="alert alert-danger">
+                        <div *ngIf="userForm.get('cellphone').hasError('required')">Se requiere un celular para contacto</div>
+                        <div *ngIf="userForm.get('cellphone').hasError('minlength')">Este número no es válido</div>
+                        <div *ngIf="userForm.get('cellphone').hasError('maxlength')">Este número no es válido</div>
+                    </div>
+ <!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
 
                     <!--DIRECCION-->
                     <div class="input-group-append">
@@ -62,16 +97,29 @@
                     </div>
                     <mat-form-field>
                         <div class="input-details">
-                            <input matInput type="text" required name="direccion" ngModel formControlName="address">
+                            <input matInput type="text" 
+                            required ngModel name="direccion" #userAddress
+                            formControlName="address"
+                            class="form-input-field"
+                            maxlength="140"
+                            >
                         </div>
                     </mat-form-field>
+
+<!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
+                    <div *ngIf="userAddress.invalid && (userAddress.touched || userAddress.dirty)" class="alert alert-danger">
+                        <div *ngIf="userForm.get('userAddress').hasError('required')">Se requiere una dirección</div>
+                    </div>
+<!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
+
                 </form>
 
             </mat-card-content>
             <mat-card-actions>
 
                 <div class="formGroup d-flex justify-content-center mt-3 login_container">
-                    <button type="button" name="button" class="btn login_btn" value="Sign Up" mat-button (click)="register_service.SignUp(userEmail.value, userPwd.value); onEnviar2();">Registrarse</button>
+                    <button type="button" name="button" class="btn login_btn" value="Sign Up" mat-button
+                        (click)="register_service.SignUp(userEmail.value, userPwd.value); onEnviar2();">Registrarse</button>
                 </div>
             </mat-card-actions>
         </mat-card>

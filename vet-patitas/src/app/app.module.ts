@@ -5,7 +5,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PagesModule } from './pages/pages.module';
@@ -19,6 +18,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { RegisterauthService } from './shared/services/registerauth.service';
+import { PreviousRouteService } from './shared/services/previous-route.service';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './core';
 import { VerifyMailGuard } from './shared/guards/verify-mail.guard';
@@ -66,6 +66,7 @@ const routes: Routes = [
   providers: [
     AuthService,
     RegisterauthService,
+    PreviousRouteService,
     VerifyMailGuard,
     AuthGuard,
     {
