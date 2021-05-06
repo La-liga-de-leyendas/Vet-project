@@ -184,4 +184,6 @@ export class MyVetServicesComponent implements OnInit {
     this.productUpdateSubs ? this.productUpdateSubs.unsubscribe() : '';
   }
 
+
+
 }

@@ -10,7 +10,7 @@ import { AddVetService } from './store/home.actions';
   styleUrls: ['./vet-services.component.scss']
 })
 
-export class VetServicesComponent implements OnDestroy, AfterContentInit {
+export class VetServicesComponent implements OnDestroy,  OnInit {
 
   vets = [];
   vetsSubs: Subscription;
@@ -25,7 +25,7 @@ export class VetServicesComponent implements OnDestroy, AfterContentInit {
 
   constructor(private vetServicesService: VetServicesService, private store: Store<any>) { }
 
-  ngAfterContentInit():void {
+  ngOnInit():void {
 
     this.home2Subs = this.store.select(s => s.home2).subscribe(res => {
       console.log('VET', res);
@@ -52,7 +52,12 @@ export class VetServicesComponent implements OnDestroy, AfterContentInit {
     this.stock = vetservice.stock;
     console.log('cantidad: ', vetservice);
     this.index = vetservice.id;*/
+    console.log('cantidadaaa: ', vetservice.date);
+    this.hola(vetservice);
+  }
 
+  hola(date) {
+    localStorage.setItem('date', date);
   }
 
 }
