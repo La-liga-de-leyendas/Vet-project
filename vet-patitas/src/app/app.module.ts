@@ -22,6 +22,7 @@ import { PreviousRouteService } from './shared/services/previous-route.service';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './core';
 import { VerifyMailGuard } from './shared/guards/verify-mail.guard';
+import { DateformatPipe } from './shared/pipes/dateformat.pipe';
 
 
 
@@ -45,7 +46,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DateformatPipe
   ],
   imports: [
     BrowserModule,

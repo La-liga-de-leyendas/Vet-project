@@ -9,13 +9,16 @@
         <div style="display : flex; flex-direction: column;">
             <form [formGroup]="productForm">
 
+
+
+
                 <mat-form-field>
-                    <mat-label>Title</mat-label>
+                    <mat-label>Título</mat-label>
                     <input matInput formControlName="title" type="text">
                 </mat-form-field>
 
                 <mat-form-field>
-                    <mat-label>Description</mat-label>
+                    <mat-label>Descripción</mat-label>
                     <input matInput formControlName="description" type="text">
                 </mat-form-field>
 
@@ -37,7 +40,7 @@
 
 
                 <mat-form-field>
-                    <mat-label>ImageURL</mat-label>
+                    <mat-label>ImageUrl</mat-label>
                     <input matInput formControlName="imageUrl" type="text">
                 </mat-form-field>
 
@@ -51,7 +54,7 @@
                 </mat-form-field>
 
                 <mat-form-field>
-                    <mat-label>Hour</mat-label>
+                    <mat-label>Hora</mat-label>
                     <input [ngxTimepicker]="picker" matInput formControlName="hour" readonly>
                     <ngx-material-timepicker #picker></ngx-material-timepicker>
                 </mat-form-field>
@@ -60,10 +63,6 @@
                     <mat-label>Stock</mat-label>
                     <input matInput formControlName="stock" type="text">
                 </mat-form-field>
-
-
-
-
 
             </form>
 

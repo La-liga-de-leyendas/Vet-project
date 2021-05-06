@@ -10,12 +10,12 @@ import { AddProduct } from './store/home.actions';
   styleUrls: ['./products.component.scss']
 })
 
-export class ProductsComponent implements AfterContentInit, OnDestroy {
+export class ProductsComponent implements OnInit, OnDestroy {
 
   products = [];
   productSubs: Subscription;
   homeSubs: Subscription;
-  
+
 
   cart = [];
   idEdit: any;
@@ -26,7 +26,7 @@ export class ProductsComponent implements AfterContentInit, OnDestroy {
   lastValue = 0;
   constructor(private productsService: ProductsService, private store: Store<any>) { }
 
-  ngAfterContentInit(): void {
+  ngOnInit(): void {
 
     this.homeSubs = this.store.select(s => s.home).subscribe(res => {
       //console.log('HOMEEEEEEE', res);
@@ -42,14 +42,14 @@ export class ProductsComponent implements AfterContentInit, OnDestroy {
 
   }
 
-  
+
 
   totalPricesProducts() {
 
     return this.pricesProductsFinal;
   }
 
-  
+
   ngOnDestroy(): void {
     // tslint:disable-next-line: no-unused-expression
     this.productSubs ? this.productSubs.unsubscribe() : '';
@@ -69,8 +69,8 @@ export class ProductsComponent implements AfterContentInit, OnDestroy {
         console.log('ERROR DE SERVIDOR');
       }
     );;
-    //this.products.= this.product.stock - 1; 
-    
+    //this.products.= this.product.stock - 1;
+
 
 
 

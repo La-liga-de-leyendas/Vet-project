@@ -19,4 +19,12 @@ export class UserService {
   public addUsers(user: any): Observable<any> {
     return this.http.post(`${this.url}/users.json`, user);
   }
+
+  public getIdUser(id: any): Observable<any> {
+    return this.http.get(`${this.url}/users.json?orderBy="uui"&equalTo="${id}"&print=pretty`);
+  }
+
+  public updateProducts(id: any, product: any): Observable<any> {
+    return this.http.put(`${this.url}/users/${id}.json`, product);
+  }
 }

@@ -12,15 +12,17 @@
 
             </tr>
         </table>
+
+        <button mat-button style="background-color: #66e0ad;" (click)="onUpdateProduct()">Confirmar</button>
     </mat-drawer>
 
-    <section id="hero" class="hero d-flex align-items-center" style="background-color: #FEEDEF;" >
+    <section id="hero" class="hero d-flex align-items-center" style="background-color: #FEEDEF;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
                     <img src="../../assets/images/service-page.svg" class="img-fluid" alt="">
                 </div>
-                
+
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
                     <i class="fas fa-briefcase-medical" style="font-size: 100px; color: #CEAC2C; padding-right: 20px;"></i>
                     <h1>Veterinarias</h1>
@@ -30,56 +32,56 @@
                 </div>
             </div>
         </div>
-    
+
     </section>
-    
+
     <section id="hero" class="values" style="background-color: #FEEDEF;">
         <div style="font-size: 40px; padding-left: 30px;">
             + 100 VETERINARIAS
         </div>
-            <div class="row">
-                <div class="col-lg-3 mt-3 mt-lg-0">
-                    <div class="box" data-aos="fade-up" data-aos-delay="200">
-                        <img src="../../assets/images/Veterinarias/safari.png" class="" alt="login" width="200" height="200">
-                    </div>
+        <div class="row">
+            <div class="col-lg-3 mt-3 mt-lg-0">
+                <div class="box" data-aos="fade-up" data-aos-delay="200">
+                    <img src="../../assets/images/Veterinarias/safari.png" class="" alt="login" width="200" height="200">
                 </div>
-    
-                <div class="col-lg-3 mt-3 mt-lg-0">
-                    <div class="box" data-aos="fade-up" data-aos-delay="400">
-                        <img src="../../assets/images/Veterinarias/canito.jpg" class="" alt="login" width="250" height="200">
-                    </div>
-                </div>
-    
-                <div class="col-lg-3 mt-3 mt-lg-0">
-                    <div class="box" data-aos="fade-up" data-aos-delay="600">
-                        <img src="../../assets/images/Veterinarias/hocico.jpg" class="" alt="login" width="200" height="200">
-                    </div>
-                </div>
-    
-                <div class="col-lg-3 mt-3 mt-lg-0">
-                    <div class="box" data-aos="fade-up" data-aos-delay="600">
-                        <img src="../../assets/images/Veterinarias/semevet.jpg" class="" alt="login" width="200" height="200">
-                    </div>
-                </div>
-    
             </div>
-            <p></p>
-            
-            <div style="text-align: center; margin-bottom: 2%; ">
-                <h2>Agenda la cita para tu mascota a la hora que más te convenga</h2>
-                <h3>muchas de nuestras veterinarias ofrecen servicios a domicilio</h3>
+
+            <div class="col-lg-3 mt-3 mt-lg-0">
+                <div class="box" data-aos="fade-up" data-aos-delay="400">
+                    <img src="../../assets/images/Veterinarias/canito.jpg" class="" alt="login" width="250" height="200">
+                </div>
             </div>
-    
-            <div style="text-align: center;">
-                <button class="btn btn-outline-success" style="background: #CEAC2C; font-size:150%; padding:1%;" mat-button (click)="drawer.toggle()">
+
+            <div class="col-lg-3 mt-3 mt-lg-0">
+                <div class="box" data-aos="fade-up" data-aos-delay="600">
+                    <img src="../../assets/images/Veterinarias/hocico.jpg" class="" alt="login" width="200" height="200">
+                </div>
+            </div>
+
+            <div class="col-lg-3 mt-3 mt-lg-0">
+                <div class="box" data-aos="fade-up" data-aos-delay="600">
+                    <img src="../../assets/images/Veterinarias/semevet.jpg" class="" alt="login" width="200" height="200">
+                </div>
+            </div>
+
+        </div>
+        <p></p>
+
+        <div style="text-align: center; margin-bottom: 2%; ">
+            <h2>Agenda la cita para tu mascota a la hora que más te convenga</h2>
+            <h3>muchas de nuestras veterinarias ofrecen servicios a domicilio</h3>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="btn btn-outline-success" style="background: #CEAC2C; font-size:150%; padding:1%;" mat-button (click)="drawer.toggle()">
                     MIS RESERVAS <i class="fas fa-calendar-alt"></i>
                 </button>
-            </div>
+        </div>
     </section>
 
-    <div class="row"  style="padding: 2%; margin: 3%;">
-        <div *ngFor="let vetservice of vets;" class=" col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"style="margin-bottom: 5%;">
-            <mat-card class="example-card"style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%; height: 100%">
+    <div class="row" style="padding: 2%; margin: 3%;">
+        <div *ngFor="let vetservice of vets;" class=" col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="margin-bottom: 5%;">
+            <mat-card class="example-card" style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%; height: 100%">
                 <mat-card-header>
                     <mat-card-title style="font-weight: bolder;">{{vetservice.title}}</mat-card-title>
                     <mat-card-subtitle>Veterinaria: {{vetservice.storeName}}</mat-card-subtitle>
@@ -88,6 +90,9 @@
                 <mat-card-content style="height: 100px; overflow-y: auto;">
                     <p>
                         Servicio: {{vetservice.description}}
+                    </p>
+                    <p>
+                        Fecha: {{vetservice.date | date}}
                     </p>
                     <p>
                         Horario: {{vetservice.hour}} hrs.
