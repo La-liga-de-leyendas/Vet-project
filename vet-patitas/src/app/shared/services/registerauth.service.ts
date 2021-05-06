@@ -41,7 +41,7 @@ export class RegisterauthService {
         });
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert('Parece que este usuario no existe.')
+        window.alert('Parece que esta cuenta no está registrada, verifica las credenciales.')
       })
   }
 
