@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  mapboxKey:'pk.eyJ1Ijoic2NydW1tYXM3M3IiLCJhIjoiY2tvZGNwMDRzMDB4YjJwcG55ZnM3Y2JzdCJ9.veBp1dNJL1FrZdlAUd-sDQ',
   firebase: {
     apiKey: "AIzaSyAUFrEAkZgcxUpviLlbPKx68zaTy6iOa2w",
     authDomain: "vet-website-caa3e.firebaseapp.com",
