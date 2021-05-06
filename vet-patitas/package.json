@@ -26,7 +26,11 @@
         "@ng-bootstrap/ng-bootstrap": "^7.0.0",
         "@ngrx/effects": "^10.0.0",
         "@ngrx/store": "^10.1.2",
+        "@types/jquery": "^3.5.5",
+        "bootstrap": "^5.0.0",
         "firebase": "^8.4.2",
+        "jquery": "^3.5.1",
+        "popper.js": "^1.16.1",
         "rxjs": "~6.6.0",
         "tslib": "^2.0.0",
         "zone.js": "~0.11.3"
