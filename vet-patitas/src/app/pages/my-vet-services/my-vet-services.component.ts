@@ -53,13 +53,13 @@ export class MyVetServicesComponent implements OnInit {
 
 
     this.productForm = this.formBuilder.group({
-      description: ['', [ Validators.required, Validators.minLength(3)]],
-      imageUrl: '',
-      stock: '',
+      description: ['', [ Validators.required, Validators.minLength(10), Validators.maxLength(140)]],
+      imageUrl: ['', [Validators.required, Validators.minLength(5)]], 
+      stock: ['', [Validators.required, Validators.pattern("^[1-9][0-9]*$"), Validators.maxLength(4)]],
       storeId: '',
       date: ['', Validators.required],
-      hour: '',
-      title: ''
+      hour: ['', Validators.required],
+      title: ['', [ Validators.required, Validators.minLength(5), Validators.maxLength(32)]],
     });
 
   }
