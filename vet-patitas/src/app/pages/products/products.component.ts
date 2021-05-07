@@ -33,13 +33,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
       this.cart = Object.assign([], res.items);
     });
 
-
-    this.productSubs = this.productsService.getProducts().subscribe(res => {
+    this.products = [];
+    /*this.productSubs = this.productsService.getProducts().subscribe(res => {
       console.log('respuesta: ', res);
       Object.entries(res).map((p: any) => this.products.push({id: p[0],  ...p[1]}));
+      console.log('productos', this.products.length);
     });
-
-
+    */
   }
 
 
