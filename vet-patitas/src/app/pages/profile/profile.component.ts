@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   infoSpecify = [];
   prueba: any;
   hour = 'hour';
+  getUUI: any;
 
   mapa: mapboxgl.Map;
 
@@ -43,6 +44,14 @@ export class ProfileComponent implements OnInit {
 
       // Add zoom and rotation controls to the map.
       //map.addControl(new mapboxgl.NavigationControl());
+      const iii = localStorage.getItem('userId');
+      console.log('si agarra: ', iii);
+      this.getUser(iii);
+  }
+
+  getUser(identifier){
+    this.getUUI = identifier
+    console.log('solo el uui: ', this.getUUI);
   }
 
   crearMarcador(lng: number, lat: number) {
