@@ -4,12 +4,12 @@
            <div style="display : flex; flex-direction: column;">
             <form [formGroup]="productForm">
                 <!--TÍTULO-->
-                <mat-form-field >
+                <mat-form-field appearance="fill" style="width: 95%">
                     <mat-label>Título</mat-label>
                     <input matInput formControlName="title" type="text" maxlength="32">
                 </mat-form-field>
                 <div *ngIf="productForm.get('title').invalid && (productForm.get('title').touched || productForm.get('title').dirty)"
-                    class="alert alert-danger">
+                    class="alert alert-danger" style="width: 95%">
 
                     <div *ngIf="productForm.get('title').errors.required">
                         Se requiere un título
@@ -25,13 +25,13 @@
                 </div>
 
                 <!--DESCRIPCIÓN-->
-                <mat-form-field>
+                <mat-form-field appearance="fill" style="width: 95%">
                     <mat-label>Descripción</mat-label>
                     <input matInput formControlName="description" type="text" maxlength="140">
                 </mat-form-field>
 
                 <div *ngIf="productForm.get('description').invalid && (productForm.get('description').touched || productForm.get('description').dirty)"
-                    class="alert alert-danger">
+                    class="alert alert-danger " style="width: 95%">
 
                     <div *ngIf="productForm.get('description').errors.required">
                         Se requiere una descripción
@@ -44,12 +44,12 @@
                 </div>
 
                 <!--URL DE UNA IMAGEN-->
-                <mat-form-field>
+                <mat-form-field appearance="fill" style="width: 95%">
                     <mat-label>ImageUrl</mat-label>
                     <input matInput formControlName="imageUrl" type="text">
                 </mat-form-field>
                 <div *ngIf="productForm.get('imageUrl').invalid && (productForm.get('imageUrl').touched || productForm.get('imageUrl').dirty)"
-                    class="alert alert-danger">
+                    class="alert alert-danger" style="width: 95%">
 
                     <div *ngIf="productForm.get('imageUrl').errors.required">
                         Se requiere el enlace a una imagen
@@ -61,7 +61,7 @@
                 </div>
 
                 <!--FECHA-->
-                <mat-form-field appearance="fill">
+                <mat-form-field appearance="fill" style="width: 95%">
                     <mat-label>Fecha de tu cita</mat-label>
                     <input matInput formControlName="date" [matDatepicker]="seStDt" [min]="minDate" [max]="maxDate"
                         disabled>
@@ -72,7 +72,7 @@
                 </mat-form-field>
   <!------------------------------VALIDACIÓN DE FECHA------------------------->
                 <div *ngIf="productForm.get('date').invalid && (productForm.get('date').touched || productForm.get('date').dirty)"
-                    class="alert alert-danger">
+                    class="alert alert-danger" style="width: 95%">
 
                     <div *ngIf="productForm.get('date').errors.required">
                         Se requiere una fecha para reservar
@@ -81,25 +81,25 @@
    <!------------------------------VALIDACIÓN DE FECHA------------------------->
 
                 <!--HORA-->
-                <mat-form-field>
+                <mat-form-field appearance="fill" style="width: 95%">
                     <mat-label>Hora</mat-label>
                     <input [ngxTimepicker]="picker" matInput formControlName="hour" readonly>
                     <ngx-material-timepicker #picker></ngx-material-timepicker>
                 </mat-form-field>
                 <div *ngIf="productForm.get('hour').invalid && (productForm.get('hour').touched || productForm.get('hour').dirty)"
-                    class="alert alert-danger">
+                    class="alert alert-danger" style="width: 95%">
 
                     <div *ngIf="productForm.get('hour').errors.required">
                         Se requiere una hora para reservar
                     </div>
                 </div>
                 <!--STOCK-->
-                <mat-form-field>
+                <mat-form-field appearance="fill" style="width: 95%">
                     <mat-label>Stock</mat-label>
                     <input matInput formControlName="stock" type="text" maxlength="4">
                 </mat-form-field>
                 <div *ngIf="productForm.get('stock').invalid && (productForm.get('stock').touched || productForm.get('stock').dirty)"
-                class="alert alert-danger">
+                class="alert alert-danger" style="width: 95%">
 
                 <div *ngIf="productForm.get('stock').errors.required">
                     Se requiere una cantidad de stock
@@ -112,10 +112,10 @@
             </form>
 
         </div>
-
+<div style="margin-bottom: 20%; margin-left: 13%;">
         <button mat-button style="background-color: #CEAC2C; margin-right: 5%;" (click)="onEnviar2();">CREAR</button>
         <button mat-button style="background-color: #CEAC2C;" (click)="onUpdateProduct()">EDITAR</button>
-
+    </div>
     </mat-drawer>
 
     <div style="text-align: center; padding: 4%; ">
@@ -145,8 +145,8 @@
                 </mat-card-content>
             </div>
                 <mat-card-actions>
-                <div style=" bottom: 5%; cursor: pointer; display: block; text-align: center;">
-                    <button mat-button style="background-color: #e2d37c;  border-radius: 15px; margin: 3%;"
+                <div style=" bottom: 5%; cursor: pointer; display: block; text-align: center; ">
+                    <button mat-button style="background-color: #e2d37c;  border-radius: 15px; margin: 3%; "
                         (click)="onEdit(product); drawer.toggle()">EDITAR</button>
                     <button mat-button style="background-color: #e2d37c; border-radius: 15px;  margin: 3%;"
                         (click)="onDelete(product.id)">ELIMINAR</button>
