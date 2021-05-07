@@ -18,10 +18,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
-      email: ['', [ Validators.required , Validators.maxLength(32), Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
-      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(24)]],
+      email: ['', [ Validators.required , Validators.maxLength(31), Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(23)]],
       cellphone: ['', [Validators.required, Validators.pattern("^[6-7][0-9]*$")]],
-      address: ['', [Validators.required, Validators.maxLength(100)]],
+      address: ['', [Validators.required, Validators.maxLength(95)]],
      });
   }
 
