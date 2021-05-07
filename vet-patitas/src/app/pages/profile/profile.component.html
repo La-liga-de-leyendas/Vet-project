@@ -13,12 +13,28 @@
             </div>-->
         </div>
         <div id="mapa-mapbox"></div>
-        <div class="media" style="margin-top: 80px;">
-            <h2 style="text-align: center;"><strong> Tu historial de reservas:</strong></h2>
-            <div *ngFor="let reserve of infoSpecify; let i = index;">
-                <p>Servicio: {{i}} luego {{reserve[i]}}</p>
-            </div>
-            <h1></h1>
-        </div>
+
     </div>
 </section>
+
+<div style="margin-top: 80px;">
+    <h2 style="text-align: center;"><strong> Tu historial de reservas:</strong></h2>
+    <div *ngFor="let reserve of infoSpecify | keyvalue;">
+        <!--Key: <br>{{reserve.key}} and Value: <br>{{reserve.value | json}}-->
+        <div *ngFor="let pru of reserve.value | keyvalue;">
+            <!--Keyaaaaaa: <br>{{pru.key}} and Valueaaa: <br>{{pru.value | json}}-->
+            <table style="font-weight: bold; margin-right: 10px; margin-bottom: 30px; margin-left: 15px;">
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr *ngFor="let item of pru.value | keyvalue;">
+                    <td>{{item.key}}</td>
+                    <td>{{item.value}}</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <h1></h1>
+</div>

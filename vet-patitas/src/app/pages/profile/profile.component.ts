@@ -19,6 +19,7 @@ export class ProfileComponent implements OnInit {
   infoAll = [];
   infoSpecify = [];
   prueba: any;
+  hour = 'hour';
 
   mapa: mapboxgl.Map;
 
@@ -27,6 +28,7 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
+    this.loadInfo();
       (mapboxgl as any).accessToken = environment.mapboxKey;
       this.mapa = new mapboxgl.Map({
           container: 'mapa-mapbox', // container id
