@@ -13,32 +13,40 @@
         <mat-card class="example-card">
 
             <mat-card-header>
-                <mat-card-title style="text-align: center; color: #888888; font-weight: bold;">Comienza por ingresar tus
+                <mat-card-title style="text-align: center; color: #888888; font-weight: bold; ">Comienza por ingresar tus
                     datos y verifícalos antes de enviarlos</mat-card-title>
             </mat-card-header>
 
             <mat-card-content style="display: flex; flex-direction: column;">
                 <form [formGroup]="userForm" style="display: flex; flex-direction: column;">
-                    <!--NOMBRE DE USUARIO-->
+                    <!--EMAIL-->
                     <div class="input-group-append">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                         <div class="label-for-subtitles">Correo Electrónico:</div>
                     </div>
                     <mat-form-field>
+
                         <div class="input-details">
                             <input matInput type="email" required ngModel name="email" #userEmail
-                                formControlName="email" class="form-input-field" email
-                                pattern="^[A-Z0-9._%+-]+@(?:[A-Z0-9-]+\.)+[A-Z]{2,}$">
+                                formControlName="email" maxlength="32">
                         </div>
-                
                     </mat-form-field>
 
- <!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
-                    <div *ngIf="userEmail.invalid " class="alert alert-danger">
-                        <div *ngIf="userForm.get('email').hasError('required')">Se requiere un Email</div>
-                        <div *ngIf="userForm.get('email').hasError('email')">Email Inválido </div>
+                    <div *ngIf="userForm.get('email').invalid && (userForm.get('email').touched || userForm.get('email').dirty)"
+                        class="alert alert-danger">
+
+                        <div *ngIf="userForm.get('email').errors.required">
+                            Email requerido
+                        </div>
+
+                        <div *ngIf="userForm.get('email').errors.maxlength">
+                            Email demasiado largo
+                        </div>
+
+                        <div *ngIf="userForm.get('email').errors.pattern">
+                            Email inválido
+                        </div>
                     </div>
- <!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
 
                     <!--PASSWORD-->
                     <div class="input-group-append">
@@ -47,49 +55,49 @@
                     </div>
                     <mat-form-field>
                         <div class="input-details">
-                            <input matInput type="password" 
-                            required ngModel name="password" #userPwd
-                            formControlName="password"
-                            class = "form-input-field"
-                            minlength="6"
-                            >
+                            <input matInput type="password" required name="password" ngModel #userPwd
+                                formControlName="password" maxlength="24">
                         </div>
                     </mat-form-field>
 
- <!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
-                    <div *ngIf="userPwd.invalid && (userPwd.touched || userPwd.dirty)" class="alert alert-danger">
-                        <div *ngIf="userForm.get('password').hasError('required')">Se requiere una contraseña</div>
-                        <div *ngIf="userForm.get('password').hasError('minlength')">Contraseña demasiado corta</div>
+                    <div *ngIf="userForm.get('password').invalid && (userForm.get('password').touched || userForm.get('password').dirty)"
+                        class="alert alert-danger">
+
+                        <div *ngIf="userForm.get('password').errors.required">
+                            Contraseña requerida
+                        </div>
+
+                        <div *ngIf="userForm.get('password').errors.maxlength">
+                            Esta contraseña es demasiado larga
+                        </div>
+
+                        <div *ngIf="userForm.get('password').errors.minlength">
+                            La contraseña debe tener al menos 6 caracteres
+                        </div>
                     </div>
- <!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
 
                     <!--CELULAR-->
                     <div class="input-group-append">
                         <span class="input-group-text"><i class="fas fa-mobile-alt"></i></span>
                         <div class="label-for-subtitles">Celular:</div>
                     </div>
-
                     <mat-form-field>
                         <div class="input-details">
-
-                            <input matInput type="text" 
-                            required ngModel name="celular" #phoneNumber
-                            formControlName="cellphone"
-                            class ="form-input-field"
-                            minlength="7"
-                            maxlength="9"                            
-                            pattern="/^[0-9]*$/"
-                            >
+                            <input matInput type="text" required name="celular" ngModel formControlName="cellphone" maxlength="8">
                         </div>
                     </mat-form-field>
 
- <!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
-                    <div *ngIf="phoneNumber.invalid && (phoneNumber.touched || phoneNumber.dirty)" class="alert alert-danger">
-                        <div *ngIf="userForm.get('cellphone').hasError('required')">Se requiere un celular para contacto</div>
-                        <div *ngIf="userForm.get('cellphone').hasError('minlength')">Este número no es válido</div>
-                        <div *ngIf="userForm.get('cellphone').hasError('maxlength')">Este número no es válido</div>
+                    <div *ngIf="userForm.get('cellphone').invalid && (userForm.get('cellphone').touched || userForm.get('cellphone').dirty)"
+                    class="alert alert-danger">
+
+                    <div *ngIf="userForm.get('cellphone').errors.required">
+                        Teléfono celular requerido
                     </div>
- <!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
+                    
+                    <div *ngIf="userForm.get('cellphone').errors.pattern">
+                        Parece que este número no es válido en Bolivia
+                    </div>
+                </div>
 
                     <!--DIRECCION-->
                     <div class="input-group-append">
@@ -98,38 +106,34 @@
                     </div>
                     <mat-form-field>
                         <div class="input-details">
-                            <input matInput type="text" 
-                            required ngModel name="direccion" #userAddress
-                            formControlName="address"
-                            class="form-input-field"
-                            maxlength="140"
-                            >
+                            <input matInput type="text" required name="direccion" ngModel formControlName="address" maxlength="96">
                         </div>
                     </mat-form-field>
 
-<!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
-                    <div *ngIf="userAddress.invalid && (userAddress.touched || userAddress.dirty)" class="alert alert-danger">
-                        <div *ngIf="userForm.get('userAddress').hasError('required')">Se requiere una dirección</div>
+                    <div *ngIf="userForm.get('address').invalid && (userForm.get('address').touched || userForm.get('address').dirty)"
+                    class="alert alert-danger">
+
+                    <div *ngIf="userForm.get('address').errors.required">
+                        Dirección requerida
                     </div>
-<!--------------------------------------- Mensaje que no aparece :( --------------------------------------->
+                    
+                    <div *ngIf="userForm.get('address').errors.maxlength">
+                        Esta dirección es demasiado larga
+                    </div>
+                </div>
 
                 </form>
 
             </mat-card-content>
             <mat-card-actions>
 
-                <div class="formGroup d-flex justify-content-center mt-3 login_container">
+                <div class="formGroup d-flex justify-content-center mt-3 login_container" style="margin-bottom: 5%;">
                     <button type="button" name="button" class="btn login_btn" value="Sign Up" mat-button
                         (click)="register_service.SignUp(userEmail.value, userPwd.value); onEnviar2();">Registrarse</button>
                 </div>
             </mat-card-actions>
         </mat-card>
 
-
-
-
-
         <router-outlet></router-outlet>
 
     </div>
-</div>

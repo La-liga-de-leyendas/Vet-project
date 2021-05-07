@@ -10,7 +10,6 @@ import { User } from  './user';
 })
 export class RegisterauthService {
   user: User;
-
   userState: any;
 
   constructor(
@@ -41,7 +40,7 @@ export class RegisterauthService {
         });
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert('Existe un problema con estas credenciales, verifica que sean correctas y estén validadas.')
+        window.alert('Parece que esta cuenta no está registrada, verifica las credenciales.')
       })
   }
 
@@ -77,7 +76,7 @@ export class RegisterauthService {
     .then(() => {
       window.alert('Gracias por verificar tu correo con el enlace en tu bandeja de entrada.')
       this.router.navigate(['login']);
-      setTimeout(() =>
+      setTimeout(() => 
 {
   window.location.reload();
 },
