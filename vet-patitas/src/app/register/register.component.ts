@@ -25,16 +25,16 @@ export class RegisterComponent implements OnInit {
   }
 
   onEnviar2(): void {
-    console.log('FORM GROUP: ', this.userForm.value);
+    //console.log('FORM GROUP: ', this.userForm.value);
 
     this.userAddSubs = this.users_service.addUsers({
       ...this.userForm.value
     }
   ).subscribe(res => {
-    console.log('RSPUESTA: ', res);
+    //console.log('RSPUESTA: ', res);
   },
     err => {
-      console.log('ERROR DE SERVIDOR');
+     // console.log('ERROR DE SERVIDOR');
     }
   );
   }
