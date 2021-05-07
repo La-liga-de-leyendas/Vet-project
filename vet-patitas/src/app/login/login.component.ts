@@ -9,6 +9,7 @@ import { RegisterauthService } from '../shared/services/registerauth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  
   hide = true;
   constructor(private router: Router, private authService: AuthService, public ngAuthService: RegisterauthService) { }
 
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(form: any): void{
-    console.log('FORM: ', form.value);
+    //console.log('FORM: ', form.value);
 
     this.authService.login({
       email: form.value.email,
@@ -27,18 +28,18 @@ export class LoginComponent implements OnInit {
       returnSecureToken: true
     }).subscribe(
       res => {
-        console.log('LOGIN RESPONSE: ', res);
+        //console.log('LOGIN RESPONSE: ', res);
         //this.router.navigate(['pages']);
         //this.ngAuthService.SignIn(form.value.email, form.value.password);
       },
       err => {
-        console.log('ERRRROOOOOOOR');
+        //console.log('ERRRROOOOOOOR');
       }
     );
   }
 
   onLogin2(form): void{
-    console.log('VARIABLE LOCAL FORM: ', form.value);
+    //console.log('VARIABLE LOCAL FORM: ', form.value);
     this.router.navigate(['pages']);
   }
 
