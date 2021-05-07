@@ -113,8 +113,8 @@
 
         </div>
 <div style="margin-bottom: 20%; margin-left: 13%;">
-        <button mat-button style="background-color: #CEAC2C; margin-right: 5%;" (click)="onEnviar2();">CREAR</button>
-        <button mat-button style="background-color: #CEAC2C;" (click)="onUpdateProduct()">EDITAR</button>
+        <button mat-button [disabled]="!productForm.valid" style="background-color: #CEAC2C; margin-right: 5%;" (click)="onEnviar2();">CREAR</button>
+        <button mat-button [disabled]="!productForm.valid" style="background-color: #CEAC2C;" (click)="onUpdateProduct()">EDITAR</button>
     </div>
     </mat-drawer>
 
@@ -147,7 +147,7 @@
                 <mat-card-actions>
                 <div style=" bottom: 5%; cursor: pointer; display: block; text-align: center; ">
                     <button mat-button style="background-color: #e2d37c;  border-radius: 15px; margin: 3%; "
-                        (click)="onEdit(product); drawer.toggle()">EDITAR</button>
+                        (click)="onEdit(product); drawer.toggle()" >EDITAR</button>
                     <button mat-button style="background-color: #e2d37c; border-radius: 15px;  margin: 3%;"
                         (click)="onDelete(product.id)">ELIMINAR</button>
                     </div>
