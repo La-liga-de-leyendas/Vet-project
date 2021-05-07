@@ -45,12 +45,10 @@
 .example-card {
     height: 90%;
     width: 50%;
-    margin-top: 18px;
-    margin-left: 100px;
-    margin-bottom: auto;
+    margin:5%;
     background: #fff;
     position: relative;
-    display: flex;
+    display: table;
     justify-content: center;
     flex-direction: column;
     padding: 10px;
