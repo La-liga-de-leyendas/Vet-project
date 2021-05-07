@@ -31,14 +31,15 @@ export class ProfileComponent implements OnInit {
       this.mapa = new mapboxgl.Map({
           container: 'mapa-mapbox', // container id
           style: 'mapbox://styles/mapbox/streets-v11',
-          center: [-68.1292579, -16.5752089], // LNG, LAT
+          center: [-68.1264728, -16.4969383], // LNG, LAT
           zoom: 16.6 // starting zoom
       });
 
-      this.crearMarcador(-68.1292579, -16.5752089);this.crearMarcador2(-68.1252055, -16.497047);
+      this.crearMarcador(-68.1264728, -16.4969383);
+      this.crearMarcador2(-68.1252055, -16.497047);
       this.crearMarcador2(-68.1245081, -16.4967384);
       this.crearMarcador2(-68.1243633, -16.4970573);
-
+      this.crearMarcador2(-68.1249861, -16.4971132);
 
 
       // Add zoom and rotation controls to the map.
@@ -63,15 +64,15 @@ export class ProfileComponent implements OnInit {
 
   crearMarcador2(lng: number, lat: number) {
 
-    const marker1 = new mapboxgl.Marker({
+    const marker2 = new mapboxgl.Marker({
       color: "#FF0000",  
       draggable:true
     })
     .setLngLat([lng, lat])
     .addTo(this.mapa);
 
-    marker1.on('drag',()=>{
-        console.log(marker1.getLngLat())
+    marker2.on('drag',()=>{
+        console.log(marker2.getLngLat())
 
     })
     
