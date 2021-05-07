@@ -35,7 +35,9 @@ export class ProfileComponent implements OnInit {
           zoom: 16.6 // starting zoom
       });
 
-      this.crearMarcador(-68.1292579, -16.5752089);
+      this.crearMarcador(-68.1292579, -16.5752089);this.crearMarcador2(-68.1252055, -16.497047);
+      this.crearMarcador2(-68.1245081, -16.4967384);
+      this.crearMarcador2(-68.1243633, -16.4970573);
 
 
 
@@ -46,7 +48,8 @@ export class ProfileComponent implements OnInit {
   crearMarcador(lng: number, lat: number) {
 
     const marker1 = new mapboxgl.Marker({
-        draggable:true
+      color: "#000000",  
+      draggable:true
     })
     .setLngLat([lng, lat])
     .addTo(this.mapa);
@@ -55,6 +58,23 @@ export class ProfileComponent implements OnInit {
         console.log(marker1.getLngLat())
 
     })
+    
+  }
+
+  crearMarcador2(lng: number, lat: number) {
+
+    const marker1 = new mapboxgl.Marker({
+      color: "#FF0000",  
+      draggable:true
+    })
+    .setLngLat([lng, lat])
+    .addTo(this.mapa);
+
+    marker1.on('drag',()=>{
+        console.log(marker1.getLngLat())
+
+    })
+    
   }
 
   loadInfo(): void {
