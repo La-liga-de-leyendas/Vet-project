@@ -129,12 +129,13 @@
         <div *ngFor="let product of products" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" 
             style="margin-bottom: 5%;">
             <mat-card class="example-card text-black bg-primary123 mb-3" style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%; height: 100%">
+                <div style="height: 80%;">
                 <mat-card-header>
                     <mat-card-title>{{product.title}}</mat-card-title>
                     <mat-card-subtitle>{{product.price}} Bs.</mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image [src]="product.imageUrl" alt="Foto de Servicio" style="height: 260px;">
-                <mat-card-content style="height: 100px; overflow-y: auto;">
+                <mat-card-content style="height: 120px; overflow-y: auto;">
                     <p>
                         Descripción: {{product.description}}
                     </p>
@@ -142,6 +143,7 @@
                         Stock: {{product.stock}}
                     </p>
                 </mat-card-content>
+            </div>
                 <mat-card-actions>
                 <div style=" bottom: 5%; cursor: pointer; display: block; text-align: center;">
                     <button mat-button style="background-color: #e2d37c;  border-radius: 15px; margin: 3%;"
