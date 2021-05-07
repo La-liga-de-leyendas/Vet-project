@@ -13,5 +13,12 @@
             </div>-->
         </div>
         <div id="mapa-mapbox"></div>
+        <div class="media" style="margin-top: 80px;">
+            <h2 style="text-align: center;"><strong> Tu historial de reservas:</strong></h2>
+            <div *ngFor="let reserve of infoSpecify; let i = index;">
+                <p>Servicio: {{i}} luego {{reserve[i]}}</p>
+            </div>
+            <h1></h1>
+        </div>
     </div>
 </section>

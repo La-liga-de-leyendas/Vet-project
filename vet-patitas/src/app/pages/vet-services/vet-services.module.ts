@@ -10,6 +10,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
+import { DateformatPipe } from 'src/app/shared/pipes/dateformat.pipe';
+import { UserService } from 'src/app/shared/services/user.service';
 
 const routes: Routes = [
   { path: '', component: VetServicesComponent }
@@ -32,7 +34,9 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   providers: [
-    VetServicesService
+    VetServicesService,
+    DateformatPipe,
+    UserService
   ]
 })
 export class VetServicesModule { }

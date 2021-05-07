@@ -13,6 +13,7 @@ import { VetServicesService } from 'src/app/shared/services/vetservices.service'
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { VetsService } from 'src/app/shared/services/vets.service';
 
 const routes: Routes = [
   {path: '', component: MyVetServicesComponent}
@@ -38,7 +39,8 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   providers: [
-    VetServicesService
+    VetServicesService,
+    VetsService
   ]
 })
 export class MyVetServicesModule { }

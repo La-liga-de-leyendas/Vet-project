@@ -14,6 +14,7 @@ export const initialState: HomeState = {
 const featureReducer = createReducer(
   initialState,
   on(AddVetService, (state, {vetservice}) => ({...state, items: state.items.concat([vetservice])}))
+
 );
 
 export function reducer(state: HomeState, action: Action): any {
