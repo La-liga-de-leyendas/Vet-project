@@ -72,12 +72,13 @@
                     <mat-form-field>
                         <div class="input-details">
 
-                            <input matInput type="number" 
+                            <input matInput type="text" 
                             required ngModel name="celular" #phoneNumber
                             formControlName="cellphone"
                             class ="form-input-field"
                             minlength="7"
                             maxlength="9"                            
+                            pattern="/^[0-9]*$/"
                             >
                         </div>
                     </mat-form-field>
