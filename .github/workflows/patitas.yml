@@ -16,7 +16,7 @@ jobs:
     - run: npm install -g @angular/cli > /dev/null
     - run: ng build --prod --output-path=dist --base-href="https://github.com/La-liga-de-leyendas/Vet-project"
     - name: Publish generated content to GitHub Pages
-      uses: tsunematsu21/actions-publish-gh-pages@v1.0.1
+      uses: La-liga-de-leyendas/actions-publish-gh-pages@v1.0.1
       with:
           dir: dist
           branch: gh-pages
