@@ -1,23 +1,47 @@
 name: patitas build
-on:
+on: 
   push:
-    branches: [ master ]
+    branches: 
+      - master
+  pull_request:
+    branches: 
+      - master
 jobs:
-  build:
+  ubuntu-build:
+
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [12.x]
+
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1 #this will install Node and npm on Ubuntu
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
       with:
-        node-version: '12.x'
-    - run:  cd .\vet-patitas\
+        node-version: ${{ matrix.node-version }}
     - run: npm install
-    - run: npm install -g @angular/cli > /dev/null
-    - run: ng build --prod --output-path=dist --base-href="https://github.com/La-liga-de-leyendas/Vet-project"
-    - name: Publish generated content to GitHub Pages
-      uses: La-liga-de-leyendas/actions-publish-gh-pages@v1.0.1
+    - run: npm run build
+    - run: npm test
+      env:
+        CI: true
+  windows-build:
+
+    runs-on: windows-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
       with:
-          dir: dist
-          branch: gh-pages
-          token: ${{ secrets.ACCESS_TOKEN }}
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - run: npm run build
+    - run: npm test
+      env:
+        CI: true
