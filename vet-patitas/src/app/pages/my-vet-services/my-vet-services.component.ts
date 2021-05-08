@@ -70,18 +70,18 @@ export class MyVetServicesComponent implements OnInit {
     const userId = this.authService.getUserId();
     this.vetStoreNameGetSubs = this.vetService.getVetsById(userId).subscribe( res => {
       //console.log('RESPUESTA PROVIDER: ', Object.entries(res).length);
-      console.log('datoooooos vet: ', Object.entries(res));
+      //console.log('datoooooos vet: ', Object.entries(res));
       Object.entries(res).map((p: any) => this.veterinary.push({id: p[0],  ...p[1]}));
       //console.log(' vet: ', this.veterinary);
 
-      console.log('nmooombre vet: ', this.storeName);
+      //console.log('nmooombre vet: ', this.storeName);
       this.noombre = this.storeName;
     });
     for(let i=0; i <= this.veterinary.length; i++ ){
-      console.log(' iteracion: ', this.veterinary[0]);
+      //console.log(' iteracion: ', this.veterinary[0]);
       this.storeName = this.veterinary[0];
     }
-    console.log(' vet: ', this.veterinary);
+    //console.log(' vet: ', this.veterinary);
 
   }
 
@@ -92,26 +92,26 @@ export class MyVetServicesComponent implements OnInit {
     this.vetGetSubs = this.vetService.getVetsById(userId).subscribe( res => {
       // console.log('RESPUESTA: ', Object.entries(res));
       Object.entries(res).map((p: any) => this.vet.push({mmm: p[0],  ...p[1]}));
-      console.log('aaaaa: ', Object.values(this.vet)[0].mail);
+      //console.log('aaaaa: ', Object.values(this.vet)[0].mail);
       aaa = Object.values(this.vet)[0].storeName;
       this.loadOnlyName(aaa);
     });
 
-    console.log('nnnnnnn: ', aaa);
+    //console.log('nnnnnnn: ', aaa);
 
 
   }
 
   loadOnlyName(name): void {
     this.onlyName = name;
-    console.log('solo el mail: ', this.onlyName);
+    //console.log('solo el mail: ', this.onlyName);
 
 
   }
 
 
   onEnviar2(): void {
-    console.log('FORM GROUP: ', this.productForm.value);
+    //console.log('FORM GROUP: ', this.productForm.value);
 
     this.productSubs = this.productService.addServices({
         ...this.productForm.value,
@@ -119,11 +119,11 @@ export class MyVetServicesComponent implements OnInit {
         storeName: this.onlyName
       }
     ).subscribe(res => {
-      console.log('RSPUESTA: ', res);
+      //console.log('RSPUESTA: ', res);
       this.loadProducts();
     },
       err => {
-        console.log('ERROR DE SERVIDOR');
+        //console.log('ERROR DE SERVIDOR');
       }
     );
   }
@@ -137,11 +137,11 @@ export class MyVetServicesComponent implements OnInit {
         }
       ).subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
         this.loadProducts();
       },
       err => {
-        console.log('ERROR DE SERVIDOR');
+        //console.log('ERROR DE SERVIDOR');
       }
     );
   }
@@ -159,11 +159,11 @@ export class MyVetServicesComponent implements OnInit {
   onDelete(id: any): void {
     this.productDeleteSubs = this.productService.deleteServices(id).subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
         this.loadProducts();
       },
       err => {
-        console.log('ERROR DE SERVIDOR');
+        //console.log('ERROR DE SERVIDOR');
       }
     );
   }

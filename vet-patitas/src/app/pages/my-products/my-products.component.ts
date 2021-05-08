@@ -36,7 +36,7 @@ export class MyProductsComponent implements OnInit {
   }
 
   onEnviar2(): void {
-    console.log('FORM GROUP: ', this.productForm.value);
+    //console.log('FORM GROUP: ', this.productForm.value);
 
     this.productSubs = this.productService.addProducts({
         ...this.productForm.value,
@@ -44,10 +44,10 @@ export class MyProductsComponent implements OnInit {
       }
     ).subscribe(res => {
       console.log('RSPUESTA: ', res);
-      this.loadProducts();
+      //this.loadProducts();
     },
       err => {
-        console.log('ERROR DE SERVIDOR');
+        //console.log('ERROR DE SERVIDOR');
       }
     );
   }
@@ -62,10 +62,10 @@ export class MyProductsComponent implements OnInit {
       ).subscribe(
       res => {
         console.log(res);
-        this.loadProducts();
+        //this.loadProducts();
       },
       err => {
-        console.log('ERROR DE SERVIDOR');
+        //console.log('ERROR DE SERVIDOR');
       }
     );
   }
@@ -83,11 +83,11 @@ export class MyProductsComponent implements OnInit {
   onDelete(id: any): void {
     this.productDeleteSubs = this.productService.deleteProducts(id).subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
         this.loadProducts();
       },
       err => {
-        console.log('ERROR DE SERVIDOR');
+        //console.log('ERROR DE SERVIDOR');
       }
     );
   }

@@ -51,7 +51,7 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
           return arr;
       });
       //console.log('Object= ',res.items)
-      console.log('Array= ',arr)
+      //console.log('Array= ',arr)
       this.hola(arr);
       this.getAll();
       this.loadUser();
@@ -59,7 +59,7 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
     });
 
     this.vetsSubs = this.vetServicesService.getVetServices().subscribe(res => {
-      console.log('respuesta: ', res);
+      //console.log('respuesta: ', res);
       Object.entries(res).map(p => this.vets.push(p[1]));
     });
   }
@@ -90,7 +90,7 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
     let all = [];
     all = JSON.parse(localStorage.getItem('services'));
     this.myReservedForBDD = JSON.parse(localStorage.getItem('services'));
-    console.log('aaaaaaaaaaasasasasasa: ', this.myReservedForBDD);
+    //console.log('aaaaaaaaaaasasasasasa: ', this.myReservedForBDD);
   }
 
   onUpdateProduct(): void {
@@ -105,12 +105,12 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
         }
       ).subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
 
 
       },
       err => {
-        console.log('ERROR DE SERVIDOR');
+        //console.log('ERROR DE SERVIDOR');
       }
     );
   }
@@ -129,7 +129,7 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
     this.userUpdateSubs = this.userService.getIdUser(userId).subscribe( res => {
       // console.log('RESPUESTA: ', Object.entries(res));
       Object.entries(res).map((p: any) => this.userActual.push({idName: p[0],  ...p[1]}));
-      console.log('usaurio: ', this.userActual);
+      //console.log('usuario: ', this.userActual);
 
       userNameIdentify = Object.values(this.userActual)[0].idName;
       userMailIdentify = Object.values(this.userActual)[0].email;
@@ -138,7 +138,7 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
 
     },
     err => {
-      console.log('ERROR DE SERVIDOR de usuario');
+      //console.log('ERROR DE SERVIDOR de usuario');
     }
     );
 
@@ -148,7 +148,7 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
     this.onlyUserIdName = idName;
     this.onlyUserMail = mail;
     this.onlyUserUui = uui;
-    console.log('solo el id plox: ', this.onlyUserIdName);
+    //console.log('solo el id plox: ', this.onlyUserIdName);
   }
 
 

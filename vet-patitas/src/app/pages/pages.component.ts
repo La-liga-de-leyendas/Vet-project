@@ -38,7 +38,7 @@ export class PagesComponent implements OnInit {
   loadProvider(): void {
     const userId = this.authService.getUserId();
     this.providerGetSubs = this.providerService.getProviderById(userId).subscribe( res => {
-      console.log('RESPUESTA PROVIDER: ', Object.entries(res).length);
+      //console.log('RESPUESTA PROVIDER: ', Object.entries(res).length);
       this.providerCant = Object.entries(res).length;
       this.isProvider();
     });
@@ -55,7 +55,7 @@ export class PagesComponent implements OnInit {
   loadVet(): void {
     const userId = this.authService.getUserId();
     this.vetGetSubs = this.vetService.getVetsById(userId).subscribe( res => {
-      console.log('RESPUESTA VET: ', Object.entries(res).length);
+      //console.log('RESPUESTA VET: ', Object.entries(res).length);
       this.vetCant = Object.entries(res).length;
       this.isVet();
     });
