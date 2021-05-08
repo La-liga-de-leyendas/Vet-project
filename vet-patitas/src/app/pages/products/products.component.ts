@@ -33,13 +33,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
       this.cart = Object.assign([], res.items);
     });
 
-    this.products = [];
+
     this.productSubs = this.productsService.getProducts().subscribe(res => {
-      //console.log('respuesta: ', res);
+      console.log('respuesta: ', res);
       Object.entries(res).map((p: any) => this.products.push({id: p[0],  ...p[1]}));
-      //console.log('productos', this.products.length);
     });
-    
+
+
   }
 
 
@@ -63,29 +63,29 @@ export class ProductsComponent implements OnInit, OnDestroy {
     //console.log('ID: ',this.idEdit);
     this.productsService.updateProducts(this.idEdit,{description: product.description, imageUrl:product.imageUrl, price:product.price ,stock:product.stock, storeId: product.storeId, storeName: product.storeName, title: product.title}).subscribe(
       res => {
-        //console.log(res);
+        console.log(res);
       },
       err => {
-        //console.log('ERROR DE SERVIDOR');
+        console.log('ERROR DE SERVIDOR');
       }
     );;
-    this.products.= this.product.stock - 1;
+    //this.products.= this.product.stock - 1;
 
 
 
 
-    //console.log('CARRITO: ', product.price);
+    console.log('CARRITO: ', product.price);
     this.pricesProductsFinal.push(parseInt(product.price));
-    //console.log('CAAAAAAAAAAART: ', this.pricesProductsFinal);
+    console.log('CAAAAAAAAAAART: ', this.pricesProductsFinal);
     this.pricesProductsTotalAmount = this.pricesProductsTotalAmount + parseInt(product.price);
-    //console.log('TOTAL: ', this.pricesProductsTotalAmount);
+    console.log('TOTAL: ', this.pricesProductsTotalAmount);
 
 
     this.titlesSaved.push(product.title);
 
     if(this.titlesSaved.includes(product.title)) {
       let titles = this.titlesSaved.filter(s => product.title);
-      //console.log('CONTADOR PRODUCTOS: ', titles.length);
+      console.log('CONTADOR PRODUCTOS: ', titles.length);
     } else {
       this.contadorTitle = 0;
     }
