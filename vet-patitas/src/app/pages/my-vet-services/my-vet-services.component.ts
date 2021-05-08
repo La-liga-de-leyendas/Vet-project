@@ -48,7 +48,7 @@ export class MyVetServicesComponent implements OnInit {
     //console.log('diaaaaaaaaaaaaaaaaa: ', currentDay);
     this.loadProducts();
     this.loadName();
-    //this.loadVeterinary();
+    this.loadVeterinary();
     //console.log('aaaaaaaaaaaaaaaaaaaaa: ', this.loadVeterinary());
 
 

@@ -43,8 +43,8 @@ export class MyProductsComponent implements OnInit {
         storeId: this.authService.getUserId()
       }
     ).subscribe(res => {
-      console.log('RSPUESTA: ', res);
-      //this.loadProducts();
+      //console.log('RSPUESTA: ', res);
+      this.loadProducts();
     },
       err => {
         //console.log('ERROR DE SERVIDOR');
@@ -61,8 +61,8 @@ export class MyProductsComponent implements OnInit {
         }
       ).subscribe(
       res => {
-        console.log(res);
-        //this.loadProducts();
+        //console.log(res);
+        this.loadProducts();
       },
       err => {
         //console.log('ERROR DE SERVIDOR');

@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
       this.cart = Object.assign([], res.items);
     });
 
-    //this.products = [];
+    this.products = [];
     this.productSubs = this.productsService.getProducts().subscribe(res => {
       //console.log('respuesta: ', res);
       Object.entries(res).map((p: any) => this.products.push({id: p[0],  ...p[1]}));
@@ -69,7 +69,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
         //console.log('ERROR DE SERVIDOR');
       }
     );;
-    //this.products.= this.product.stock - 1;
+    this.products.= this.product.stock - 1;
 
 
 
