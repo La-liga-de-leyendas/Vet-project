@@ -36,7 +36,6 @@ export class RegisterauthService {
       .then((result) => {
         this.ngZone.run(() => {
           this.router.navigate(['/pages']);
-    //      console.log('PRUEBAAAAAAAAAAAAAAAAAAAAAAAAA: ', result);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -50,7 +49,8 @@ export class RegisterauthService {
         this.SendVerificationMail();
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message)
+        this.SendVerificationMail();
+        //window.alert("Se ha enviado un mensaje de verificación a su correo electrónico")
       })
   }
 
