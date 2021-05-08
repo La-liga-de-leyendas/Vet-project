@@ -36,7 +36,7 @@ export class RegisterauthService {
       .then((result) => {
         this.ngZone.run(() => {
           this.router.navigate(['/pages']);
-    //      console.log('PRUEBAAAAAAAAAAAAAAAAAAAAAAAAA: ', result);
+          //console.log('PRUEBAAAAAAAAAAAAAAAAAAAAAAAAA: ', result);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
