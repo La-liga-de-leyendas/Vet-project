@@ -1,8 +1,18 @@
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<mat-drawer-container class="example-container" style="width: 100%; height: fit-content; padding-top: 4%; padding-left: 2%;">
-    <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 300px; height: 100%; margin-top: 20px; padding-top: 4%; background: ghostwhite;" [position]="'end'">
-
-        <table style="font-weight: bold;">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<mat-drawer-container class="example-container"
+    style="width: 100%; height: fit-content; padding-top: 4%; padding-left: 2%;">
+    <mat-drawer #drawer class="example-sidenav" mode="side"
+        style="width: 300px; height: 100%; margin-top: 20px; padding-top: 4%; background: ghostwhite;"
+        [position]="'end'">
+        <img src="../../assets/images/shopping.png" alt="Mi Carrito" height="3%" width="100%" style="margin-top: 20%;">
+        <div style="text-align: center; padding-left: 7%;padding-right: 7%; padding-top: 10%;padding-bottom: 12%;">
+            <h1 style="font-weight: bold;">MIS COMPRAS</h1> <br>
+            <h5>Pronto todos tus proveedores se contactarán contigo mediante tu número celular para coordinar la entrega
+                a domicilio de los productos en tu carrito.
+                Hasta mientras, este es un listado de todas tus compras y su precio por unidad y total.
+            </h5>
+        </div>
+        <table style="font-weight: bold; margin-left: auto; margin-right: auto;margin-top: 10%; margin-bottom: 30%;">
             <tr>
                 <td>PRODUCTO</td>
                 <td>PRECIO </td>
@@ -19,13 +29,14 @@
 
     </mat-drawer>
 
-    <section id="hero" class="hero d-flex align-items-center" style="background-color: #FEEDEF;" >
+    <section id="hero" class="hero d-flex align-items-center" style="background-color: #FEEDEF;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
                     <i class="fas fa-store" style="font-size: 100px; color: #CEAC2C;"></i>
                     <h1>Tiendas</h1>
-                    <h2 data-aos="fade-up" data-aos-delay="400">Pide online de manera rápida y fácil en reconocidas tiendas donde ofrecen variedades de productos.</h2>
+                    <h2 data-aos="fade-up" data-aos-delay="400">Pide online de manera rápida y fácil en reconocidas
+                        tiendas donde ofrecen variedades de productos.</h2>
                     <div data-aos="fade-up" data-aos-delay="600">
                     </div>
                 </div>
@@ -34,86 +45,93 @@
                 </div>
             </div>
         </div>
-    
+
     </section>
-    
+
     <section id="hero" class="values" style="background-color: #FEEDEF;">
         <div style="font-size: 40px; padding-left: 30px;">
             + 100 TIENDAS
         </div>
-            <div class="row">
-                <div class="col-lg-3 mt-3 mt-lg-0">
-                    <div class="box" data-aos="fade-up" data-aos-delay="200">
-                        <img src="../../assets/images/tiendas/animall.jpg" class="" alt="login" width="200" height="200">
-                    </div>
+        <div class="row">
+            <div class="col-lg-3 mt-3 mt-lg-0">
+                <div class="box" data-aos="fade-up" data-aos-delay="200">
+                    <img src="../../assets/images/tiendas/animall.jpg" class="" alt="login" width="200" height="200">
                 </div>
-    
-                <div class="col-lg-3 mt-3 mt-lg-0">
-                    <div class="box" data-aos="fade-up" data-aos-delay="400">
-                        <img src="../../assets/images/tiendas/pelulilandia.jpg" class="" alt="login" width="250" height="200">
-                    </div>
-                </div>
-    
-                <div class="col-lg-3 mt-3 mt-lg-0">
-                    <div class="box" data-aos="fade-up" data-aos-delay="600">
-                        <img src="../../assets/images/tiendas/PetHouse.jpg" class="" alt="login" width="200" height="200">
-                    </div>
-                </div>
-    
-                <div class="col-lg-3 mt-3 mt-lg-0">
-                    <div class="box" data-aos="fade-up" data-aos-delay="600">
-                        <img src="../../assets/images/tiendas/SuperPatitas.png" class="" alt="login" width="200" height="200">
-                    </div>
-                </div>
-    
             </div>
-            
-            <div style="text-align: center; margin-bottom: 2%;">
-                <h2>Encuentra en nuestra página el producto ideal para tu mascota</h2>
-                <h3>nuestros proveedores llevarán tu compra hasta tu hogar</h3>
+
+            <div class="col-lg-3 mt-3 mt-lg-0">
+                <div class="box" data-aos="fade-up" data-aos-delay="400">
+                    <img src="../../assets/images/tiendas/pelulilandia.jpg" class="" alt="login" width="250"
+                        height="200">
+                </div>
             </div>
-    
-            <div style="text-align: center;">
-                <button class="btn btn-outline-success" style="background: #CEAC2C; font-size:150%; padding:1%;" mat-button (click)="drawer.toggle()">
-                    MI CARRITO <i class="fas fa-shopping-cart"></i>
-                </button>
+
+            <div class="col-lg-3 mt-3 mt-lg-0">
+                <div class="box" data-aos="fade-up" data-aos-delay="600">
+                    <img src="../../assets/images/tiendas/PetHouse.jpg" class="" alt="login" width="200" height="200">
+                </div>
             </div>
+
+            <div class="col-lg-3 mt-3 mt-lg-0">
+                <div class="box" data-aos="fade-up" data-aos-delay="600">
+                    <img src="../../assets/images/tiendas/SuperPatitas.png" class="" alt="login" width="200"
+                        height="200">
+                </div>
+            </div>
+
+        </div>
+
+        <div style="text-align: center; margin-bottom: 2%;">
+            <h2>Encuentra en nuestra página el producto ideal para tu mascota</h2>
+            <h3>nuestros proveedores llevarán tu compra hasta tu hogar</h3>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="btn btn-outline-success" style="background: #CEAC2C; font-size:150%; padding:1%;" mat-button
+                (click)="drawer.toggle()">
+                MI CARRITO <i class="fas fa-shopping-cart"></i>
+            </button>
+        </div>
     </section>
     <div class="row" style="text-align:center">
-    <div *ngIf= "products?.length === 0 || products == null " >
-                <div class="imagen">
+        <div *ngIf="products?.length === 0 || products == null ">
+            <div class="imagen">
                 <img src="../../../assets/images/not-implemented.png" width="45%" height="80%">
-                </div>
-                <div class="texto">
+            </div>
+            <div class="texto">
                 <h3>Woops! Parece que no hay productos disponibles </h3>
                 <h3>disculpa las molestias!</h3>
-                </div>
-    </div>
-    </div>
-    <div class="row" style="padding: 2%; margin: 3%;">
-        <div *ngFor="let product of products" class=" col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="margin-bottom: 5%;">
-            
-            <mat-card class="example-card"style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%; height: 100%">
-                <div style="height: 80%;">
-                <mat-card-header>
-                    <mat-card-title style="font-weight: bolder;">{{product.title}}</mat-card-title>
-                    <mat-card-subtitle>Tienda: {{product.storeName}}</mat-card-subtitle>
-                </mat-card-header>
-                <img mat-card-image [src]="product.imageUrl" alt="Imagen del producto" style="height: 300px;">
-                <mat-card-content style="height: 120px; overflow-y: auto;">
-                    <p>
-                        Descripción: {{product.description}}
-                    </p>
-                    <p>
-                        Precio: {{product.price}} Bs.
-                    </p>
-                    <p>
-                        Stock: {{product.stock}}
-                    </p>
-                </mat-card-content>
             </div>
-                <mat-card-actions style=" cursor: pointer; display: block; text-align: center;" >
-                    <button style="background-color: #d6b94e; border-radius: 15px;margin-top: 10%; " mat-button (click)="onComprar(product)"[disabled]="product.stock === 0">COMPRAR</button>
+        </div>
+    </div>
+    <div class="row" style="padding: 2%;">
+        <div *ngFor="let product of products" class=" col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+            style="margin-bottom: 5%;">
+
+            <mat-card class="example-card"
+                style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%; height: 100%">
+                <div style="height: 80%;">
+                    <mat-card-header>
+                        <mat-card-title style="font-weight: bolder;">{{product.title}}</mat-card-title>
+                        <mat-card-subtitle>Tienda: {{product.storeName}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image [src]="product.imageUrl" alt="Imagen del producto" style="height: 300px;">
+                    <mat-card-content style="height: 120px; overflow-y: auto;">
+                        <p>
+                            Descripción: {{product.description}}
+                        </p>
+                        <p>
+                            Precio: {{product.price}} Bs.
+                        </p>
+                        <p>
+                            Stock: {{product.stock}}
+                        </p>
+                    </mat-card-content>
+                </div>
+                <mat-card-actions style=" cursor: pointer; display: block; text-align: center;">
+                    <button
+                        style="background-color: #d6b94e; border-radius: 15px;margin-top: 10%; padding-right: 9%; padding-left: 9%;"
+                        mat-raised-button (click)="onComprar(product)" [disabled]="product.stock === 0">COMPRAR</button>
                 </mat-card-actions>
             </mat-card>
         </div>
