@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
     this.mapa = new mapboxgl.Map({
       container: 'mapa-mapbox', 
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [-68.1264728, -16.4969384], // LNG, LAT
+      center: [-68.12599110810477, -16.496885799116242], // LNG, LAT
       zoom: 18.6
     });
 
@@ -74,11 +74,10 @@ export class ProfileComponent implements OnInit {
       });
 
 
-     this.crearMarcador(-68.1264728, -16.4969383);
-     this.crearMarcador2(-68.1259891, -16.4969524);
-     this.crearMarcador2(-68.1265798, -16.4970261);
-     this.crearMarcador2(-68.1258592, -16.49695);
-     this.crearMarcador2(-68.1262795, -16.4971232);
+     this.crearMarcador(-68.12599110810477, -16.496885799116242);
+     this.crearMarcador2(-68.12635387569559, -16.4969757269928);
+     this.crearMarcador2( -68.12615391112081, -16.497053777569633);
+     this.crearMarcador2(-68.12575044277528, -16.49692652117828);     
 
     
   }
