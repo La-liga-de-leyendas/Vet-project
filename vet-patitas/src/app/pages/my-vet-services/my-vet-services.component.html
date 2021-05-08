@@ -1,7 +1,18 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<mat-drawer-container class="example-container" style="width: 100%; height: fit-content; padding-top: 4%; padding-left: 2%;">
-    <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 300px; height: 100%; margin-top: 20px; padding-top: 4%; padding-left: 2%; background: ghostwhite;" [position]="'end'">     
-           <div style="display : flex; flex-direction: column;">
+<mat-drawer-container class="example-container"
+    style="width: 100%; height: fit-content; padding-top: 4%; padding-left: 2%;">
+    <mat-drawer #drawer class="example-sidenav" mode="side"
+        style="width: 300px; height: 100%; margin-top: 20px; padding-top: 3%; padding-left: 2%; background: ghostwhite;"
+        [position]="'end'">
+        <img src="../../assets/images/form.png" alt="Formulario" height="90%" width="100%" style="margin-top: 20%;">
+        <div style="text-align: center;padding-right: 5%; padding-top: 10%;padding-bottom: 12%;">
+            <h1 style="font-weight: bold;">SERVICIOS</h1> <br>
+            <h5>Llena todos los campos de información para mejorar la experiencia de reserva para el cliente.
+                Recuerda reservarles un espacio en tu agenda y contáctate con ellos tan pronto confirmen su cita.
+            </h5>
+        </div>
+        <div style="display : flex; flex-direction: column;">
+
             <form [formGroup]="productForm">
                 <!--TÍTULO-->
                 <mat-form-field appearance="fill" style="width: 95%">
@@ -13,10 +24,6 @@
 
                     <div *ngIf="productForm.get('title').errors.required">
                         Se requiere un título
-                    </div>
-
-                    <div *ngIf="productForm.get('title').errors.minlength">
-                        Título demasiado corto
                     </div>
 
                     <div *ngIf="productForm.get('title').errors.maxlength">
@@ -45,7 +52,7 @@
 
                 <!--URL DE UNA IMAGEN-->
                 <mat-form-field appearance="fill" style="width: 95%">
-                    <mat-label>ImageUrl</mat-label>
+                    <mat-label>URL de Imagen</mat-label>
                     <input matInput formControlName="imageUrl" type="text">
                 </mat-form-field>
                 <div *ngIf="productForm.get('imageUrl').invalid && (productForm.get('imageUrl').touched || productForm.get('imageUrl').dirty)"
@@ -70,7 +77,7 @@
 
 
                 </mat-form-field>
-  <!------------------------------VALIDACIÓN DE FECHA------------------------->
+                <!------------------------------VALIDACIÓN DE FECHA------------------------->
                 <div *ngIf="productForm.get('date').invalid && (productForm.get('date').touched || productForm.get('date').dirty)"
                     class="alert alert-danger" style="width: 95%">
 
@@ -78,7 +85,7 @@
                         Se requiere una fecha para reservar
                     </div>
                 </div>
-   <!------------------------------VALIDACIÓN DE FECHA------------------------->
+                <!------------------------------VALIDACIÓN DE FECHA------------------------->
 
                 <!--HORA-->
                 <mat-form-field appearance="fill" style="width: 95%">
@@ -99,59 +106,64 @@
                     <input matInput formControlName="stock" type="text" maxlength="4">
                 </mat-form-field>
                 <div *ngIf="productForm.get('stock').invalid && (productForm.get('stock').touched || productForm.get('stock').dirty)"
-                class="alert alert-danger" style="width: 95%">
+                    class="alert alert-danger" style="width: 95%">
 
-                <div *ngIf="productForm.get('stock').errors.required">
-                    Se requiere una cantidad de stock
+                    <div *ngIf="productForm.get('stock').errors.required">
+                        Se requiere una cantidad de stock
+                    </div>
+
+                    <div *ngIf="productForm.get('stock').errors.pattern">
+                        El Stock debe ser un número válido
+                    </div>
                 </div>
-                
-                <div *ngIf="productForm.get('stock').errors.pattern">
-                    El Stock debe ser un número válido
-                </div>
-            </div>
             </form>
 
         </div>
-<div style="margin-bottom: 20%; margin-left: 13%;">
-        <button mat-button [disabled]="!productForm.valid" style="background-color: #CEAC2C; margin-right: 5%;" (click)="onEnviar2();">CREAR</button>
-        <button mat-button [disabled]="!productForm.valid" style="background-color: #CEAC2C;" (click)="onUpdateProduct()">EDITAR</button>
-    </div>
+        <div style="margin-bottom: 20%; margin-left: 4%;">
+            <button mat-button [disabled]="!productForm.valid" style="background-color: #CEAC2C; margin-right: 5px;"
+                (click)="onEnviar2();">CREAR</button>
+            <button mat-button [disabled]="!productForm.valid" style="background-color: #CEAC2C;"
+                (click)="onUpdateProduct()">ACTUALIZAR</button>
+        </div>
     </mat-drawer>
 
     <div style="text-align: center; padding: 4%; ">
-        <button type="button" class="btn btn-outline-success" style="background: #CEAC2C; font-size:150%; color: beige; padding-top: 1%;padding-bottom: 1%; padding-right: 3%; padding-left: 2%;" mat-button (click)="drawer.toggle()">
+        <button type="button" class="btn btn-outline-success"
+            style="background: #CEAC2C; font-size:150%; color: beige; padding-top: 1%;padding-bottom: 1%; padding-right: 3%; padding-left: 2%;"
+            mat-button (click)="drawer.toggle()">
             AÑADIR UN SERVICIO<i class="fas fa-folder-plus fa-2x" style="padding-left: 3%;"></i>
         </button>
     </div>
 
 
     <div class="row" style="padding: 2%; margin: 3%;">
-        <div *ngFor="let product of products" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" 
-            style="margin-bottom: 5%;">
-            <mat-card class="example-card text-black bg-primary123 mb-3" style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%; height: 100%">
+        <div *ngFor="let product of products" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+        style="margin-bottom: 5%; padding-left: 3%; padding-right: 3%;">
+            <mat-card class="example-card text-black bg-primary123 mb-3"
+                style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%; height: 100%">
                 <div style="height: 80%;">
-                <mat-card-header>
-                    <mat-card-title>{{product.title}}</mat-card-title>
-                    <mat-card-subtitle>{{product.price}} Bs.</mat-card-subtitle>
-                </mat-card-header>
-                <img mat-card-image [src]="product.imageUrl" alt="Foto de Servicio" style="height: 260px;">
-                <mat-card-content style="height: 120px; overflow-y: auto;">
-                    <p>
-                        Descripción: {{product.description}}
-                    </p>
-                    <p>
-                        Stock: {{product.stock}}
-                    </p>
-                </mat-card-content>
-            </div>
+                    <mat-card-header>
+                        <mat-card-title>{{product.title}}</mat-card-title>
+                        <mat-card-subtitle>{{product.price}} Bs.</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image [src]="product.imageUrl" alt="Foto de Servicio" style="height: 270px;">
+                    <mat-card-content style="height: 120px; overflow-y: auto;">
+                        <p>
+                            Descripción: {{product.description}}
+                        </p>
+                        <p>
+                            Stock: {{product.stock}}
+                        </p>
+                    </mat-card-content>
+                </div>
                 <mat-card-actions>
-                <div style=" bottom: 5%; cursor: pointer; display: block; text-align: center; ">
-                    <button mat-button style="background-color: #e2d37c;  border-radius: 15px; margin: 3%; "
-                        (click)="onEdit(product); drawer.toggle()" >EDITAR</button>
-                    <button mat-button style="background-color: #e2d37c; border-radius: 15px;  margin: 3%;"
-                        (click)="onDelete(product.id)">ELIMINAR</button>
+                    <div style=" bottom: 5%; cursor: pointer; display: block; text-align: center; ">
+                        <button mat-button style="background-color: #CEAC2C;  border-radius: 15px; margin: 3%; "
+                            (click)="onEdit(product); drawer.toggle()">EDITAR</button>
+                        <button mat-button style="background-color: #CEAC2C; border-radius: 15px;  margin: 3%;"
+                            (click)="onDelete(product.id)">ELIMINAR</button>
                     </div>
-                    </mat-card-actions>
+                </mat-card-actions>
             </mat-card>
         </div>
     </div>
