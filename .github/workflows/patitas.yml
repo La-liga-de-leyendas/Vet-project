@@ -11,6 +11,7 @@ jobs:
     - uses: actions/setup-node@v1 #this will install Node and npm on Ubuntu
       with:
         node-version: '12.x'
+    - run:  cd .\vet-patitas\
     - run: npm install
     - run: npm install -g @angular/cli > /dev/null
     - run: ng build --prod --output-path=dist --base-href="https://github.com/La-liga-de-leyendas/Vet-project"
