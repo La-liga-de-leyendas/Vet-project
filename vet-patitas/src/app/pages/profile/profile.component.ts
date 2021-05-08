@@ -56,7 +56,7 @@ export class ProfileComponent implements OnInit {
     .addTo(this.mapa);
 
     marker1.on('drag',()=>{
-        console.log(marker1.getLngLat())
+        //console.log(marker1.getLngLat())
 
     })
     
@@ -72,7 +72,7 @@ export class ProfileComponent implements OnInit {
     .addTo(this.mapa);
 
     marker2.on('drag',()=>{
-        console.log(marker2.getLngLat())
+        //console.log(marker2.getLngLat())
 
     })
     
@@ -85,22 +85,22 @@ export class ProfileComponent implements OnInit {
     this.getInfoSubs = this.userService.getIdUser(userId).subscribe( res => {
       // console.log('RESPUESTA: ', Object.entries(res));
       Object.entries(res).map((p: any) => this.infoAll.push({mmm: p[0],  ...p[1]}));
-      console.log('aaaaa: ', Object.values(this.infoAll)[0].myRerserved);
+      //console.log('aaaaa: ', Object.values(this.infoAll)[0].myRerserved);
       aaa = Object.values(this.infoAll)[0].myRerserved;
       //aaa = Object.values(this.infoAll)[0].myRerserved;
       //this.loadOnlyName(aaa);
       this.loadOnlyReserves(aaa);
-      console.log('onlyyyyyyyyyyy data: ', this.infoSpecify)
+      //console.log('onlyyyyyyyyyyy data: ', this.infoSpecify)
 
     });
 
-    console.log('nnnnnnn: ', aaa);
+    //console.log('nnnnnnn: ', aaa);
   }
 
   loadOnlyReserves(reserves): void {
     this.infoSpecify = reserves;
     //this.prueba = JSON.stringify(this.infoSpecify)
-    console.log('solo el mail: ', this.infoSpecify);
+    //console.log('solo el mail: ', this.infoSpecify);
   }
 
 
