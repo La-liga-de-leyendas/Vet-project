@@ -1,13 +1,11 @@
 name: patitas build
-on: 
+on:
   push:
-    branches: 
-      - master
-  pull_request:
-    branches: 
-      - master
+    branches-ignore:
+      - "master"
+
 jobs:
-  ubuntu-build:
+  build:
 
     runs-on: ubuntu-latest
 
@@ -21,27 +19,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run build
-    - run: npm test
-      env:
-        CI: true
-  windows-build:
+    - name: Install dependencies
+      run: npm ci
 
-    runs-on: windows-latest
+    - name: Lint
+      run: npm run lint
 
-    strategy:
-      matrix:
-        node-version: [12.x]
+    - name: Test
+      run: npm run test:ci
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run build
-    - run: npm test
-      env:
-        CI: true
+    - name: Build
+      run: npm run build:ci
