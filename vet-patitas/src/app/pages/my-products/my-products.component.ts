@@ -26,12 +26,12 @@ export class MyProductsComponent implements OnInit {
     this.loadProducts();
 
     this.productForm = this.formBuilder.group({
-      description: ['', [ Validators.required, Validators.minLength(3)]],
-      imageUrl: '',
-      stock: '',
+      description: ['', [ Validators.required, Validators.maxLength(139)]],
+      imageUrl: ['', [Validators.required, Validators.minLength(5)]], 
+      stock: ['', [Validators.required, Validators.pattern("^[1-9][0-9]*$")]],
       storeId: '',
-      price: '',
-      title: ''
+      price: ['', [ Validators.required, Validators.pattern("^[1-9][0-9]*$")]],
+      title: ['', [ Validators.required, Validators.maxLength(31)]],
     });
   }
 

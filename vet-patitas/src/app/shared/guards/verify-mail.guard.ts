@@ -18,7 +18,7 @@ export class VerifyMailGuard implements CanActivate {
     if (this.ngAuthService.isLoggedIn == true) {
       this.router.navigate(['pages'])
     } else { 
-      if (!this.previousRouteService.getPreviousUrl().includes('/register')) {
+      if (this.previousRouteService.getPreviousUrl()===null) {
         this.router.navigate(['login'])
       }
     }

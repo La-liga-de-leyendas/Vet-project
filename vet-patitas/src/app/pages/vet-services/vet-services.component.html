@@ -1,7 +1,22 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<mat-drawer-container class="example-container" style="width: 100%; height: fit-content; padding-top: 4%; padding-left: 2%;">
-    <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 300px; height: 100%; margin-top: 20px; padding-top: 4%; background: ghostwhite;" [position]="'end'">
-        <table style="font-weight: bold;">
+<mat-drawer-container class="example-container"
+    style="width: 100%; height: fit-content; padding-top: 4%; padding-left: 2%;">
+    <mat-drawer #drawer class="example-sidenav" mode="side"
+        style="width: 300px; height: 100%; margin-top: 20px; padding-top: 4%; background: ghostwhite; text-align: center;"
+        [position]="'end'">
+       
+       
+        <img src="../../assets/images/appointment.png" alt="Mi Agenda" height="7%" width="100%" style="margin-top: 20%;">
+        <div style="text-align: center; padding-left: 7%;padding-right: 7%; padding-top: 10%;padding-bottom: 12%;">
+            <h1 style="font-weight: bold;">MIS CITAS</h1> <br>
+            <h5>Pronto las veterinarias se contactarán contigo mediante tu número celular para coordinar los servicios
+                que reservaste para tu mascota.
+                Hasta mientras, este es un listado de todas tus citas en agenda y su respectivo horario de atención. No te olvides
+                de confirmar tu asistencia para que tu cita sea tomada en cuenta por la veterinaria.
+            </h5>
+        </div>
+        
+        <table style="font-weight: bold; margin-left: auto; margin-right: auto; margin-top: 10%;">
             <tr>
                 <td>RESERVA</td>
                 <td>HORA</td>
@@ -12,8 +27,7 @@
 
             </tr>
         </table>
-
-        <button mat-button style="background-color: #66e0ad;" (click)="onUpdateProduct()">Confirmar</button>
+        <button mat-button style="background-color: #CEAC2C; padding:3%; margin-top: 15%; margin-bottom: 30%; font-size: 120%;" (click)="onUpdateProduct()">CONFIRMAR</button>
     </mat-drawer>
 
     <section id="hero" class="hero d-flex align-items-center" style="background-color: #FEEDEF;">
@@ -24,9 +38,11 @@
                 </div>
 
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
-                    <i class="fas fa-briefcase-medical" style="font-size: 100px; color: #CEAC2C; padding-right: 20px;"></i>
+                    <i class="fas fa-briefcase-medical"
+                        style="font-size: 100px; color: #CEAC2C; padding-right: 20px;"></i>
                     <h1>Veterinarias</h1>
-                    <h2 data-aos="fade-up" data-aos-delay="400">A los dueños de mascotas ofrecemos servicios veterinarios de varias veterinarias cerca de sus domicilios</h2>
+                    <h2 data-aos="fade-up" data-aos-delay="400">A los dueños de mascotas ofrecemos servicios
+                        veterinarios de varias veterinarias cerca de sus domicilios</h2>
                     <div data-aos="fade-up" data-aos-delay="600">
                     </div>
                 </div>
@@ -42,25 +58,29 @@
         <div class="row">
             <div class="col-lg-3 mt-3 mt-lg-0">
                 <div class="box" data-aos="fade-up" data-aos-delay="200">
-                    <img src="../../assets/images/Veterinarias/safari.png" class="" alt="login" width="200" height="200">
+                    <img src="../../assets/images/Veterinarias/safari.png" class="" alt="login" width="200"
+                        height="200">
                 </div>
             </div>
 
             <div class="col-lg-3 mt-3 mt-lg-0">
                 <div class="box" data-aos="fade-up" data-aos-delay="400">
-                    <img src="../../assets/images/Veterinarias/canito.jpg" class="" alt="login" width="250" height="200">
+                    <img src="../../assets/images/Veterinarias/canito.jpg" class="" alt="login" width="250"
+                        height="200">
                 </div>
             </div>
 
             <div class="col-lg-3 mt-3 mt-lg-0">
                 <div class="box" data-aos="fade-up" data-aos-delay="600">
-                    <img src="../../assets/images/Veterinarias/hocico.jpg" class="" alt="login" width="200" height="200">
+                    <img src="../../assets/images/Veterinarias/hocico.jpg" class="" alt="login" width="200"
+                        height="200">
                 </div>
             </div>
 
             <div class="col-lg-3 mt-3 mt-lg-0">
                 <div class="box" data-aos="fade-up" data-aos-delay="600">
-                    <img src="../../assets/images/Veterinarias/semevet.jpg" class="" alt="login" width="200" height="200">
+                    <img src="../../assets/images/Veterinarias/semevet.jpg" class="" alt="login" width="200"
+                        height="200">
                 </div>
             </div>
 
@@ -73,21 +93,38 @@
         </div>
 
         <div style="text-align: center;">
-            <button class="btn btn-outline-success" style="background: #CEAC2C; font-size:150%; padding:1%;" mat-button (click)="drawer.toggle()">
-                    MIS RESERVAS <i class="fas fa-calendar-alt"></i>
-                </button>
+            <button class="btn btn-outline-success" style="background: #CEAC2C; color: beige; font-size:150%; padding:1%;" mat-button
+                (click)="drawer.toggle()">
+                MIS RESERVAS <i class="fas fa-calendar-alt"></i>
+            </button>
         </div>
     </section>
 
-    <div class="row" style="padding: 2%; margin: 3%;">
-        <div *ngFor="let vetservice of vets;" class=" col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="margin-bottom: 5%;">
-            <mat-card class="example-card" style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%; height: 100%">
+    <div class="row" style="text-align:center">
+        <div *ngIf="vets.length === 0 || vets == null ">
+            <div class="imagen">
+                <img src="../../../assets/images/not-implemented.png" width="45%" height="80%">
+            </div>
+            <div class="texto">
+                <h3>Woops! Parece que no hay servicios disponibles </h3>
+                <h3>disculpa las molestias!</h3>
+            </div>
+        </div>
+    </div>
+   
+
+    <div class="row" style="padding: 2%;">
+        <div *ngFor="let vetservice of vets;" class=" col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+            style="margin-bottom: 5%;">
+            <mat-card class="example-card"
+                style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%; height: 100%">
+               <div style="height: 80%;">
                 <mat-card-header>
                     <mat-card-title style="font-weight: bolder;">{{vetservice.title}}</mat-card-title>
                     <mat-card-subtitle>Veterinaria: {{vetservice.storeName}}</mat-card-subtitle>
                 </mat-card-header>
                 <img mat-card-image [src]="vetservice.imageUrl" alt="Imagen del servicio" style="height: 300px;">
-                <mat-card-content style="height: 100px; overflow-y: auto;">
+                <mat-card-content style="height: 120px; overflow-y: auto;">
                     <p>
                         Servicio: {{vetservice.description}}
                     </p>
@@ -101,8 +138,12 @@
 
                     </p>
                 </mat-card-content>
-                <mat-card-actions style=" position: absolute; bottom: 5%; left: 35%;">
-                    <button style="background-color: #d6b94e; border-radius: 15px;" mat-raised-button (click)="onReservar(vetservice); vetservice.clicked=true;" [disabled]="vetservice.clicked">RESERVAR</button>
+            </div>
+                <mat-card-actions style=" cursor: pointer; display: block; text-align: center;">
+                    <button style="background-color: #d6b94e; border-radius: 15px;;margin-top: 10%; padding-right: 9%; padding-left: 9%;"
+                     mat-raised-button
+                        (click)="onReservar(vetservice); vetservice.clicked=true;"
+                        [disabled]="vetservice.clicked">RESERVAR</button>
                 </mat-card-actions>
             </mat-card>
         </div>
