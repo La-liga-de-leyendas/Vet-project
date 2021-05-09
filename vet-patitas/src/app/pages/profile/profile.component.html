@@ -19,11 +19,53 @@
 
 <div style="margin-top: 80px;">
     <h2 style="text-align: center;"><strong> Tu historial de reservas:</strong></h2>
-    <div *ngFor="let reserve of infoSpecify | keyvalue;">
-        <!--Key: <br>{{reserve.key}} and Value: <br>{{reserve.value | json}}-->
+    <div *ngIf="bookings.length === 0" style="text-align: center;">
+        <img src="../../assets/images/Empty-vet-bookings.png" class="img-fluid" width="300px" height="300px">
+        <h3 style="padding-bottom: 30px;">Por ahora no tienes reservas</h3>
+    </div>
+    <div *ngFor="let reserve of bookings | keyvalue;">
+        <!-- Key: <br>{{reserve.key}} and Value: <br>{{reserve.value | json}} -->
         <div *ngFor="let pru of reserve.value | keyvalue;">
-            <!--Keyaaaaaa: <br>{{pru.key}} and Valueaaa: <br>{{pru.value | json}}-->
-            <table style="font-weight: bold; margin-right: 10px; margin-bottom: 30px; margin-left: 15px;">
+            <!-- Keyaaaaaa: <br>{{pru.key}} and Valueaaa: <br>{{pru.value | json}} -->
+            <div *ngFor="let item of pru.value | keyvalue;">
+                <!-- Kuuuuu: <br>{{item.key}} and Vuuu: <br>{{item.value | json}} -->
+                <div *ngFor="let detail of item.value | keyvalue;">
+                    <!-- Keeeeeee: <br>{{detail.key}} and Veee: <br>{{detail.value | json}} -->
+
+                    <table style="font-weight: bold; margin-right: 10px; margin-bottom: 30px; margin-left: 15px;">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr *ngFor="let each of detail.value | keyvalue;">
+                            <div *ngIf="each.key === title">
+                                <td style="padding-right: 25px;">Servicio:</td>
+                                <td>{{each.value}}</td>
+                            </div>
+                            <div *ngIf="each.key === description">
+                                <td>Descripción:</td>
+                                <td>{{each.value}}</td>
+                            </div>
+                            <div *ngIf="each.key === date">
+                                <td style="padding-right: 40px;">Fecha:</td>
+                                <td>{{each.value | date}} </td>
+                            </div>
+                            <div *ngIf="each.key === hour">
+                                <td style="padding-right: 40px;">Hora: </td>
+                                <td>{{each.value}}</td>
+                            </div>
+                            <div *ngIf="each.key === storeName">
+                                <td style="padding-right: 10px;">Veterinaria: </td>
+                                <td>{{each.value}}</td>
+                            </div>
+
+                        </tr>
+                    </table>
+
+
+                </div>
+            </div>
+            <!-- <table style="font-weight: bold; margin-right: 10px; margin-bottom: 30px; margin-left: 15px;">
                 <tr>
                     <td></td>
                     <td></td>
@@ -32,7 +74,7 @@
                     <td>{{item.key}}</td>
                     <td>{{item.value}}</td>
                 </tr>
-            </table>
+            </table> -->
         </div>
 
     </div>

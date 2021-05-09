@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { AddVetService } from './store/home.actions';
 import { UserService } from 'src/app/shared/services/user.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { VetBookingService } from 'src/app/shared/services/vet-booking.service';
 
 @Component({
   selector: 'app-vet-services',
@@ -31,13 +32,19 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
   onlyUserUui: any;
   onlyUserMail: any;
   onlyUserIdName: any;
+  UserLocal: any;
   myReservedForBDD = [];
 
   userActual = [];
   productUpdateSubs: Subscription;
   userUpdateSubs: Subscription;
 
-  constructor(private vetServicesService: VetServicesService, private store: Store<any>, private userService: UserService, private authService: AuthService) { }
+  vetBookingAddSubs: Subscription;
+  userBookingSubs: Subscription;
+  contadorS = 0;
+
+
+  constructor(private vetServicesService: VetServicesService, private store: Store<any>, private userService: UserService, private authService: AuthService, private vetBookingService: VetBookingService) { }
 
   ngOnInit():void {
 
@@ -55,7 +62,7 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
       this.hola(arr);
       this.getAll();
       this.loadUser();
-
+      //this.getUserLocal();
     });
 
     this.vetsSubs = this.vetServicesService.getVetServices().subscribe(res => {
@@ -73,6 +80,7 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
   onReservar(vetservice): void {
     const index = this.vets.findIndex(p => p === vetservice);
     this.store.dispatch(AddVetService({ vetservice: Object.assign({}, vetservice) }));
+    this.contadorS = this.contadorS+1;
     /*vetservice.stock = vetservice.stock - 1;
     this.stock = vetservice.stock;
     console.log('cantidad: ', vetservice);
@@ -115,6 +123,29 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
     );
   }
 
+
+  onAddVetBooking(): void {
+
+    this.vetBookingAddSubs = this.vetBookingService.addVetBooking(
+
+
+        {
+
+          uui: this.authService.getUserId(),
+          myRerserved: this.myReservedForBDD
+        }
+      ).subscribe(
+      res => {
+        console.log('datooooooos añadir', res);
+
+
+      },
+      err => {
+        console.log('ERROR DE SERVIDOR');
+      }
+    );
+  }
+
   onEdit(product): void {
     this.idEdit = product.id;
   }
@@ -126,7 +157,7 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
     let userIdIdentify = "";
     this.userActual = [];
     const userId = this.authService.getUserId();
-    this.userUpdateSubs = this.userService.getIdUser(userId).subscribe( res => {
+    /*this.userUpdateSubs = this.userService.getIdUser(userId).subscribe( res => {
       // console.log('RESPUESTA: ', Object.entries(res));
       Object.entries(res).map((p: any) => this.userActual.push({idName: p[0],  ...p[1]}));
       console.log('usaurio: ', this.userActual);
@@ -140,7 +171,7 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
     err => {
       console.log('ERROR DE SERVIDOR de usuario');
     }
-    );
+    );*/
 
   }
 
@@ -149,6 +180,13 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
     this.onlyUserMail = mail;
     this.onlyUserUui = uui;
     console.log('solo el id plox: ', this.onlyUserIdName);
+  }
+
+  getUserLocal(){
+
+    this.UserLocal = localStorage.getItem('userId');
+    console.log('useeeeer: ', this.UserLocal);
+
   }
 
 

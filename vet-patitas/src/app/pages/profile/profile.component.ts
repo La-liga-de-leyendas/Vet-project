@@ -5,6 +5,7 @@ import { RegisterauthService } from 'src/app/shared/services/registerauth.servic
 import { environment } from 'src/environments/environment';
 import * as mapboxgl from 'mapbox-gl';
 import { UserService } from 'src/app/shared/services/user.service';
+import { VetBookingService } from 'src/app/shared/services/vet-booking.service';
 //import { markAsUntransferable } from 'node:worker_threads';
 
 @Component({
@@ -19,17 +20,28 @@ export class ProfileComponent implements OnInit {
   infoAll = [];
   infoSpecify = [];
   prueba: any;
-  hour = 'hour';
   getUUI: any;
+
+
+  date: any = 'date';
+  description: any = 'description';
+  hour: any = 'hour';
+  storeName: any = 'storeName';
+  title: any = 'title';
+
+
+  bookings = [];
+  vetBookingsGetSubs: Subscription;
 
   mapa: mapboxgl.Map;
 
-  constructor(public ngAuthService: RegisterauthService, private userService: UserService, private authService: AuthService) {}
+  constructor(public ngAuthService: RegisterauthService, private userService: UserService, private authService: AuthService, private vetBookingService: VetBookingService) {}
 
 
 
   ngOnInit() {
-    this.loadInfo();
+
+    //this.loadInfo();
       (mapboxgl as any).accessToken = environment.mapboxKey;
       this.mapa = new mapboxgl.Map({
           container: 'mapa-mapbox', // container id
@@ -47,6 +59,7 @@ export class ProfileComponent implements OnInit {
       const iii = localStorage.getItem('userId');
       console.log('si agarra: ', iii);
       this.getUser(iii);
+      this.loadOnlyMyVetBookings();
   }
 
   getUser(identifier){
@@ -72,7 +85,7 @@ export class ProfileComponent implements OnInit {
     this.infoAll = [];
     let aaa = [];
     const userId = this.authService.getUserId();
-    this.getInfoSubs = this.userService.getIdUser(userId).subscribe( res => {
+    this.getInfoSubs = this.vetBookingService.getVetBookingById(userId).subscribe( res => {
       // console.log('RESPUESTA: ', Object.entries(res));
       Object.entries(res).map((p: any) => this.infoAll.push({mmm: p[0],  ...p[1]}));
       console.log('aaaaa: ', Object.values(this.infoAll)[0].myRerserved);
@@ -91,6 +104,17 @@ export class ProfileComponent implements OnInit {
     this.infoSpecify = reserves;
     //this.prueba = JSON.stringify(this.infoSpecify)
     console.log('solo el mail: ', this.infoSpecify);
+  }
+
+
+  loadOnlyMyVetBookings(): void {
+    this.bookings = [];
+    const userId = this.authService.getUserId();
+    this.vetBookingsGetSubs = this.vetBookingService.getVetBookingById(userId).subscribe( res => {
+      // console.log('RESPUESTA: ', Object.entries(res));
+      Object.entries(res).map((p: any) => this.bookings.push({id: p[0],  ...p[1]}));
+    });
+
   }
 
 
