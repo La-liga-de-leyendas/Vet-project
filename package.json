@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/La-liga-de-leyendas/Vet-project/issues"
   },
-  "homepage": "https://github.com/La-liga-de-leyendas/Vet-project#readme"
+  "homepage": "https://github.com/La-liga-de-leyendas/Vet-project#readme",
+  "dependencies": {
+    "react-scripts": "^4.0.3"
+  }
 }
