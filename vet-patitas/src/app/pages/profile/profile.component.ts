@@ -91,13 +91,8 @@ export class ProfileComponent implements OnInit {
       .setLngLat([lng, lat])
       .addTo(this.mapa);
 
-<<<<<<< HEAD
-    marker1.on('drag', () => {
-      console.log(marker1.getLngLat())
-=======
     marker1.on('drag',()=>{
         //console.log(marker1.getLngLat())
->>>>>>> 3ec30eb7ccf6aa6a715a57c753ca369239b462c2
 
     })
 
@@ -112,13 +107,8 @@ export class ProfileComponent implements OnInit {
       .setLngLat([lng, lat])
       .addTo(this.mapa);
 
-<<<<<<< HEAD
-    marker2.on('drag', () => {
-      console.log(marker2.getLngLat())
-=======
     marker2.on('drag',()=>{
         //console.log(marker2.getLngLat())
->>>>>>> 3ec30eb7ccf6aa6a715a57c753ca369239b462c2
 
     })
 
@@ -130,13 +120,8 @@ export class ProfileComponent implements OnInit {
     const userId = this.authService.getUserId();
     this.getInfoSubs = this.userService.getIdUser(userId).subscribe(res => {
       // console.log('RESPUESTA: ', Object.entries(res));
-<<<<<<< HEAD
-      Object.entries(res).map((p: any) => this.infoAll.push({ mmm: p[0], ...p[1] }));
-      console.log('aaaaa: ', Object.values(this.infoAll)[0].myRerserved);
-=======
       Object.entries(res).map((p: any) => this.infoAll.push({mmm: p[0],  ...p[1]}));
       //console.log('aaaaa: ', Object.values(this.infoAll)[0].myRerserved);
->>>>>>> 3ec30eb7ccf6aa6a715a57c753ca369239b462c2
       aaa = Object.values(this.infoAll)[0].myRerserved;
       //aaa = Object.values(this.infoAll)[0].myRerserved;
       //this.loadOnlyName(aaa);
