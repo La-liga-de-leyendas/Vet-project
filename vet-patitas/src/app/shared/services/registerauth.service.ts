@@ -111,6 +111,8 @@ export class RegisterauthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
+      cellphone:user.cellphone,
+      address:user.address,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
       servicesReserved: user.servicesReserved
