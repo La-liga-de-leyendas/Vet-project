@@ -6,6 +6,7 @@
         "start": "ng serve",
         "build": "react-scripts build",
         "test": "ng test",
+        "build:prod": "dotenv -e .env.production react-scripts build",
         "lint": "ng lint",
         "e2e": "ng e2e"
     },
