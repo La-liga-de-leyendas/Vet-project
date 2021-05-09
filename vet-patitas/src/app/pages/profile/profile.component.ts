@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import * as mapboxgl from 'mapbox-gl';
 import { UserService } from 'src/app/shared/services/user.service';
 import { VetBookingService } from 'src/app/shared/services/vet-booking.service';
+import { ProductsBuyedService } from 'src/app/shared/services/products-buyed.service';
 //import { markAsUntransferable } from 'node:worker_threads';
 
 @Component({
@@ -30,12 +31,21 @@ export class ProfileComponent implements OnInit {
   title: any = 'title';
 
 
+  descriptionP: any = 'description';
+  price: any = 'price';
+  storeNameP: any = 'storeName';
+  titleP: any = 'title';
+
+
   bookings = [];
   vetBookingsGetSubs: Subscription;
 
+  productsB = [];
+  productsBuyedGetSubs: Subscription;
+
   mapa: mapboxgl.Map;
 
-  constructor(public ngAuthService: RegisterauthService, private userService: UserService, private authService: AuthService, private vetBookingService: VetBookingService) {}
+  constructor(public ngAuthService: RegisterauthService, private userService: UserService, private authService: AuthService, private vetBookingService: VetBookingService, private productsBuyedService: ProductsBuyedService) {}
 
 
 
@@ -57,14 +67,15 @@ export class ProfileComponent implements OnInit {
       // Add zoom and rotation controls to the map.
       //map.addControl(new mapboxgl.NavigationControl());
       const iii = localStorage.getItem('userId');
-      console.log('si agarra: ', iii);
+      //console.log('si agarra: ', iii);
       this.getUser(iii);
       this.loadOnlyMyVetBookings();
+      this.loadOnlyMyProductsBuyed();
   }
 
   getUser(identifier){
     this.getUUI = identifier
-    console.log('solo el uui: ', this.getUUI);
+    //console.log('solo el uui: ', this.getUUI);
   }
 
   crearMarcador(lng: number, lat: number) {
@@ -88,22 +99,22 @@ export class ProfileComponent implements OnInit {
     this.getInfoSubs = this.vetBookingService.getVetBookingById(userId).subscribe( res => {
       // console.log('RESPUESTA: ', Object.entries(res));
       Object.entries(res).map((p: any) => this.infoAll.push({mmm: p[0],  ...p[1]}));
-      console.log('aaaaa: ', Object.values(this.infoAll)[0].myRerserved);
+      //console.log('aaaaa: ', Object.values(this.infoAll)[0].myRerserved);
       aaa = Object.values(this.infoAll)[0].myRerserved;
       //aaa = Object.values(this.infoAll)[0].myRerserved;
       //this.loadOnlyName(aaa);
       this.loadOnlyReserves(aaa);
-      console.log('onlyyyyyyyyyyy data: ', this.infoSpecify)
+      //console.log('onlyyyyyyyyyyy data: ', this.infoSpecify)
 
     });
 
-    console.log('nnnnnnn: ', aaa);
+    //console.log('nnnnnnn: ', aaa);
   }
 
   loadOnlyReserves(reserves): void {
     this.infoSpecify = reserves;
     //this.prueba = JSON.stringify(this.infoSpecify)
-    console.log('solo el mail: ', this.infoSpecify);
+    //console.log('solo el mail: ', this.infoSpecify);
   }
 
 
@@ -113,6 +124,16 @@ export class ProfileComponent implements OnInit {
     this.vetBookingsGetSubs = this.vetBookingService.getVetBookingById(userId).subscribe( res => {
       // console.log('RESPUESTA: ', Object.entries(res));
       Object.entries(res).map((p: any) => this.bookings.push({id: p[0],  ...p[1]}));
+    });
+
+  }
+
+  loadOnlyMyProductsBuyed(): void {
+    this.productsB = [];
+    const userId = this.authService.getUserId();
+    this.productsBuyedGetSubs = this.productsBuyedService.getProductsBuyedById(userId).subscribe( res => {
+      // console.log('RESPUESTA: ', Object.entries(res));
+      Object.entries(res).map((p: any) => this.productsB.push({id: p[0],  ...p[1]}));
     });
 
   }

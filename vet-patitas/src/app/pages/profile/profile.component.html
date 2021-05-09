@@ -78,5 +78,55 @@
         </div>
 
     </div>
+
+
+    <h2 style="text-align: center;"><strong> Tu historial de productos:</strong></h2>
+    <div *ngIf="productsB.length === 0" style="text-align: center;">
+        <img src="../../assets/images/Empty-products.png" class="img-fluid" width="300px" height="300px">
+        <h3 style="padding-bottom: 30px;">Por ahora no tienes productos comprados</h3>
+    </div>
+    <div *ngFor="let reserve of productsB | keyvalue;">
+        <!-- Key: <br>{{reserve.key}} and Value: <br>{{reserve.value | json}} -->
+        <div *ngFor="let pru of reserve.value | keyvalue;">
+            <!-- Keyaaaaaa: <br>{{pru.key}} and Valueaaa: <br>{{pru.value | json}} -->
+            <div *ngFor="let item of pru.value | keyvalue;">
+                <!-- Kuuuuu: <br>{{item.key}} and Vuuu: <br>{{item.value | json}} -->
+                <div *ngFor="let detail of item.value | keyvalue;">
+                    <!-- Keeeeeee: <br>{{detail.key}} and Veee: <br>{{detail.value | json}} -->
+
+                    <table style="font-weight: bold; margin-right: 10px; margin-bottom: 30px; margin-left: 15px;">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr *ngFor="let each of detail.value | keyvalue;">
+                            <div *ngIf="each.key === titleP">
+                                <td style="padding-right: 25px;">Producto:</td>
+                                <td>{{each.value}}</td>
+                            </div>
+                            <div *ngIf="each.key === descriptionP">
+                                <td>Descripción:</td>
+                                <td>{{each.value}}</td>
+                            </div>
+                            <div *ngIf="each.key === storeNameP">
+                                <td style="padding-right: 40px;">Tienda:</td>
+                                <td>{{each.value}} </td>
+                            </div>
+                            <div *ngIf="each.key === price">
+                                <td style="padding-right: 40px;">Precio: </td>
+                                <td>{{each.value}}</td>
+                            </div>
+
+
+                        </tr>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
     <h1></h1>
 </div>
