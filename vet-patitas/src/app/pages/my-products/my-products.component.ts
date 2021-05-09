@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ProductsService } from 'src/app/shared/services/products.service';
+import { ProvidersService } from 'src/app/shared/services/providers.service';
 
 @Component({
   selector: 'app-my-products',
@@ -19,11 +20,16 @@ export class MyProductsComponent implements OnInit {
   productDeleteSubs: Subscription;
   productUpdateSubs: Subscription;
   idEdit: any;
+  onlyName: any;
 
-  constructor(private formBuilder: FormBuilder, private productService: ProductsService, private authService: AuthService) { }
+  produccts = [];
+  proGetSubs: Subscription;
+
+  constructor(private formBuilder: FormBuilder, private productService: ProductsService, private authService: AuthService, private providerService: ProvidersService) { }
 
   ngOnInit(): void {
     this.loadProducts();
+    this.loadName();
 
     this.productForm = this.formBuilder.group({
       description: ['', [ Validators.required, Validators.minLength(3)]],
@@ -40,7 +46,8 @@ export class MyProductsComponent implements OnInit {
 
     this.productSubs = this.productService.addProducts({
         ...this.productForm.value,
-        storeId: this.authService.getUserId()
+        storeId: this.authService.getUserId(),
+        storeName: this.onlyName
       }
     ).subscribe(res => {
       console.log('RSPUESTA: ', res);
@@ -57,7 +64,8 @@ export class MyProductsComponent implements OnInit {
       this.idEdit,
         {
           ...this.productForm.value,
-          storeId: this.authService.getUserId()
+          storeId: this.authService.getUserId(),
+          storeName: this.onlyName
         }
       ).subscribe(
       res => {
@@ -106,6 +114,32 @@ export class MyProductsComponent implements OnInit {
     this.productGetSubs ? this.productGetSubs.unsubscribe() : '';
     this.productDeleteSubs ? this.productDeleteSubs.unsubscribe() : '';
     this.productUpdateSubs ? this.productUpdateSubs.unsubscribe() : '';
+  }
+
+
+  loadName(): void {
+    this.produccts = [];
+    let aaa = "ss";
+    const userId = this.authService.getUserId();
+    this.proGetSubs = this.providerService.getProviderById(userId).subscribe( res => {
+      // console.log('RESPUESTA: ', Object.entries(res));
+      Object.entries(res).map((p: any) => this.produccts.push({id: p[0],  ...p[1]}));
+
+      aaa = Object.values(this.produccts)[0].storeName;
+      console.log('es el mail talvez: ', aaa);
+      this.loadOnlyName(aaa);
+    });
+
+    console.log('nnnnnnn: ', aaa);
+
+
+  }
+
+  loadOnlyName(name): void {
+    this.onlyName = name;
+    console.log('solo el mail: ', this.onlyName);
+
+
   }
 
 }

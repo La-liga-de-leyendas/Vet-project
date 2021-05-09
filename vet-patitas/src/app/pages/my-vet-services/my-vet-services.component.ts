@@ -55,7 +55,7 @@ export class MyVetServicesComponent implements OnInit {
     this.productForm = this.formBuilder.group({
       description: ['', [ Validators.required, Validators.minLength(3)]],
       imageUrl: '',
-      stock: '',
+      stock: 1,
       storeId: '',
       date: ['', Validators.required],
       hour: '',
@@ -133,7 +133,8 @@ export class MyVetServicesComponent implements OnInit {
       this.idEdit,
         {
           ...this.productForm.value,
-          storeId: this.authService.getUserId()
+          storeId: this.authService.getUserId(),
+          storeName: this.onlyName
         }
       ).subscribe(
       res => {
