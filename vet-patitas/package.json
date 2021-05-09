@@ -6,7 +6,7 @@
         "start": "ng serve",
         "build": "ng build",
         "test": "ng test",
-        "build:prod": "npm run build -- --prod",
+        "build:prod": "npm build --prod",
         "lint": "ng lint",
         "e2e": "ng e2e"
     },
