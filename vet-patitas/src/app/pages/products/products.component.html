@@ -1,4 +1,4 @@
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-drawer-container class="example-container" style="width: 100%; height: fit-content; padding-top: 4%; padding-left: 2%;">
     <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 300px; height: 100%; margin-top: 20px; padding-top: 4%; background: ghostwhite;" [position]="'end'">
 
@@ -17,9 +17,13 @@
             </tr>
         </table>
 
+        <div *ngIf="contadorP !== 0">
+            <button mat-button style="background-color: #CEAC2C; margin-top: 25px;" (click)="onAddProductsToBuy()">Confirmar</button>
+        </div>
+
     </mat-drawer>
 
-    <section id="hero" class="hero d-flex align-items-center" style="background-color: #FEEDEF;" >
+    <section id="hero" class="hero d-flex align-items-center" style="background-color: #FEEDEF;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
@@ -34,56 +38,56 @@
                 </div>
             </div>
         </div>
-    
+
     </section>
-    
+
     <section id="hero" class="values" style="background-color: #FEEDEF;">
         <div style="font-size: 40px; padding-left: 30px;">
             + 100 TIENDAS
         </div>
-            <div class="row">
-                <div class="col-lg-3 mt-3 mt-lg-0">
-                    <div class="box" data-aos="fade-up" data-aos-delay="200">
-                        <img src="../../assets/images/tiendas/animall.jpg" class="" alt="login" width="200" height="200">
-                    </div>
+        <div class="row">
+            <div class="col-lg-3 mt-3 mt-lg-0">
+                <div class="box" data-aos="fade-up" data-aos-delay="200">
+                    <img src="../../assets/images/tiendas/animall.jpg" class="" alt="login" width="200" height="200">
                 </div>
-    
-                <div class="col-lg-3 mt-3 mt-lg-0">
-                    <div class="box" data-aos="fade-up" data-aos-delay="400">
-                        <img src="../../assets/images/tiendas/pelulilandia.jpg" class="" alt="login" width="250" height="200">
-                    </div>
-                </div>
-    
-                <div class="col-lg-3 mt-3 mt-lg-0">
-                    <div class="box" data-aos="fade-up" data-aos-delay="600">
-                        <img src="../../assets/images/tiendas/PetHouse.jpg" class="" alt="login" width="200" height="200">
-                    </div>
-                </div>
-    
-                <div class="col-lg-3 mt-3 mt-lg-0">
-                    <div class="box" data-aos="fade-up" data-aos-delay="600">
-                        <img src="../../assets/images/tiendas/SuperPatitas.png" class="" alt="login" width="200" height="200">
-                    </div>
-                </div>
-    
             </div>
-            
-            <div style="text-align: center; margin-bottom: 2%;">
-                <h2>Encuentra en nuestra página el producto ideal para tu mascota</h2>
-                <h3>nuestros proveedores llevarán tu compra hasta tu hogar</h3>
+
+            <div class="col-lg-3 mt-3 mt-lg-0">
+                <div class="box" data-aos="fade-up" data-aos-delay="400">
+                    <img src="../../assets/images/tiendas/pelulilandia.jpg" class="" alt="login" width="250" height="200">
+                </div>
             </div>
-    
-            <div style="text-align: center;">
-                <button class="btn btn-outline-success" style="background: #CEAC2C; font-size:150%; padding:1%;" mat-button (click)="drawer.toggle()">
+
+            <div class="col-lg-3 mt-3 mt-lg-0">
+                <div class="box" data-aos="fade-up" data-aos-delay="600">
+                    <img src="../../assets/images/tiendas/PetHouse.jpg" class="" alt="login" width="200" height="200">
+                </div>
+            </div>
+
+            <div class="col-lg-3 mt-3 mt-lg-0">
+                <div class="box" data-aos="fade-up" data-aos-delay="600">
+                    <img src="../../assets/images/tiendas/SuperPatitas.png" class="" alt="login" width="200" height="200">
+                </div>
+            </div>
+
+        </div>
+
+        <div style="text-align: center; margin-bottom: 2%;">
+            <h2>Encuentra en nuestra página el producto ideal para tu mascota</h2>
+            <h3>nuestros proveedores llevarán tu compra hasta tu hogar</h3>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="btn btn-outline-success" style="background: #CEAC2C; font-size:150%; padding:1%;" mat-button (click)="drawer.toggle()">
                     MI CARRITO <i class="fas fa-shopping-cart"></i>
                 </button>
-            </div>
+        </div>
     </section>
 
 
     <div class="row" style="padding: 2%; margin: 3%;">
         <div *ngFor="let product of products" class=" col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="margin-bottom: 5%;">
-            <mat-card class="example-card"style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%; height: 100%">
+            <mat-card class="example-card" style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%; height: 100%">
                 <mat-card-header>
                     <mat-card-title style="font-weight: bolder;">{{product.title}}</mat-card-title>
                     <mat-card-subtitle>Tienda: {{product.storeName}}</mat-card-subtitle>
@@ -101,7 +105,7 @@
                     </p>
                 </mat-card-content>
                 <mat-card-actions style=" position: absolute; bottom: 5%; left: 35%;">
-                    <button style="background-color: #d6b94e; border-radius: 15px;" mat-button (click)="onComprar(product)"[disabled]="product.stock === 0">COMPRAR</button>
+                    <button style="background-color: #d6b94e; border-radius: 15px;" mat-button (click)="onComprar(product)" [disabled]="product.stock === 0">COMPRAR</button>
                 </mat-card-actions>
             </mat-card>
         </div>
