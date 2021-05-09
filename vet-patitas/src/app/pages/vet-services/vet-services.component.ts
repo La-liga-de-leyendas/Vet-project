@@ -26,9 +26,10 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
   info = [];
   stock = 0;
   index = 0;
+  idEdit: any;
 
   informationAll = [];
-  idEdit: any;
+
   onlyUserUui: any;
   onlyUserMail: any;
   onlyUserIdName: any;
@@ -67,7 +68,7 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
 
     this.vetsSubs = this.vetServicesService.getVetServices().subscribe(res => {
       console.log('respuesta: ', res);
-      Object.entries(res).map(p => this.vets.push(p[1]));
+      Object.entries(res).map((p: any) => this.vets.push({id: p[0],  ...p[1]}));
     });
   }
 
@@ -78,9 +79,31 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
   }
 
   onReservar(vetservice): void {
+
     const index = this.vets.findIndex(p => p === vetservice);
     this.store.dispatch(AddVetService({ vetservice: Object.assign({}, vetservice) }));
     this.contadorS = this.contadorS+1;
+    this.idEdit = vetservice.id;
+    vetservice.stock = vetservice.stock-1;
+    this.vetServicesService.updateServices(
+      this.idEdit,
+      {
+        date: vetservice.date,
+        description: vetservice.description,
+        hour: vetservice.hour,
+        imageUrl: vetservice.imageUrl,
+        stock: vetservice.stock,
+        storeId: vetservice.storeId,
+        storeName: vetservice.storeName,
+        title: vetservice.title
+      }).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log('ERROR DE SERVIDOR');
+      }
+    );;
     /*vetservice.stock = vetservice.stock - 1;
     this.stock = vetservice.stock;
     console.log('cantidad: ', vetservice);

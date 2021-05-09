@@ -104,7 +104,13 @@
                     </p>
                 </mat-card-content>
                 <mat-card-actions style=" position: absolute; bottom: 5%; left: 35%;">
-                    <button style="background-color: #d6b94e; border-radius: 15px;" mat-raised-button (click)="onReservar(vetservice); vetservice.clicked=true;" [disabled]="vetservice.clicked">RESERVAR</button>
+                    <div *ngIf="vetservice.stock === 0">
+                        <button style="background-color: #d6b94e; border-radius: 15px;" mat-raised-button (click)="onReservar(vetservice); vetservice.clicked=true;" [disabled]="vetservice.stock === 0">RESERVADO</button>
+                    </div>
+                    <div *ngIf="vetservice.stock !== 0">
+                        <button style="background-color: #d6b94e; border-radius: 15px;" mat-raised-button (click)="onReservar(vetservice); vetservice.clicked=true;" [disabled]="vetservice.clicked">RESERVAR</button>
+                    </div>
+
                 </mat-card-actions>
             </mat-card>
         </div>
