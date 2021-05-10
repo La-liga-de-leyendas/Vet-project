@@ -35,12 +35,12 @@ export class RegisterauthService {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['/pages']);
+          //this.router.navigate(['/pages']);
           //console.log('PRUEBAAAAAAAAAAAAAAAAAAAAAAAAA: ', result);
         });
         this.SetUserData(result.user);
       }).catch((error) => {
-        window.alert('Parece que esta cuenta no está registrada, verifica las credenciales.')
+        //window.alert('Parece que esta cuenta no está registrada, verifica las credenciales.')
       })
   }
 

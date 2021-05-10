@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -20,7 +20,12 @@ export class AuthService {
     .pipe(map((res: any) => {
       this.authSuccess(res.idToken, res.localId);
       return res;
-    }));
+    }),
+    catchError(error => {
+      console.log('Caught in CatchError. Returning 0')
+      return "0";     //return from(['A','B','C'])
+    })
+    );
   }
 
   private authSuccess(token: string, userId: string): void {

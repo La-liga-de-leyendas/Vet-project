@@ -29,11 +29,11 @@ export class LoginComponent implements OnInit {
     }).subscribe(
       res => {
         //console.log('LOGIN RESPONSE: ', res);
-        //this.router.navigate(['/pages']);
+        this.router.navigate(['/pages']);
         //this.ngAuthService.SignIn(form.value.email, form.value.password);
       },
       err => {
-        console.log('ERRRROOOOOOOR');
+        window.alert('Usuario y contraseña erroneos o todavía no tienes una cuenta')
       }
     );
   }
