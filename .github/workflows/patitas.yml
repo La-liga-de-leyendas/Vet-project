@@ -1,10 +1,5 @@
+on: push
 name: Patitas CI
-
-on:
-  push:
-    branches:
-    - master
-    - release/*
 
 jobs:
   build:
