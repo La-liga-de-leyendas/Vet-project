@@ -1,7 +1,7 @@
 {
   "name": "patitas-vet",
   "version": "1.0.0",
-  "description": "results for second sprint with client functions",
+  "description": "results for second sprint with client, vets and providers functions",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
