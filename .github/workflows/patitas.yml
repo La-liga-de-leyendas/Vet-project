@@ -26,7 +26,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: npm install and npm run build
-        run: yarn --frozen-lockfile
+        run: npm i
+        run npm build
         
   firebase-deploy:
 
@@ -37,7 +38,8 @@ jobs:
     - uses: actions/setup-node@master
       with:
         node-version: '10.x'
-    - run: yarn --frozen-lockfile
+    - run: npm install
+    - run: npm build:prod
     - uses: w9jds/firebase-action@master
       with:
         args: deploy --only hosting
