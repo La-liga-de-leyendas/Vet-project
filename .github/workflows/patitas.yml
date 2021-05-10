@@ -27,7 +27,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install and npm run build
         run: npm install
-        run: npm build
+        run: npm run build
         
   firebase-deploy:
 
@@ -39,7 +39,7 @@ jobs:
       with:
         node-version: '10.x'
     - run: npm install
-    - run: npm build:prod
+    - run: npm run build:prod
     - uses: w9jds/firebase-action@master
       with:
         args: deploy --only hosting
