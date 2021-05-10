@@ -77,7 +77,7 @@ export class RegisterauthService {
     .then(() => {
       window.alert('Gracias por verificar tu correo con el enlace en tu bandeja de entrada.')
       this.router.navigate(['login']);
-      setTimeout(() => 
+      setTimeout(() =>
 {
   window.location.reload();
 },
@@ -115,8 +115,7 @@ export class RegisterauthService {
       cellphone:user.cellphone,
       address:user.address,
       photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
-      servicesReserved: user.servicesReserved
+      emailVerified: user.emailVerified
     }
     return userRef.set(userState, {
       merge: true

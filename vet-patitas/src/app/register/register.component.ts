@@ -32,10 +32,10 @@ export class RegisterComponent implements OnInit {
       ...this.userForm.value
     }
   ).subscribe(res => {
-    //console.log('RSPUESTA: ', res);
+    console.log('RSPUESTA: ', res);
   },
     err => {
-     // console.log('ERROR DE SERVIDOR');
+     console.log('ERROR DE SERVIDOR');
     }
   );
   }

@@ -9,7 +9,7 @@ import { RegisterauthService } from '../shared/services/registerauth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  
+
   hide = true;
   constructor(private router: Router, private authService: AuthService, public ngAuthService: RegisterauthService) { }
 
@@ -29,11 +29,11 @@ export class LoginComponent implements OnInit {
     }).subscribe(
       res => {
         //console.log('LOGIN RESPONSE: ', res);
-        //this.router.navigate(['pages']);
+        //this.router.navigate(['/pages']);
         //this.ngAuthService.SignIn(form.value.email, form.value.password);
       },
       err => {
-        //console.log('ERRRROOOOOOOR');
+        console.log('ERRRROOOOOOOR');
       }
     );
   }

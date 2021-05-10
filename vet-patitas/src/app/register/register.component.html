@@ -13,8 +13,7 @@
         <mat-card class="example-card">
 
             <mat-card-header>
-                <mat-card-title style="text-align: center; color: #888888; font-weight: bold; ">Comienza por ingresar tus
-                    datos y verifícalos antes de enviarlos</mat-card-title>
+                <mat-card-title style="text-align: center; color: #888888; font-weight: bold; ">Comienza por ingresar tus datos y verifícalos antes de enviarlos</mat-card-title>
             </mat-card-header>
 
             <mat-card-content style="display: flex; flex-direction: column;">
@@ -26,13 +25,11 @@
                     </div>
                     <mat-form-field>
                         <div class="input-details">
-                            <input matInput type="email" required ngModel name="email" #userEmail
-                                formControlName="email" maxlength="32">
+                            <input matInput type="email" required ngModel name="email" #userEmail formControlName="email" maxlength="32">
                         </div>
                     </mat-form-field>
 
-                    <div *ngIf="userForm.get('email').invalid && (userForm.get('email').touched || userForm.get('email').dirty)"
-                        class="alert alert-danger">
+                    <div *ngIf="userForm.get('email').invalid && (userForm.get('email').touched || userForm.get('email').dirty)" class="alert alert-danger">
 
                         <div *ngIf="userForm.get('email').errors.required">
                             Email requerido
@@ -54,13 +51,11 @@
                     </div>
                     <mat-form-field>
                         <div class="input-details">
-                            <input matInput type="password" required name="password" ngModel #userPwd
-                                formControlName="password" maxlength="24">
+                            <input matInput type="password" required name="password" ngModel #userPwd formControlName="password" maxlength="24">
                         </div>
                     </mat-form-field>
 
-                    <div *ngIf="userForm.get('password').invalid && (userForm.get('password').touched || userForm.get('password').dirty)"
-                        class="alert alert-danger">
+                    <div *ngIf="userForm.get('password').invalid && (userForm.get('password').touched || userForm.get('password').dirty)" class="alert alert-danger">
 
                         <div *ngIf="userForm.get('password').errors.required">
                             Contraseña requerida
@@ -86,17 +81,16 @@
                         </div>
                     </mat-form-field>
 
-                    <div *ngIf="userForm.get('cellphone').invalid && (userForm.get('cellphone').touched || userForm.get('cellphone').dirty)"
-                    class="alert alert-danger">
+                    <div *ngIf="userForm.get('cellphone').invalid && (userForm.get('cellphone').touched || userForm.get('cellphone').dirty)" class="alert alert-danger">
 
-                    <div *ngIf="userForm.get('cellphone').errors.required">
-                        Teléfono celular requerido
+                        <div *ngIf="userForm.get('cellphone').errors.required">
+                            Teléfono celular requerido
+                        </div>
+
+                        <div *ngIf="userForm.get('cellphone').errors.pattern">
+                            Parece que este número no es válido en Bolivia
+                        </div>
                     </div>
-                    
-                    <div *ngIf="userForm.get('cellphone').errors.pattern">
-                        Parece que este número no es válido en Bolivia
-                    </div>
-                </div>
 
                     <!--DIRECCION-->
                     <div class="input-group-append">
@@ -109,17 +103,16 @@
                         </div>
                     </mat-form-field>
 
-                    <div *ngIf="userForm.get('address').invalid && (userForm.get('address').touched || userForm.get('address').dirty)"
-                    class="alert alert-danger">
+                    <div *ngIf="userForm.get('address').invalid && (userForm.get('address').touched || userForm.get('address').dirty)" class="alert alert-danger">
 
-                    <div *ngIf="userForm.get('address').errors.required">
-                        Dirección requerida
+                        <div *ngIf="userForm.get('address').errors.required">
+                            Dirección requerida
+                        </div>
+
+                        <div *ngIf="userForm.get('address').errors.maxlength">
+                            Esta dirección es demasiado larga
+                        </div>
                     </div>
-                    
-                    <div *ngIf="userForm.get('address').errors.maxlength">
-                        Esta dirección es demasiado larga
-                    </div>
-                </div>
 
                 </form>
 
@@ -127,8 +120,7 @@
             <mat-card-actions>
 
                 <div class="formGroup d-flex justify-content-center mt-3 login_container" style="margin-bottom: 5%;">
-                    <button type="button" [disabled]="!userForm.valid" name="button" class="btn login_btn" value="Sign Up" mat-button
-                        (click)="register_service.SignUp(userEmail.value, userPwd.value); onEnviar2();">Registrarse</button>
+                    <button type="button" [disabled]="!userForm.valid" name="button" class="btn login_btn" value="Sign Up" mat-button (click)="register_service.SignUp(userEmail.value, userPwd.value); onEnviar2();">Registrarse</button>
                 </div>
             </mat-card-actions>
         </mat-card>
