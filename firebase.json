@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "./vet-patitas/dist",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
