@@ -22,9 +22,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: npm install and npm run build
-        run: |
-          npm i
-          npm run-script build
+        run: yarn --frozen-lockfile
       - name: Push Build to Releases
         uses: ncipollo/release-action@v1
         with:
