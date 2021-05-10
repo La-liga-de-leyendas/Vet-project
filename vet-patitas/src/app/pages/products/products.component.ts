@@ -3,6 +3,8 @@ import { Subscription } from 'rxjs';
 import { ProductsService } from 'src/app/shared/services/products.service';
 import { Store } from '@ngrx/store';
 import { AddProduct } from './store/home.actions';
+import { ProductsBuyedService } from 'src/app/shared/services/products-buyed.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-products',
@@ -15,7 +17,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   products = [];
   productSubs: Subscription;
   homeSubs: Subscription;
-
+  userActual = [];
 
   cart = [];
   idEdit: any;
@@ -24,13 +26,29 @@ export class ProductsComponent implements OnInit, OnDestroy {
   titlesSaved = [];
   contadorTitle = 0;
   lastValue = 0;
-  constructor(private productsService: ProductsService, private store: Store<any>) { }
+
+  contadorP = 0;
+  vetProductsAddSubs: Subscription;
+  myReservedForBDD = [];
+
+  constructor(private productsService: ProductsService, private store: Store<any>, private productsBuyedService: ProductsBuyedService, private authService: AuthService) { }
 
   ngOnInit(): void {
 
     this.homeSubs = this.store.select(s => s.home).subscribe(res => {
       //console.log('HOMEEEEEEE', res);
       this.cart = Object.assign([], res.items);
+
+      let arr = [];
+      Object.keys(res.items).map(function(key){
+          arr.push({[key]:res.items[key]})
+          return arr;
+      });
+      //console.log('Object= ',res.items)
+      console.log('Array= ',arr)
+      this.hola(arr);
+      this.getAll();
+      this.loadUser();
     });
 
 
@@ -56,7 +74,50 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.homeSubs ? this.homeSubs.unsubscribe() : '';
   }
 
+  hola(information) {
+    localStorage.setItem('products', JSON.stringify(information));
+  }
+
+  getAll(){
+    let all = [];
+    all = JSON.parse(localStorage.getItem('products'));
+    this.myReservedForBDD = JSON.parse(localStorage.getItem('products'));
+    //console.log('aaaaaaaaaaasasasasasa: ', this.myReservedForBDD);
+  }
+
+  onAddProductsToBuy(): void {
+
+    this.vetProductsAddSubs = this.productsBuyedService.addProductsToBuy(
+
+
+        {
+
+          uui: this.authService.getUserId(),
+          myProducts: this.myReservedForBDD
+        }
+      ).subscribe(
+      res => {
+        //console.log('datooooooos añadir', res);
+
+
+      },
+      err => {
+        //console.log('ERROR DE SERVIDOR');
+      }
+    );
+  }
+
+  loadUser(): void {
+    let userNameIdentify = "";
+    let userMailIdentify = "";
+    let userIdIdentify = "";
+    this.userActual = [];
+    const userId = this.authService.getUserId();
+  }
+
+
   onComprar(product): void {
+    this.contadorP = this.contadorP+1;
     this.idEdit = product.id;
     this.store.dispatch(AddProduct({ product: Object.assign({}, product) }));
     product.stock = product.stock-1;

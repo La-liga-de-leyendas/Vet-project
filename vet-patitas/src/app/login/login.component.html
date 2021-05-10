@@ -1,14 +1,12 @@
 <mat-card class="example-card">
     <div class="d-flex justify-content-center">
         <div class="brand_logo_container">
-            <img src="https://e7.pngegg.com/pngimages/674/885/png-clipart-pet-shop-illustration-alecrim-pet-e-jardim-loja-2-pet-shop-pet-shop-model-celebrities-building.png"
-                class="brand_logo" alt="Logo">
+            <img src="https://e7.pngegg.com/pngimages/674/885/png-clipart-pet-shop-illustration-alecrim-pet-e-jardim-loja-2-pet-shop-pet-shop-model-celebrities-building.png" class="brand_logo" alt="Logo">
         </div>
     </div>
     <br>
     <mat-card-header>
-        <mat-card-title style="text-align: center; margin-top: 20%; color: #888888; font-weight: bold;">Ingresa para
-            conocer nuestros servicios</mat-card-title>
+        <mat-card-title style="text-align: center; margin-top: 20%; color: #888888; font-weight: bold;">Ingresa para conocer nuestros servicios</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
@@ -55,14 +53,12 @@
     </div>
     <mat-card-actions>
         <div class="d-flex justify-content-center mt-3 login_container">
-            <button type="button" name="button" class="btn login_btn" mat-button [disabled]="form.invalid"
-                (click)="onLogin(form); ngAuthService.SignIn(emailUI.value, passwordUI.value);">Login</button>
+            <button type="button" name="button" class="btn login_btn" mat-button [disabled]="form.invalid" (click)="onLogin(form);">Login</button>
         </div>
 
 
 
-        <div
-            style="text-align: center; text-decoration: underline; color: #888888; font-weight: bold; padding-bottom: 5%; padding-top: 2%;">
+        <div style="text-align: center; text-decoration: underline; color: #888888; font-weight: bold; padding-bottom: 5%; padding-top: 2%;">
             <div class="forgotPassword">
 
                 <span routerLink="/register">¿Sin cuenta todavía? ¡Registrate ahora!</span>

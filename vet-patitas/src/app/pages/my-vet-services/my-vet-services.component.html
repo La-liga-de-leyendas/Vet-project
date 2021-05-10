@@ -1,14 +1,10 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<mat-drawer-container class="example-container"
-    style="width: 100%; height: fit-content; padding-top: 4%; padding-left: 2%;">
-    <mat-drawer #drawer class="example-sidenav" mode="side"
-        style="width: 300px; height: 100%; margin-top: 20px; padding-top: 3%; padding-left: 2%; background: ghostwhite;"
-        [position]="'end'">
+<mat-drawer-container class="example-container" style="width: 100%; height: fit-content; padding-top: 4%; padding-left: 2%;">
+    <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 300px; height: 100%; margin-top: 20px; padding-top: 3%; padding-left: 2%; background: ghostwhite;" [position]="'end'">
         <img src="../../assets/images/form.png" alt="Formulario" height="90%" width="100%" style="margin-top: 20%;">
         <div style="text-align: center;padding-right: 5%; padding-top: 10%;padding-bottom: 12%;">
             <h1 style="font-weight: bold;">SERVICIOS</h1> <br>
-            <h5>Llena todos los campos de información para mejorar la experiencia de reserva para el cliente.
-                Recuerda reservarles un espacio en tu agenda y contáctate con ellos tan pronto confirmen su cita.
+            <h5>Llena todos los campos de información para mejorar la experiencia de reserva para el cliente. Recuerda reservarles un espacio en tu agenda y contáctate con ellos tan pronto confirmen su cita.
             </h5>
         </div>
         <div style="display : flex; flex-direction: column;">
@@ -19,8 +15,7 @@
                     <mat-label>Título</mat-label>
                     <input matInput formControlName="title" type="text" maxlength="32">
                 </mat-form-field>
-                <div *ngIf="productForm.get('title').invalid && (productForm.get('title').touched || productForm.get('title').dirty)"
-                    class="alert alert-danger" style="width: 95%">
+                <div *ngIf="productForm.get('title').invalid && (productForm.get('title').touched || productForm.get('title').dirty)" class="alert alert-danger" style="width: 95%">
 
                     <div *ngIf="productForm.get('title').errors.required">
                         Se requiere un título
@@ -37,8 +32,7 @@
                     <input matInput formControlName="description" type="text" maxlength="140">
                 </mat-form-field>
 
-                <div *ngIf="productForm.get('description').invalid && (productForm.get('description').touched || productForm.get('description').dirty)"
-                    class="alert alert-danger " style="width: 95%">
+                <div *ngIf="productForm.get('description').invalid && (productForm.get('description').touched || productForm.get('description').dirty)" class="alert alert-danger " style="width: 95%">
 
                     <div *ngIf="productForm.get('description').errors.required">
                         Se requiere una descripción
@@ -55,8 +49,7 @@
                     <mat-label>URL de Imagen</mat-label>
                     <input matInput formControlName="imageUrl" type="text">
                 </mat-form-field>
-                <div *ngIf="productForm.get('imageUrl').invalid && (productForm.get('imageUrl').touched || productForm.get('imageUrl').dirty)"
-                    class="alert alert-danger" style="width: 95%">
+                <div *ngIf="productForm.get('imageUrl').invalid && (productForm.get('imageUrl').touched || productForm.get('imageUrl').dirty)" class="alert alert-danger" style="width: 95%">
 
                     <div *ngIf="productForm.get('imageUrl').errors.required">
                         Se requiere el enlace a una imagen
@@ -70,16 +63,14 @@
                 <!--FECHA-->
                 <mat-form-field appearance="fill" style="width: 95%">
                     <mat-label>Fecha de tu cita</mat-label>
-                    <input matInput formControlName="date" [matDatepicker]="seStDt" [min]="minDate" [max]="maxDate"
-                        disabled>
+                    <input matInput formControlName="date" [matDatepicker]="seStDt" [min]="minDate" [max]="maxDate" disabled>
                     <mat-datepicker-toggle matSuffix [for]="seStDt"></mat-datepicker-toggle>
                     <mat-datepicker #seStDt disabled="false"></mat-datepicker>
 
 
                 </mat-form-field>
                 <!------------------------------VALIDACIÓN DE FECHA------------------------->
-                <div *ngIf="productForm.get('date').invalid && (productForm.get('date').touched || productForm.get('date').dirty)"
-                    class="alert alert-danger" style="width: 95%">
+                <div *ngIf="productForm.get('date').invalid && (productForm.get('date').touched || productForm.get('date').dirty)" class="alert alert-danger" style="width: 95%">
 
                     <div *ngIf="productForm.get('date').errors.required">
                         Se requiere una fecha para reservar
@@ -93,8 +84,7 @@
                     <input [ngxTimepicker]="picker" matInput formControlName="hour" readonly>
                     <ngx-material-timepicker #picker></ngx-material-timepicker>
                 </mat-form-field>
-                <div *ngIf="productForm.get('hour').invalid && (productForm.get('hour').touched || productForm.get('hour').dirty)"
-                    class="alert alert-danger" style="width: 95%">
+                <div *ngIf="productForm.get('hour').invalid && (productForm.get('hour').touched || productForm.get('hour').dirty)" class="alert alert-danger" style="width: 95%">
 
                     <div *ngIf="productForm.get('hour').errors.required">
                         Se requiere una hora para reservar
@@ -105,8 +95,7 @@
                     <mat-label>Stock</mat-label>
                     <input matInput formControlName="stock" type="text" maxlength="4">
                 </mat-form-field>
-                <div *ngIf="productForm.get('stock').invalid && (productForm.get('stock').touched || productForm.get('stock').dirty)"
-                    class="alert alert-danger" style="width: 95%">
+                <div *ngIf="productForm.get('stock').invalid && (productForm.get('stock').touched || productForm.get('stock').dirty)" class="alert alert-danger" style="width: 95%">
 
                     <div *ngIf="productForm.get('stock').errors.required">
                         Se requiere una cantidad de stock
@@ -120,48 +109,41 @@
 
         </div>
         <div style="margin-bottom: 20%; margin-left: 4%;">
-            <button mat-button [disabled]="!productForm.valid" style="background-color: #CEAC2C; margin-right: 5px;"
-                (click)="onEnviar2();">CREAR</button>
-            <button mat-button [disabled]="!productForm.valid" style="background-color: #CEAC2C;"
-                (click)="onUpdateProduct()">ACTUALIZAR</button>
+            <button mat-button [disabled]="!productForm.valid" style="background-color: #CEAC2C; margin-right: 5px;" (click)="onEnviar2();">CREAR</button>
+            <button mat-button [disabled]="!productForm.valid" style="background-color: #CEAC2C;" (click)="onUpdateProduct()">ACTUALIZAR</button>
         </div>
     </mat-drawer>
 
     <div style="text-align: center; padding: 4%; ">
-        <button type="button" class="btn btn-outline-success"
-            style="background: #CEAC2C; font-size:150%; color: beige; padding-top: 1%;padding-bottom: 1%; padding-right: 3%; padding-left: 2%;"
-            mat-button (click)="drawer.toggle()">
+        <button type="button" class="btn btn-outline-success" style="background: #CEAC2C; font-size:150%; color: beige; padding-top: 1%;padding-bottom: 1%; padding-right: 3%; padding-left: 2%;" mat-button (click)="drawer.toggle()">
             AÑADIR UN SERVICIO<i class="fas fa-folder-plus fa-2x" style="padding-left: 3%;"></i>
         </button>
     </div>
 
 
-    <div class="row" style="padding: 2%; margin: 3%;">
-        <div *ngFor="let product of products" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
-        style="margin-bottom: 5%; padding-left: 3%; padding-right: 3%;">
-            <mat-card class="example-card text-black bg-primary123 mb-3"
-                style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%; height: 100%">
-                <div style="height: 80%;">
-                    <mat-card-header>
-                        <mat-card-title>{{product.title}}</mat-card-title>
-                        <mat-card-subtitle>{{product.price}} Bs.</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image [src]="product.imageUrl" alt="Foto de Servicio" style="height: 270px;">
-                    <mat-card-content style="height: 120px; overflow-y: auto;">
-                        <p>
-                            Descripción: {{product.description}}
-                        </p>
-                        <p>
-                            Stock: {{product.stock}}
-                        </p>
-                    </mat-card-content>
-                </div>
+    <div class="row">
+        <div *ngFor="let product of products" class="row col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center;">
+            <mat-card class="example-card text-black bg-primary123 mb-3">
+                <mat-card-header>
+                    <mat-card-title>{{product.title}}</mat-card-title>
+                    <mat-card-subtitle>Veterinaria: {{product.storeName}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image [src]="product.imageUrl" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                    <p>
+                        {{product.description}}
+                    </p>
+                    <p>
+                        Fecha: {{product.date | date}}
+                    </p>
+                    <p>
+                        Horario: {{product.hour}} hrs.
+                    </p>
+                </mat-card-content>
                 <mat-card-actions>
                     <div style=" bottom: 5%; cursor: pointer; display: block; text-align: center; ">
-                        <button mat-button style="background-color: #CEAC2C;  border-radius: 15px; margin: 3%; "
-                            (click)="onEdit(product); drawer.toggle()">EDITAR</button>
-                        <button mat-button style="background-color: #CEAC2C; border-radius: 15px;  margin: 3%;"
-                            (click)="onDelete(product.id)">ELIMINAR</button>
+                        <button mat-button style="background-color: #CEAC2C;  border-radius: 15px; margin: 3%; " (click)="onEdit(product); drawer.toggle()">EDITAR</button>
+                        <button mat-button style="background-color: #CEAC2C; border-radius: 15px;  margin: 3%;" (click)="onDelete(product.id)">ELIMINAR</button>
                     </div>
                 </mat-card-actions>
             </mat-card>

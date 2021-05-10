@@ -6,5 +6,4 @@ export interface User {
   address: string;
   photoURL: string;
   emailVerified: boolean;
-  servicesReserved: any;
 }

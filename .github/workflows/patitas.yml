@@ -1,5 +1,6 @@
 on: push
-name: Build Patitas
+name: Patitas CI
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,11 +23,20 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: npm install and npm run build
-        run: |
-          npm i
-          npm ci build
-      - name: Push Build to Releases
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "dist/angular-githubaction/*"
-          token: ${{ secrets.TOKEN }}
+        run: yarn --frozen-lockfile
+        
+  firebase-deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
+      with:
+        node-version: '10.x'
+    - run: yarn --frozen-lockfile
+    - uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
