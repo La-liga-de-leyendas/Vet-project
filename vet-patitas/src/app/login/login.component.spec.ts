@@ -3,7 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DebugElement } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -61,12 +61,18 @@ describe('LoginComponent', () => {
         expect(loginBtnContainer).toBeDefined();
     }));
 
-    /*
+
     it('should validate correct user and password ', () => {
+      const testForm = <NgForm>{
+        value: {
+            email: " ",
+            password: " "
+        }
+      };
       spyOn(component, 'onLogin').and.callThrough();
-      component.onLogin2({email: " ", password: " "});
-      fixture.nativeElement.querySelector('button').click();
-      fixture.detectChanges();
-      expect(component.onLogin2).toEqual('login_invalid');
-    });*/
+      component.onLogin(testForm);
+      //fixture.nativeElement.querySelector('button').click();
+      //fixture.detectChanges();
+      expect(testForm.valid).toBeFalsy();
+    });
 });

@@ -80,7 +80,7 @@ describe('ProductsComponent', () => {
       expect(component.ngOnInit).toHaveBeenCalled(); // PASSES
     });
 
-    it('should getProducts length', () => {
+    it('should getProducts length diffetent to Zero', () => {
       spyOn(component, 'ngOnInit').and.callThrough();
       spyOn(service, 'getProducts').and.callThrough();
       component.ngOnInit();
