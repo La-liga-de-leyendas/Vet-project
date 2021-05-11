@@ -147,6 +147,23 @@ export class MyVetServicesComponent implements OnInit {
     );
   }
 
+  onUpdateProduct2(form): void {
+    this.productUpdateSubs = this.productService.updateServices(
+      "6",
+        {
+          ...form.value,
+        }
+      ).subscribe(
+      res => {
+        console.log(res);
+        this.loadProducts();
+      },
+      err => {
+        console.log('ERROR DE SERVIDOR');
+      }
+    );
+  }
+
   loadProducts(): void {
     this.products = [];
     const userId = this.authService.getUserId();

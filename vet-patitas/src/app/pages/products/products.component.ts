@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   lastValue = 0;
 
   contadorP = 0;
-  largoProd = 3;
+  largoProd = 2;
   vetProductsAddSubs: Subscription;
   myReservedForBDD = [];
 
@@ -61,12 +61,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
       //console.log('laaaaaaaaaaaaaaaargo: ', this.products.length)
       this.largoProd = this.products.length;
       console.log('size: ', this.largoProd);
+      this.obtenerProductosLargo(this.products.length);
     });
 
   }
 
-  obtenerProductosLargo(): void{
-
+  obtenerProductosLargo(size): void{
+    this.largoProd = size;
     console.log('size: ', this.largoProd);
   }
 

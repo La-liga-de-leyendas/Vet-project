@@ -72,23 +72,24 @@ describe('ProductsComponent', () => {
       });
       expect(largoProd).toBeGreaterThan(100000);
     });*/
-/*
+
     it('should call ngOnInit', () => {
-      const fixture = TestBed.createComponent(ProductsComponent);
-      const component = fixture.componentInstance;
-      const spyOnNgOnInit: jasmine.Spy = spyOn(component, 'obtenerProductosLargo').and.callThrough();
-
-      expect(spyOnNgOnInit).toHaveBeenCalled();
-    });*/
-
-    /*
-    it('should call fun', () => {
-      const fixture = TestBed.createComponent(ProductsComponent);
-      const component = fixture.componentInstance;
-      const spyOnFun: jasmine.Spy = spyOn(component, 'obtenerProductosLargo').and.callThrough();
-      fixture.detectChanges();
-      expect(spyOnFun).toHaveBeenCalled(); // PASSES
+      spyOn(component, 'ngOnInit').and.callThrough();
+      //fixture.detectChanges();
+      component.ngOnInit();
+      expect(component.ngOnInit).toHaveBeenCalled(); // PASSES
     });
-    */
+
+    it('should getProducts length diffetent to Zero', () => {
+      spyOn(component, 'ngOnInit').and.callThrough();
+      spyOn(service, 'getProducts').and.callThrough();
+      component.ngOnInit();
+      service.getProducts();
+      expect(service.getProducts).toHaveBeenCalled();
+      var count = Object.keys(service.getProducts).length;
+      expect(count).not.toEqual(0);
+
+    });
+
 
 });
