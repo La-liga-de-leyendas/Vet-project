@@ -3,7 +3,7 @@
     <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 300px; height: 100%; margin-top: 20px; padding-top: 4%; background: ghostwhite; text-align: center;" [position]="'end'">
 
 
-        <img src="../../assets/images/appointment.png" alt="Mi Agenda" height="14%" width="100%" style="margin-top: 20%;">
+        <img src="../../assets/images/appointment.png" alt="Mi Agenda" height="17%" width="100%" style="margin-top: 20%;">
         <div style="text-align: center; padding-left: 7%;padding-right: 7%; padding-top: 10%;padding-bottom: 12%;">
             <h1 style="font-weight: bold;">MIS CITAS</h1> <br>
             <h5>Pronto las veterinarias se contactarán contigo mediante tu número celular para coordinar los servicios que reservaste para tu mascota. Hasta mientras, este es un listado de todas tus citas en agenda y su respectivo horario de atención. No
@@ -173,10 +173,10 @@
                     </mat-card-content>
                     <mat-card-actions style=" cursor: pointer; display: block; text-align: center;">
                         <div *ngIf="vetservice.stock === 0">
-                            <button style="background-color: #d6b94e; border-radius: 15px;margin-top: 10%; padding-right: 9%; padding-left: 9%;" mat-raised-button (click)="onReservar(vetservice); vetservice.clicked=true;" [disabled]="vetservice.stock === 0">RESERVADO</button>
+                            <button style="background-color: #d6b94e; border-radius: 15px;margin-top: 13%; padding-right: 9%; padding-left: 9%;" mat-raised-button (click)="onReservar(vetservice); vetservice.clicked=true;" [disabled]="vetservice.stock === 0">RESERVADO</button>
                         </div>
                         <div *ngIf="vetservice.stock !== 0">
-                            <button style="background-color: #d6b94e; border-radius: 15px;margin-top: 10%; padding-right: 9%; padding-left: 9%;" mat-raised-button (click)="onReservar(vetservice); vetservice.clicked=true;" [disabled]="vetservice.clicked">RESERVAR</button>
+                            <button style="background-color: #d6b94e; border-radius: 15px;margin-top: 13%; padding-right: 9%; padding-left: 9%;" mat-raised-button (click)="onReservar(vetservice); vetservice.clicked=true;" [disabled]="vetservice.clicked">RESERVAR</button>
                         </div>
 
                     </mat-card-actions>
