@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 import { RegisterauthService } from '../shared/services/registerauth.service';
@@ -8,7 +9,11 @@ import { RegisterauthService } from '../shared/services/registerauth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
+
+  
+  loginForm: FormGroup;
 
   hide = true;
   constructor(private router: Router, private authService: AuthService, public ngAuthService: RegisterauthService) { }
@@ -19,9 +24,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onLogin(form: any): void{
+  onLogin(form: any) {
     //console.log('FORM: ', form.value);
-
+    let userLogged = 'invalid_form';
     this.authService.login({
       email: form.value.email,
       password: form.value.password,
@@ -30,12 +35,16 @@ export class LoginComponent implements OnInit {
       res => {
         //console.log('LOGIN RESPONSE: ', res);
         this.router.navigate(['/pages']);
+        userLogged = 'login_valid';
         //this.ngAuthService.SignIn(form.value.email, form.value.password);
       },
       err => {
-        window.alert('Usuario y contraseña erroneos o todavía no tienes una cuenta')
+        window.alert('Usuario y contraseña erroneos o todavía no tienes una cuenta');
+        userLogged = 'login_invalid';
       }
+       
     );
+    return userLogged;
   }
 
   onLogin2(form): void{
