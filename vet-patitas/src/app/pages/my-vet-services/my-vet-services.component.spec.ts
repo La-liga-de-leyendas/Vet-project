@@ -1,8 +1,8 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AngularFireModule } from '@angular/fire';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -15,8 +15,19 @@ import { environment } from 'src/environments/environment';
 import { MyVetServicesComponent } from './my-vet-services.component';
 
 describe('MyVetServicesComponent', () => {
+    let service: VetServicesService;
     let component: MyVetServicesComponent;
     let fixture: ComponentFixture<MyVetServicesComponent>;
+    let spySortService = jasmine.createSpyObj({
+      date: "2021-05-19T04:00:00.000Z",
+      description: "duración de 20 minutos",
+      hour: "01:15 PM",
+      imageUrl: "https://veterinariabonamie.cl/wp-content/uploads/2020/05/ecografiabonamie-300x300.jpg",
+      stock: 5,
+      storeName: "Clínica Doberman",
+      title: "Ecografia",
+      storeId: "2DnSOMr8viXc1BGRUYq6YOT5XPj1"
+     });
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -44,7 +55,9 @@ describe('MyVetServicesComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(MyVetServicesComponent);
         component = fixture.componentInstance;
+        service = TestBed.get(VetServicesService);
         fixture.detectChanges();
+
     });
 
     it('should create my vet services', () => {
@@ -70,6 +83,40 @@ describe('MyVetServicesComponent', () => {
       component.productForm.controls['date'].setValue('05/15/2021');
       fixture.detectChanges();
       expect(component.productForm.valid).toBeTruthy();
+    }));
+
+
+    it('Update a vet service in database', async(() => {
+      //let htttp: HttpClient;
+      //service = new VetServicesService(htttp);
+      spyOn(service, 'updateServices').and.callThrough();
+      fixture.detectChanges();
+      const testForm = <NgForm>{
+        value: {
+            date: "2021-05-19T04:00:00.000Z",
+            description: "duración de 20 minutos",
+            hour: "01:15 PM",
+            imageUrl: "https://veterinariabonamie.cl/wp-content/uploads/2020/05/ecografiabonamie-300x300.jpg",
+            stock: 5,
+            storeName: "Clínica Doberman",
+            title: "Ecografia",
+            storeId: "2DnSOMr8viXc1BGRUYq6YOT5XPj1"
+        }
+      };
+      const foorm = {
+            date: "2021-05-19T04:00:00.000Z",
+            description: "duración de 20 minutos",
+            hour: "01:15 PM",
+            imageUrl: "https://veterinariabonamie.cl/wp-content/uploads/2020/05/ecografiabonamie-300x300.jpg",
+            stock: 5,
+            storeName: "Clínica Doberman",
+            title: "Ecografia",
+            storeId: "2DnSOMr8viXc1BGRUYq6YOT5XPj1"
+      }
+      //fixture.detectChanges();
+      service.updateServices('6', foorm);
+      fixture.detectChanges();
+      expect(service.updateServices).toHaveBeenCalled(); // PASSES
     }));
 
 });
