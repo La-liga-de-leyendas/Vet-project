@@ -39,7 +39,7 @@ describe('LoginComponent', () => {
             ]
         })
             .compileComponents();
-            
+
     }));
 
     beforeEach(() => {
@@ -61,10 +61,12 @@ describe('LoginComponent', () => {
         expect(loginBtnContainer).toBeDefined();
     }));
 
-    //it('should validate correct user and password ', () => {
-       //component.onLogin({email:' ', password:' ', returnSecureToken: true});
-       //fixture.nativeElement.querySelector('button').click();
-       //fixture.detectChanges();
-       //expect(component.onLogin).toEqual('login_invalid');
-    //});
+    /*
+    it('should validate correct user and password ', () => {
+      spyOn(component, 'onLogin').and.callThrough();
+      component.onLogin2({email: " ", password: " "});
+      fixture.nativeElement.querySelector('button').click();
+      fixture.detectChanges();
+      expect(component.onLogin2).toEqual('login_invalid');
+    });*/
 });

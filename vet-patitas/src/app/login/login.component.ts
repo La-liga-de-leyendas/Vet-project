@@ -12,7 +12,7 @@ import { RegisterauthService } from '../shared/services/registerauth.service';
 
 export class LoginComponent implements OnInit {
 
-  
+
   loginForm: FormGroup;
 
   hide = true;
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(form: any) {
-    //console.log('FORM: ', form.value);
+    console.log('FORM: ', form.value);
     let userLogged = 'invalid_form';
     this.authService.login({
       email: form.value.email,
@@ -42,14 +42,15 @@ export class LoginComponent implements OnInit {
         window.alert('Usuario y contraseña erroneos o todavía no tienes una cuenta');
         userLogged = 'login_invalid';
       }
-       
+
     );
     return userLogged;
   }
 
   onLogin2(form): void{
     //console.log('VARIABLE LOCAL FORM: ', form.value);
-    this.router.navigate(['pages']);
+    console.log('FORM: ', form.value);
+    let userLogged = 'invalid_form';
   }
 
   onRegister(): void {
