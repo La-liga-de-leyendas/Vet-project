@@ -1,8 +1,5 @@
 on: push
 name: Patitas CI
-defaults:
-  run:
-    working-directory: ./vet-patitas
 
 jobs:
   build:
