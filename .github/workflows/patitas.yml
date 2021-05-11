@@ -5,31 +5,6 @@ defaults:
     working-directory: ./vet-patitas
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
-
-    steps:
-      - uses: actions/checkout@v1
-
-      - name: Cache node modules
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Node ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install and npm run build
-        run: |
-          npm i
-          npm run build
-        
   firebase-deploy:
 
     runs-on: ubuntu-latest
@@ -38,10 +13,9 @@ jobs:
     - uses: actions/checkout@master
     - uses: actions/setup-node@master
       with:
-        node-version: '10.x'
-        run: |
-          npm i
-          npm run build:prod
+        node-version: '12.x'
+    - run: npm install
+    - run: npm run build:prod
     - uses: w9jds/firebase-action@master
       with:
         args: deploy --only hosting
