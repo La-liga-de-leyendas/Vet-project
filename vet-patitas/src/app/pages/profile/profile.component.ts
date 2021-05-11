@@ -56,49 +56,9 @@ export class ProfileComponent implements OnInit {
       this.mapa = new mapboxgl.Map({
           container: 'mapa-mapbox', // container id
           style: 'mapbox://styles/mapbox/streets-v11',
-          center: [-68.1292579, -16.5752089], // LNG, LAT
-          zoom: 16.6 // starting zoom
+          center: [-68.12599110810477, -16.496885799116242], // LNG, LAT
+          zoom: 18.6 // starting zoom
       });
-
-    const places = {
-      'type': 'FeatureCollection',
-      'features': [
-        {
-          'type': 'Feature',
-          'properties': {
-            'description': "Rabitos"
-
-          },
-          'geometry': {
-            'type': 'Point',
-            'coordinates': [-68.1264728, -16.4969383]
-          }
-        }]
-    };
-
-    this.mapa.on('load', function () {
-
-      this.mapa.addSource('places', {
-      'type': 'geojson',
-      'data': places
-      });
-
-      this.mapa.addLayer({
-      'id': 'poi-labels',
-      'type': 'symbol',
-      'source': 'places',
-      'layout': {
-      'text-field': ['get', 'description'],
-      'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
-      'text-radial-offset': 0.5,
-      'text-justify': 'auto',
-      //'icon-image': ['get', 'icon']
-      }
-      });
-
-      //this.mapa.rotateTo(180, { duration: 10000 });
-      });
-
 
      this.crearMarcador(-68.12599110810477, -16.496885799116242);
      this.crearMarcador2(-68.12635387569559, -16.4969757269928);
