@@ -159,7 +159,7 @@
                     <img mat-card-image [src]="vetservice.imageUrl" alt="Imagen del servicio" style="height: 300px;">
                     <mat-card-content style="height: 120px; overflow-y: auto;">
                         <p>
-                            Servicio: {{vetservice.description}}
+                            Servicio: {{vetservice.description}}ñaaa
                         </p>
                         <p>
                             Fecha: {{vetservice.date | date}}
@@ -171,16 +171,17 @@
 
                         </p>
                     </mat-card-content>
-                    <mat-card-actions style=" cursor: pointer; display: block; text-align: center;">
+                </div>
+                    <mat-card-actions style=" cursor: pointer; display: block; text-align: center; ">
                         <div *ngIf="vetservice.stock === 0">
-                            <button style="background-color: #d6b94e; border-radius: 15px;margin-top: 13%; padding-right: 9%; padding-left: 9%;" mat-raised-button (click)="onReservar(vetservice); vetservice.clicked=true;" [disabled]="vetservice.stock === 0">RESERVADO</button>
+                            <button style="background-color: #d6b94e; border-radius: 15px;padding-right: 9%; padding-left: 9%; margin-top: 10%;" mat-raised-button (click)="onReservar(vetservice); vetservice.clicked=true;" [disabled]="vetservice.stock === 0">RESERVADO</button>
                         </div>
                         <div *ngIf="vetservice.stock !== 0">
-                            <button style="background-color: #d6b94e; border-radius: 15px;margin-top: 13%; padding-right: 9%; padding-left: 9%;" mat-raised-button (click)="onReservar(vetservice); vetservice.clicked=true;" [disabled]="vetservice.clicked">RESERVAR</button>
+                            <button style="background-color: #d6b94e; border-radius: 15px; padding-right: 9%; padding-left: 9%;margin-top: 10%;" mat-raised-button (click)="onReservar(vetservice); vetservice.clicked=true;" [disabled]="vetservice.clicked">RESERVAR</button>
                         </div>
 
                     </mat-card-actions>
-                </div>
+              
             </mat-card>
         </div>
     </div>

@@ -7,7 +7,8 @@
             <h5>Pronto todos tus proveedores se contactarán contigo mediante tu número celular para coordinar la entrega a domicilio de los productos en tu carrito. Hasta mientras, este es un listado de todas tus compras y su precio por unidad y total.
             </h5>
         </div>
-        <table style="font-weight: bold; margin-left: auto; margin-right: auto;margin-top: 10%; margin-bottom: 30%;">
+        <div style="text-align: center; margin-bottom: 30%;">
+        <table style="font-weight: bold; margin-left: auto; margin-right: auto;margin-top: 10%; margin-bottom: 10%;">
             <tr>
                 <td>PRODUCTO</td>
                 <td>PRECIO </td>
@@ -25,6 +26,7 @@
         <div *ngIf="contadorP !== 0">
             <button mat-button style="background-color: #CEAC2C; margin-top: 25px;" (click)="onAddProductsToBuy()">Confirmar</button>
         </div>
+    </div>
 
     </mat-drawer>
 
