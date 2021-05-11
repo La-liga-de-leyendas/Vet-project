@@ -28,10 +28,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
   lastValue = 0;
 
   contadorP = 0;
+  largoProd = 3;
   vetProductsAddSubs: Subscription;
   myReservedForBDD = [];
 
-  constructor(private productsService: ProductsService, private store: Store<any>, private productsBuyedService: ProductsBuyedService, private authService: AuthService) { }
+  constructor(private productsService: ProductsService, private store: Store<any>, private productsBuyedService: ProductsBuyedService, private authService: AuthService) {
+
+  }
 
   ngOnInit(): void {
 
@@ -45,7 +48,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
           return arr;
       });
       //console.log('Object= ',res.items)
-      console.log('Array= ',arr)
+      //console.log('Array= ',arr)
       this.hola(arr);
       this.getAll();
       this.loadUser();
@@ -55,11 +58,17 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.productSubs = this.productsService.getProducts().subscribe(res => {
       //console.log('respuesta: ', res);
       Object.entries(res).map((p: any) => this.products.push({id: p[0],  ...p[1]}));
+      //console.log('laaaaaaaaaaaaaaaargo: ', this.products.length)
+      this.largoProd = this.products.length;
+      console.log('size: ', this.largoProd);
     });
-
 
   }
 
+  obtenerProductosLargo(): void{
+
+    console.log('size: ', this.largoProd);
+  }
 
 
   totalPricesProducts() {
