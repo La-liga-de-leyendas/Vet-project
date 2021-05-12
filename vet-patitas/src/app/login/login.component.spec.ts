@@ -52,7 +52,7 @@ describe('LoginComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('form value should update from when u change the input', (() => {
+    it('Login > form value should update from when u change the input', (() => {
         const usernameContainer = fixture.debugElement.nativeElement.querySelector('#username-container');
         const passwordContainer = fixture.debugElement.nativeElement.querySelector('#password-container');
         const loginBtnContainer = fixture.debugElement.nativeElement.querySelector('#login-btn-container');
@@ -62,7 +62,7 @@ describe('LoginComponent', () => {
     }));
 
 
-    it('should validate correct user and password ', () => {
+    it('Login > should validate correct user and password empty', () => {
       const testForm = <NgForm>{
         value: {
             email: " ",
@@ -74,5 +74,19 @@ describe('LoginComponent', () => {
       //fixture.nativeElement.querySelector('button').click();
       //fixture.detectChanges();
       expect(testForm.valid).toBeFalsy();
+    });
+
+    it('Login> should validate correct user and password filled', () => {
+      const testForm = <NgForm>{
+        value: {
+            email: "luzmarianacarlo1999@gmail.com",
+            password: "mariana123"
+        }
+      };
+      spyOn(component, 'onLogin').and.callThrough();
+      component.onLogin(testForm);
+      //fixture.nativeElement.querySelector('button').click();
+      //fixture.detectChanges();
+      expect(testForm.value).toBeTruthy();
     });
 });

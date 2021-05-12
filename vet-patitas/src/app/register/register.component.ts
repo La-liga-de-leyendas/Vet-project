@@ -40,4 +40,21 @@ export class RegisterComponent implements OnInit {
   );
   }
 
+  onEnviar3(form: any): void {
+
+    form= this.userForm.value;
+    //console.log('FORM GROUP: ', this.userForm.value);
+
+    this.userAddSubs = this.users_service.addUsers({
+     form
+    }
+  ).subscribe(res => {
+    console.log('RSPUESTA: ', res);
+  },
+    err => {
+     console.log('ERROR DE SERVIDOR');
+    }
+  );
+  }
+
 }

@@ -73,17 +73,12 @@ describe('ProductsComponent', () => {
       expect(largoProd).toBeGreaterThan(100000);
     });*/
 
-    it('should call ngOnInit', () => {
-      spyOn(component, 'ngOnInit').and.callThrough();
-      //fixture.detectChanges();
-      component.ngOnInit();
-      expect(component.ngOnInit).toHaveBeenCalled(); // PASSES
-    });
+
 
     it('should getProducts length diffetent to Zero', () => {
-      spyOn(component, 'ngOnInit').and.callThrough();
+      //spyOn(component, 'ngOnInit').and.callThrough();
       spyOn(service, 'getProducts').and.callThrough();
-      component.ngOnInit();
+      //component.ngOnInit();
       service.getProducts();
       expect(service.getProducts).toHaveBeenCalled();
       var count = Object.keys(service.getProducts).length;
