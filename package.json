@@ -4,7 +4,8 @@
   "description": "results for second sprint with client, vets and providers functions",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ng test",
+    "test:prod": "ng test --browsers=ChromeHeadless --watch=false --code-coverage"
   },
   "repository": {
     "type": "git",
