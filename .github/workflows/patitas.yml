@@ -1,26 +1,49 @@
 name: Deploy to Google
-
-# Run this workflow every time a new commit pushed to your repository
 on: push
 
 jobs:
-  deploy:
+  build:
+    name: Install npm and build
     runs-on: ubuntu-latest
-    env:
-      working-directory: ./vet-patitas
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version:
+          - 12.18.0
+
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+
+      - name: Setting-up Node
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install libraries
-        run: npm install
-        working-directory: ${{env.working-directory}}
-      - name: install firebase
-        run: npm i firebase-tools -g
-      - name: deploy
-        run: firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
+
+      - name: Verfying path
+        run: ls -a
+
+      - name: Installing dependencies
+        run: |
+          cd vet-patitas
+          npm install
+      - name: Building
+        run: |
+          cd vet-patitas
+          npm run build\
+  firebase-deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
+      with:
+        node-version: '10.x'
+        run: |
+          cd vet-patitas
+          npm i
+          npm run build:prod
+    - uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
