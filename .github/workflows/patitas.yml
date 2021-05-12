@@ -1,49 +1,40 @@
-name: Deploy to Google
 on: push
+name: Patitas CI
+defaults:
+  run:
+    working-directory: ./vet-patitas
 
 jobs:
   build:
-    name: Install npm and build
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version:
-          - 12.18.0
+        node-version: [12.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
 
-      - name: Setting-up Node
-        uses: actions/setup-node@v2
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Verfying path
-        run: ls -a
-
-      - name: Installing dependencies
-        run: |
-          cd vet-patitas
-          npm install
-      - name: Building
-        run: |
-          cd vet-patitas
-          npm run build\
-  firebase-deploy:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@master
-      with:
-        node-version: '10.x'
+      - name: npm install and npm run build
         run: |
           cd vet-patitas
           npm i
-          npm run build:prod
-    - uses: w9jds/firebase-action@master
-      with:
-        args: deploy --only hosting
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          npm run build
+      - name: deploy project
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        
+    
