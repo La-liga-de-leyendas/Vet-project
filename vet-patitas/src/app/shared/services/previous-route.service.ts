@@ -21,8 +21,8 @@ export class PreviousRouteService {
                     .subscribe((event: NavigationEnd) => {
                         this.previousUrl = this.currentUrl;
                         this.currentUrl = event.urlAfterRedirects;
-                        console.log("prev: ", this.previousUrl)
-                        console.log("curr: ", this.currentUrl)
+                        //console.log("prev: ", this.previousUrl)
+                        //console.log("curr: ", this.currentUrl)
                     });
 
     }

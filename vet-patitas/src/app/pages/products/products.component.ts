@@ -60,7 +60,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
       Object.entries(res).map((p: any) => this.products.push({id: p[0],  ...p[1]}));
       //console.log('laaaaaaaaaaaaaaaargo: ', this.products.length)
       this.largoProd = this.products.length;
-      console.log('size: ', this.largoProd);
+      //console.log('size: ', this.largoProd);
       this.obtenerProductosLargo(this.products.length);
     });
 
@@ -68,7 +68,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   obtenerProductosLargo(size): void{
     this.largoProd = size;
-    console.log('size: ', this.largoProd);
+    //console.log('size: ', this.largoProd);
   }
 
 

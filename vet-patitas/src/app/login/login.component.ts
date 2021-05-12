@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(form: any) {
-    console.log('FORM: ', form.value);
+    //console.log('FORM: ', form.value);
     let userLogged = 'invalid_form';
     this.authService.login({
       email: form.value.email,
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
 
   onLogin2(form): void{
     //console.log('VARIABLE LOCAL FORM: ', form.value);
-    console.log('FORM: ', form.value);
+    //console.log('FORM: ', form.value);
     let userLogged = 'invalid_form';
   }
 

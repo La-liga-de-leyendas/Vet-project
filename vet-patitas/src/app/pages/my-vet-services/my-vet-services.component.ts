@@ -104,14 +104,14 @@ export class MyVetServicesComponent implements OnInit {
 
   loadOnlyName(name): void {
     this.onlyName = name;
-    console.log('solo el mail: ', this.onlyName);
+    //console.log('solo el mail: ', this.onlyName);
 
 
   }
 
 
   onEnviar2(): void {
-    console.log('FORM GROUP: ', this.productForm.value);
+    //console.log('FORM GROUP: ', this.productForm.value);
 
     this.productSubs = this.productService.addServices({
         ...this.productForm.value,
@@ -119,11 +119,11 @@ export class MyVetServicesComponent implements OnInit {
         storeName: this.onlyName
       }
     ).subscribe(res => {
-      console.log('RSPUESTA: ', res);
+      //console.log('RSPUESTA: ', res);
       this.loadProducts();
     },
       err => {
-        console.log('ERROR DE SERVIDOR');
+        //console.log('ERROR DE SERVIDOR');
       }
     );
   }
@@ -138,11 +138,11 @@ export class MyVetServicesComponent implements OnInit {
         }
       ).subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
         this.loadProducts();
       },
       err => {
-        console.log('ERROR DE SERVIDOR');
+        //console.log('ERROR DE SERVIDOR');
       }
     );
   }
@@ -155,11 +155,11 @@ export class MyVetServicesComponent implements OnInit {
         }
       ).subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
         this.loadProducts();
       },
       err => {
-        console.log('ERROR DE SERVIDOR');
+        //console.log('ERROR DE SERVIDOR');
       }
     );
   }
@@ -177,11 +177,11 @@ export class MyVetServicesComponent implements OnInit {
   onDelete(id: any): void {
     this.productDeleteSubs = this.productService.deleteServices(id).subscribe(
       res => {
-        console.log(res);
+        //console.log(res);
         this.loadProducts();
       },
       err => {
-        console.log('ERROR DE SERVIDOR');
+        //console.log('ERROR DE SERVIDOR');
       }
     );
   }

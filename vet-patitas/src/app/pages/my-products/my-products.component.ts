@@ -126,18 +126,18 @@ export class MyProductsComponent implements OnInit {
       Object.entries(res).map((p: any) => this.produccts.push({id: p[0],  ...p[1]}));
 
       aaa = Object.values(this.produccts)[0].storeName;
-      console.log('es el mail talvez: ', aaa);
+      //console.log('es el mail talvez: ', aaa);
       this.loadOnlyName(aaa);
     });
 
-    console.log('nnnnnnn: ', aaa);
+    //console.log('nnnnnnn: ', aaa);
 
 
   }
 
   loadOnlyName(name): void {
     this.onlyName = name;
-    console.log('solo el mail: ', this.onlyName);
+    //console.log('solo el mail: ', this.onlyName);
 
 
   }
