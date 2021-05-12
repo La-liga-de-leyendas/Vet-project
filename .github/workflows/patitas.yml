@@ -1,21 +1,20 @@
 on: push
 name: Patitas CI
-defaults:
-  run:
-    working-directory: ./vet-patitas
-
 jobs:
   firebase-deploy:
 
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./vet-patitas
 
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@master
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
     - run: npm install
     - run: npm run build:prod
+    - working-directory: ${{env.working-directory}}
     - uses: w9jds/firebase-action@master
       with:
         args: deploy --only hosting
