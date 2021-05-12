@@ -1,6 +1,5 @@
 <section id="hero" class="hero d-flex align-items-center" style="background-color: #FEEDEF; ">
-    <div class="container"
-        style="text-align: center; padding-top: 8%; padding-bottom: 4%; margin-bottom: 50px; margin-top: 100px; margin-bottom: 150px;">
+    <div class="container" style="text-align: center; padding-top: 8%; padding-bottom: 4%; margin-bottom: 50px; margin-top: 100px; margin-bottom: 150px;">
         <div class="row" *ngIf="ngAuthService.userState as user">
             <div class="media" style="margin-top: 80px;">
                 <h2 style="text-align: center;"><strong> ¡HOLA {{user.email}}! </strong></h2>
@@ -14,17 +13,17 @@
                 <h3>disculpa las molestias!</h3>
             </div>-->
 
-            <h2 style="text-align: left;"><strong> Cerca de ti:</strong></h2>
+            <h2 style="text-align: left;"><strong>Tiendas & Veterinarias cerca de ti:</strong></h2>
             <br>
             <br>
             <br>
         </div>
-        <div id="mapa-mapbox" style="align-content: center; margin-left: 200px; background-color: #FEEDEF;"></div>
+        <div id="mapa-mapbox" style="align-content: center; background-color: #FEEDEF;"></div>
 
     </div>
 </section>
 
-<div style="margin-top: 80px; background-color: #FEEDEF;">
+<div style="padding-top: 80px; background-color: #FEEDEF;">
     <h2 style="text-align: center;"><strong> Tu historial de reservas:</strong></h2>
     <div *ngIf="bookings.length === 0" style="text-align: center;">
         <img src="../../assets/images/Empty-vet-bookings.png" class="img-fluid" width="300px" height="300px">
