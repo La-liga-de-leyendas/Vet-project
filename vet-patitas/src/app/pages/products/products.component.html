@@ -8,25 +8,25 @@
             </h5>
         </div>
         <div style="text-align: center; margin-bottom: 30%;">
-        <table style="font-weight: bold; margin-left: auto; margin-right: auto;margin-top: 10%; margin-bottom: 10%;">
-            <tr>
-                <td>PRODUCTO</td>
-                <td>PRECIO </td>
-            </tr>
-            <tr *ngFor="let product of cart">
-                <td>{{product.title}}</td>
-                <td>{{product.price}} Bs.</td>
-            </tr>
-            <tr>
-                <td>TOTAL</td>
-                <td>{{pricesProductsTotalAmount}} Bs.</td>
-            </tr>
-        </table>
+            <table style="font-weight: bold; margin-left: auto; margin-right: auto;margin-top: 10%; margin-bottom: 10%;">
+                <tr>
+                    <td>PRODUCTO</td>
+                    <td>PRECIO </td>
+                </tr>
+                <tr *ngFor="let product of cart">
+                    <td>{{product.title}}</td>
+                    <td>{{product.price}} Bs.</td>
+                </tr>
+                <tr>
+                    <td>TOTAL</td>
+                    <td>{{pricesProductsTotalAmount}} Bs.</td>
+                </tr>
+            </table>
 
-        <div *ngIf="contadorP !== 0">
-            <button mat-button style="background-color: #CEAC2C; margin-top: 25px;" (click)="onAddProductsToBuy()">Confirmar</button>
+            <div *ngIf="contadorP !== 0">
+                <button mat-button style="background-color: #CEAC2C; margin-top: 25px;" (click)="onAddProductsToBuy()">Confirmar</button>
+            </div>
         </div>
-    </div>
 
     </mat-drawer>
 
@@ -97,6 +97,7 @@
                 MI CARRITO <i class="fas fa-shopping-cart"></i>
             </button>
         </div>
+
     </section>
     <div class="row" style="text-align:center">
         <div *ngIf="products?.length === 0 || products == null ">
