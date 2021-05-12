@@ -32,6 +32,7 @@ jobs:
       - name: testing
         run: |
           cd vet-patitas
+          npm cache clean --force
           npm run test:prod
       - name: deploy project
         uses: w9jds/firebase-action@master
