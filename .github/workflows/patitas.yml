@@ -27,23 +27,14 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install and npm run build
         run: |
+          cd vet-patitas
           npm i
           npm run build
+      - name: deploy project
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         
-  firebase-deploy:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@master
-      with:
-        node-version: '10.x'
-        run: |
-          npm i
-          npm run build:prod
-    - uses: w9jds/firebase-action@master
-      with:
-        args: deploy --only hosting
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+    
