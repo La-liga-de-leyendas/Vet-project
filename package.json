@@ -4,6 +4,9 @@
   "description": "results for second sprint with client, vets and providers functions",
   "main": "index.js",
   "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
     "test": "ng test",
     "test:prod": "ng test --browsers=ChromeHeadless --watch=false --code-coverage"
   },
