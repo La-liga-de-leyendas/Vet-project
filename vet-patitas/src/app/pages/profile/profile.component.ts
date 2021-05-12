@@ -46,7 +46,7 @@ export class ProfileComponent implements OnInit {
   vetinariesBookings = [];
   vetBookingsGetAllSubs: Subscription;
   iddd: any = 'BWQBoCMCIbbiSL791oigkdb0rUh2';
-
+  contadorInit = 0;
   mapa: mapboxgl.Map;
 
   constructor(public ngAuthService: RegisterauthService, private userService: UserService, private authService: AuthService, private vetBookingService: VetBookingService, private productsBuyedService: ProductsBuyedService) {}

@@ -23,6 +23,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './core';
 import { VerifyMailGuard } from './shared/guards/verify-mail.guard';
 import { DateformatPipe } from './shared/pipes/dateformat.pipe';
+import { SearchPipe } from './shared/pipes/search.pipe';
 
 
 
@@ -47,7 +48,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    DateformatPipe
+    DateformatPipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

@@ -32,6 +32,10 @@ export class ProductsComponent implements OnInit, OnDestroy {
   vetProductsAddSubs: Subscription;
   myReservedForBDD = [];
 
+
+  searchValue = '';
+  search = '';
+
   constructor(private productsService: ProductsService, private store: Store<any>, private productsBuyedService: ProductsBuyedService, private authService: AuthService) {
 
   }
@@ -125,6 +129,22 @@ export class ProductsComponent implements OnInit, OnDestroy {
     const userId = this.authService.getUserId();
   }
 
+  onSubmit() {
+    this.searchValue = this.search.toLowerCase();
+    console.log('RES: ', this.search);
+    this.loadPlates();
+  }
+
+
+
+  loadPlates() {
+    this.products = [];
+    this.productSubs = this.productsService.getProducts().subscribe(res => {
+      //console.log('respuesta: ', res);
+      Object.entries(res).map((p: any) => this.products.push({id: p[0],  ...p[1]}));
+      console.log('productos: ', this.products);
+    });
+  }
 
   onComprar(product): void {
     this.contadorP = this.contadorP+1;
