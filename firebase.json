@@ -1,5 +1,17 @@
 {
-  "vet-patitas": {
-    "predeploy": "npm --prefix vet-patitas run build"
+  "hosting": {
+    "site": "vet-patitas",
+    "public": "./vet-patitas/dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }
