@@ -11,6 +11,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+      
 
       - name: Cache node modules
         uses: actions/cache@v1
@@ -23,15 +24,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: testing
-        run: |
-          cd vet-patitas
-          npm run test:prod
       - name: npm install and npm run build
         run: |
           cd vet-patitas
           npm i
           npm run build
+      - name: testing
+        run: |
+          cd vet-patitas
+          npm run test:prod
       - name: deploy project
         uses: w9jds/firebase-action@master
         with:
