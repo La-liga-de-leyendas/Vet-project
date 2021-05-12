@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "vet-patitas",
+    "site": "vet-website-caa3e",
     "public": "./vet-patitas/dist",
     "ignore": [
       "firebase.json",
