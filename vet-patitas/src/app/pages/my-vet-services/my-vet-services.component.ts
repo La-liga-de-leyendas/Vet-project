@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { VetBookingService } from 'src/app/shared/services/vet-booking.service';
 import { VetsService } from 'src/app/shared/services/vets.service';
 import { VetServicesService } from 'src/app/shared/services/vetservices.service';
 
@@ -35,11 +36,21 @@ export class MyVetServicesComponent implements OnInit {
   onlyName: any;
   prueba = [];
 
-  constructor(private formBuilder: FormBuilder, private productService: VetServicesService, private authService: AuthService, private vetService: VetsService) { }
+  vetinariesBookings = [];
+  vetBookingsGetAllSubs: Subscription;
+  iddd: any = '123';
+
+  date: any = 'date';
+  description: any = 'description';
+  hour: any = 'hour';
+  storeName2: any = 'storeName';
+  title: any = 'title';
+
+  constructor(private formBuilder: FormBuilder, private productService: VetServicesService, public authService: AuthService, private vetService: VetsService, private vetBookingService: VetBookingService) { }
 
   ngOnInit(): void {
 
-
+    this.iddd = this.authService.getUserId();
     const currentYear = new Date().getFullYear();
     const currentDay = new Date().getDate();
     const currentMonth = new Date().getMonth();
@@ -48,6 +59,7 @@ export class MyVetServicesComponent implements OnInit {
     //console.log('diaaaaaaaaaaaaaaaaa: ', currentDay);
     this.loadProducts();
     this.loadName();
+    this.loadVetBookingsAll();
     //this.loadVeterinary();
     //console.log('aaaaaaaaaaaaaaaaaaaaa: ', this.loadVeterinary());
 
@@ -202,6 +214,14 @@ export class MyVetServicesComponent implements OnInit {
     this.productUpdateSubs ? this.productUpdateSubs.unsubscribe() : '';
   }
 
+  loadVetBookingsAll(): void {
+    this.vetinariesBookings = [];
+    //this.userId = this.authService.getUserId();
+    this.vetBookingsGetAllSubs = this.vetBookingService.getVetBookings().subscribe( res => {
+      // console.log('RESPUESTA: ', Object.entries(res));
+      Object.entries(res).map((p: any) => this.vetinariesBookings.push({id: p[0],  ...p[1]}));
+    });
 
+  }
 
 }

@@ -35,7 +35,7 @@ export class RegisterauthService {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          //this.router.navigate(['/pages']);
+          this.router.navigate(['/pages']);
           //console.log('PRUEBAAAAAAAAAAAAAAAAAAAAAAAAA: ', result);
         });
         this.SetUserData(result.user);

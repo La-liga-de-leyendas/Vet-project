@@ -19,8 +19,8 @@ export class VetBookingService {
   public addVetBooking(booking: any): Observable<any> {
     return this.http.post(`${this.url}/VetBookings.json`, booking);
   }
-  public getVetBooking(): Observable<any> {
-    return this.http.get(`${this.url}/VetBookingss.json`);
+  public getVetBookings(): Observable<any> {
+    return this.http.get(`${this.url}/VetBookings.json`);
   }
 
 }

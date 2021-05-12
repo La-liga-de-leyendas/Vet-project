@@ -54,13 +54,19 @@ export class VetServicesComponent implements OnDestroy,  OnInit {
       this.schedule = Object.assign([], res.items);
       //console.log('VET', this.schedule);
       let arr = [];
+      //let arr2 = [];
       Object.keys(res.items).map(function(key){
           arr.push({[key]:res.items[key]})
           return arr;
       });
-      //console.log('Object= ',res.items)
-      //console.log('Array= ',arr)
-      this.hola(arr);
+
+
+      //var data_filter = arr.filter( element => element.website =="8:00 AM")
+      //console.log('Object= ', data_filter)
+      //console.log('Array= ',arr);
+
+      //console.log('Array2= ',res.items.date);
+      //this.hola(arr);
       this.getAll();
       this.loadUser();
       //this.getUserLocal();

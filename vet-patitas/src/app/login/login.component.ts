@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     }).subscribe(
       res => {
         //console.log('LOGIN RESPONSE: ', res);
-        this.router.navigate(['/pages']);
+        //this.router.navigate(['/pages']);
         userLogged = 'login_valid';
         //this.ngAuthService.SignIn(form.value.email, form.value.password);
       },

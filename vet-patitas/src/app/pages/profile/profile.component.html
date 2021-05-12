@@ -1,9 +1,11 @@
 <section id="hero" class="hero d-flex align-items-center" style="background-color: #FEEDEF;">
-    <div class="container" style="text-align: center; padding-top: 8%; padding-bottom: 4%;">
+    <div class="container" style="text-align: center; padding-top: 8%; padding-bottom: 4%; background-color: #FEEDEF;">
         <div class="row" *ngIf="ngAuthService.userState as user">
             <div class="media" style="margin-top: 80px;">
                 <h2 style="text-align: center;"><strong> ¡HOLA {{user.email}}!</strong></h2>
             </div>
+            <h2 style="text-align: center;">
+                <strong> Tiendas & Veterinarias cerca de ti:</strong></h2>
             <!--<div class="imagen">
                 <img src="../../../assets/images/not-implemented.png" width="45%" height="80%">
             </div>
@@ -12,12 +14,12 @@
                 <h3>disculpa las molestias!</h3>
             </div>-->
         </div>
-        <div id="mapa-mapbox"></div>
+        <div id="mapa-mapbox" style="align-content: center; margin-left: 200px; background-color: #FEEDEF;"></div>
 
     </div>
 </section>
 
-<div style="margin-top: 80px;">
+<div style="margin-top: 80px; background-color: #FEEDEF;">
     <h2 style="text-align: center;"><strong> Tu historial de reservas:</strong></h2>
     <div *ngIf="bookings.length === 0" style="text-align: center;">
         <img src="../../assets/images/Empty-vet-bookings.png" class="img-fluid" width="300px" height="300px">
@@ -65,21 +67,8 @@
 
                 </div>
             </div>
-            <!-- <table style="font-weight: bold; margin-right: 10px; margin-bottom: 30px; margin-left: 15px;">
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr *ngFor="let item of pru.value | keyvalue;">
-                    <td>{{item.key}}</td>
-                    <td>{{item.value}}</td>
-                </tr>
-            </table> -->
         </div>
-
     </div>
-
-
     <h2 style="text-align: center;"><strong> Tu historial de productos:</strong></h2>
     <div *ngIf="productsB.length === 0" style="text-align: center;">
         <img src="../../assets/images/Empty-products.png" class="img-fluid" width="300px" height="300px">
@@ -127,6 +116,8 @@
         </div>
 
     </div>
+
+
 
     <h1></h1>
 </div>

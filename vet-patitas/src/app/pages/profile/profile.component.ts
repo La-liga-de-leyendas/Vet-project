@@ -43,6 +43,10 @@ export class ProfileComponent implements OnInit {
   productsB = [];
   productsBuyedGetSubs: Subscription;
 
+  vetinariesBookings = [];
+  vetBookingsGetAllSubs: Subscription;
+  iddd: any = 'BWQBoCMCIbbiSL791oigkdb0rUh2';
+
   mapa: mapboxgl.Map;
 
   constructor(public ngAuthService: RegisterauthService, private userService: UserService, private authService: AuthService, private vetBookingService: VetBookingService, private productsBuyedService: ProductsBuyedService) {}
@@ -68,10 +72,12 @@ export class ProfileComponent implements OnInit {
       // Add zoom and rotation controls to the map.
       //map.addControl(new mapboxgl.NavigationControl());
       const iii = localStorage.getItem('userId');
-      //console.log('si agarra: ', iii);
+      //const mmm = JSON.parse(localStorage.getItem('user'));
+      //console.log('si agarra: ',JSON.stringify(mmm.mail));
       this.getUser(iii);
       this.loadOnlyMyVetBookings();
       this.loadOnlyMyProductsBuyed();
+      this.loadVetBookingsAll();
   }
 
   getUser(identifier){
@@ -156,6 +162,17 @@ export class ProfileComponent implements OnInit {
     });
 
   }
+
+
+  loadVetBookingsAll(): void {
+    this.vetinariesBookings = [];
+    this.vetBookingsGetAllSubs = this.vetBookingService.getVetBookings().subscribe( res => {
+      // console.log('RESPUESTA: ', Object.entries(res));
+      Object.entries(res).map((p: any) => this.vetinariesBookings.push({id: p[0],  ...p[1]}));
+    });
+
+  }
+
 
 
 }
