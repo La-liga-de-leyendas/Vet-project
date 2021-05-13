@@ -24,9 +24,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onLogin(form: any) {
+  onLogin(form: any): void {
     //console.log('FORM: ', form.value);
-    let userLogged = 'invalid_form';
+    //let userLogged = 'invalid_form';
     this.authService.login({
       email: form.value.email,
       password: form.value.password,
@@ -35,16 +35,17 @@ export class LoginComponent implements OnInit {
       res => {
         //console.log('LOGIN RESPONSE: ', res);
         //this.router.navigate(['/pages']);
-        userLogged = 'login_valid';
+        //userLogged = 'login_valid';
         //this.ngAuthService.SignIn(form.value.email, form.value.password);
       },
       err => {
         window.alert('Usuario y contraseña erroneos o todavía no tienes una cuenta');
-        userLogged = 'login_invalid';
+        console.log('eeee: ')
+        //userLogged = 'login_invalid';
       }
 
     );
-    return userLogged;
+
   }
 
   onLogin2(form): void{
