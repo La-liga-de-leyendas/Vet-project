@@ -120,16 +120,30 @@
         </button>
     </div>
 
+    <div class="row" style="text-align:center; padding-bottom: 5%;">
+        <div *ngIf="products.length === 0 || products == null ">
+            <div class="imagen">
+                <img src="../../../assets/images/not-implemented.png" width="45%" height="80%">
+            </div>
+            <div class="texto">
+                <h3>Woops! Parece que tu lista de servicios está vacía </h3>
+                <h3>por favor añade algunos cuantos!</h3>
+            </div>
+        </div>
+    </div>
 
-    <div class="row">
-        <div *ngFor="let product of products" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="padding: 50px; display: flex; justify-content: center;">
-            <mat-card class="example-card text-black bg-primary123 mb-3">
-                <mat-card-header>
-                    <mat-card-title>{{product.title}}</mat-card-title>
+
+
+    <div class="row" style="padding: 2%;">
+        <div *ngFor="let product of products" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"  style="margin-bottom: 5%;">
+            <mat-card class="example-card" style="margin-bottom: 10%; margin-left: 10%; margin-right: 10%; height: 100%">
+                <div style="height: 80%;">
+               <mat-card-header>
+                <mat-card-title style="font-weight: bolder;">{{product.title}}</mat-card-title>
                     <mat-card-subtitle>Veterinaria: {{product.storeName}}</mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image [src]="product.imageUrl" alt="Photo of a Shiba Inu">
-                <mat-card-content>
+                <img mat-card-image [src]="product.imageUrl"alt="Imagen del servicio" style="height: 300px;">
+                <mat-card-content style="height: 120px; overflow-y: auto;">
                     <p>
                         {{product.description}}
                     </p>
@@ -140,6 +154,7 @@
                         Horario: {{product.hour}} hrs.
                     </p>
                 </mat-card-content>
+                </div>
                 <mat-card-actions>
                     <div style=" bottom: 5%; cursor: pointer; display: block; text-align: center; ">
                         <button mat-button style="background-color: #CEAC2C;  border-radius: 15px; margin: 3%; " (click)="onEdit(product); drawer.toggle()">EDITAR</button>
