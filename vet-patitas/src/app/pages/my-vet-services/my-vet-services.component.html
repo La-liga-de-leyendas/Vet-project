@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <mat-drawer-container class="example-container" style="width: 100%; height: fit-content; padding-top: 4%; padding-left: 2%;">
     <mat-drawer #drawer class="example-sidenav" mode="side" style="width: 300px; height: 100%; margin-top: 20px; padding-top: 3%; padding-left: 2%; background: ghostwhite;" [position]="'end'">
-        <img src="../../assets/images/form.png" alt="Formulario" height="90%" width="100%" style="margin-top: 20%;">
+        <img src="../../assets/images/form.png" alt="Formulario" height="30%" width="100%" style="margin-top: 20%;">
         <div style="text-align: center;padding-right: 5%; padding-top: 10%;padding-bottom: 12%;">
             <h1 style="font-weight: bold;">SERVICIOS</h1> <br>
             <h5>Llena todos los campos de información para mejorar la experiencia de reserva para el cliente. Recuerda reservarles un espacio en tu agenda y contáctate con ellos tan pronto confirmen su cita.
@@ -122,7 +122,7 @@
 
 
     <div class="row">
-        <div *ngFor="let product of products" class="row col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3" style="padding: 50px; display: flex; justify-content: center;">
+        <div *ngFor="let product of products" class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="padding: 50px; display: flex; justify-content: center;">
             <mat-card class="example-card text-black bg-primary123 mb-3">
                 <mat-card-header>
                     <mat-card-title>{{product.title}}</mat-card-title>
@@ -151,35 +151,6 @@
     </div>
 </mat-drawer-container>
 
-<h2 style="text-align: center;"><strong> Prueba:</strong></h2>
-<div *ngFor="let reserve of vetinariesBookings | keyvalue;">
-    <!-- Key: <br>{{reserve.key}} and Value: <br>{{reserve.value | json}} -->
-    <div *ngFor="let pru of reserve.value | keyvalue;">
-        <!-- Keyaaaaaa: <br>{{pru.key}} and Valueaaa: <br>{{pru.value | json}} -->
-        <div *ngFor="let item of pru.value | keyvalue;">
-            <!-- Kuuuuu: <br>{{item.key}} and Vuuu: <br>{{item.value | json}} -->
-            <div *ngFor="let detail of item.value | keyvalue;">
-                <!-- Keeeeeee: <br>{{detail.key}} and Veee: <br>{{detail.value | json}} -->
-
-                <table style="font-weight: bold; margin-right: 10px; margin-bottom: 30px; margin-left: 15px;">
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr *ngFor="let each of detail.value | keyvalue;">
-                        <div *ngIf="each.value === iddd">
-                            <h1>funciona!</h1>
-                            <h2>{{each.key}}</h2>
-                        </div>
-                    </tr>
-                </table>
-
-
-            </div>
-        </div>
-    </div>
-
-</div>
 
 
 
