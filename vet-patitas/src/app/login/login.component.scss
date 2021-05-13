@@ -1,3 +1,12 @@
+:host {
+    background-color: #FEEDEF;
+    height: 100%;
+    width: 100%;
+    min-height: fit-content;
+    min-width: fit-content;
+    padding-right: 15%;
+    display: inline-table;
+}
 .example-card {
     max-width: 25%;
     min-width: 380px;
