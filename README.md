@@ -28,6 +28,11 @@
   - El primer Sprint cubre la mayoría de las funciones de usuario, por lo que no implementa acciones de proveedores o veterinarias. 
   - Al tratarse del MVP, la mayorías de los procesos de compra enlazados con la base de datos de Firebase se ejecutan desde la consola administrativa.
 
+5. PAra ejecutar el pipeline automáticamente, hay que hacer un cambio para que se añada en un commit que será pusheado a la rama de su preferencia. Una vez esta edición sea subida, Github Actions empezará a ejecutar el script por sí mismo. Los comandos a utilizar son:
+  - 'git add .' para añadir los cambios realizados.
+  - 'git commit -m "mensaje"' para realizar el commit.
+  - 'git push origin branch' para pushear a la rama elegida.
+  - El proceso puede observarse en la sección de Actions dentro del repositorio.
 
 Vet-Patitas, siempre al servicio de sus usuarios<3.
 
