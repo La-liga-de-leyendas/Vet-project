@@ -1,83 +1,21 @@
-:host {
-    background-color: #FEEDEF;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: left;
-    justify-content: left;
-    padding-left: 100px;
-}
-
-.image-for-login {
-    padding-left: 300px;
-}
-
-.two-images-aligne {
-    display: inline-block;
-}
-
-.example {
-    text-align: center;
-    padding-left: 120px;
-    margin-top: 30px;
-}
-
 .example-card {
-    max-width: 400px;
-    height: 500px;
-    width: 350px;
-    margin-top: auto;
-    margin-bottom: auto;
+    max-width: 25%;
+    min-width: 380px;
+    height: 50%;
+    width: 35%;
+    margin-top: 2%;
+    margin-bottom: 10%;
     background: #fff;
-    position: relative;
     display: table;
     justify-content: center;
     flex-direction: column;
-    padding: 10px;
+    padding: 2%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
 }
 
-.example-card-for-images {
-    max-width: 400px;
-    height: 400px;
-    width: 350px;
-    margin-top: auto;
-    margin-bottom: auto;
-    background: #fff;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
-}
-
-.example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-}
-
-body,
-.user_card {
-    height: 400px;
-    width: 350px;
-    margin-top: auto;
-    margin-bottom: auto;
-    background: #f39c12;
-    position: relative;
-    justify-content: center;
-    flex-direction: column;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
-}
 
 .brand_logo_container {
     position: absolute;
@@ -90,10 +28,11 @@ body,
 }
 
 .brand_logo {
-    height: 150px;
-    width: 150px;
+    height: 100%;
+    width: 100%;
+    margin: auto;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 25% solid white;
 }
 
 .login_btn {
