@@ -22,7 +22,8 @@ export class AuthService {
       return res;
     }),
     catchError(error => {
-      console.log('Caught in CatchError. Returning 0')
+      window.alert('Usuario y contraseña erroneos o todavía no tienes una cuenta');
+      //console.log('Caught in CatchError. Returning 0')
       return "0";     //return from(['A','B','C'])
     })
     );
